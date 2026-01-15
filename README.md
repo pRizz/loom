@@ -5,7 +5,7 @@
 
 # Loom
 
-> [!CAUTION]
+> [!NOTE]
 > **Loom is a research project, by Geoffrey Huntley, who is awesome. Use care when using.**
 >
 > This software is experimental, unstable, and under active development. APIs will change without notice. Features may be incomplete or broken. There is no support, no documentation guarantees, and no warranty of any kind. Use at your own risk.
