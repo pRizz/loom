@@ -278,6 +278,22 @@ in
       };
     };
 
+    zai = {
+      enable = mkEnableOption "Z.ai (智谱AI/ZhipuAI) provider";
+
+      apiKeyFile = mkOption {
+        type = types.nullOr types.path;
+        default = null;
+        description = "Path to file containing Z.ai API key.";
+      };
+
+      model = mkOption {
+        type = types.str;
+        default = "glm-4.7";
+        description = "Z.ai model to use.";
+      };
+    };
+
     # GitHub App Configuration (for repository integrations)
     githubApp = {
       enable = mkEnableOption "GitHub App integration";
@@ -422,6 +438,25 @@ in
         type = types.nullOr types.path;
         default = null;
         description = "Path to file containing Serper API key.";
+      };
+    };
+
+    # WhatsApp Business API Configuration
+    # Per-org credentials are stored in the database via the web UI.
+    # This configures the HTTP client settings for the WhatsApp Cloud API.
+    whatsapp = {
+      enable = mkEnableOption "WhatsApp Business API integration";
+
+      baseUrl = mkOption {
+        type = types.str;
+        default = "https://graph.facebook.com/v21.0";
+        description = "Base URL for WhatsApp Cloud API (Facebook Graph API).";
+      };
+
+      timeoutSecs = mkOption {
+        type = types.int;
+        default = 30;
+        description = "HTTP request timeout in seconds for WhatsApp API calls.";
       };
     };
 
@@ -635,6 +670,31 @@ in
       };
     };
 
+    # SCIM (System for Cross-domain Identity Management)
+    # Enables automatic user provisioning from IdPs like Okta, Azure AD, OneLogin
+    scim = {
+      enable = mkEnableOption "SCIM 2.0 provisioning for enterprise IdP integration";
+
+      tokenFile = mkOption {
+        type = types.nullOr types.path;
+        default = null;
+        description = ''
+          Path to file containing the SCIM bearer token.
+          This token is shared with your IdP (e.g., Okta) for authentication.
+          Generate with: openssl rand -base64 32
+        '';
+      };
+
+      orgId = mkOption {
+        type = types.nullOr types.str;
+        default = null;
+        description = ''
+          UUID of the Loom organization to provision users into.
+          All SCIM-provisioned users will be added to this organization.
+        '';
+      };
+    };
+
     extraEnvironment = mkOption {
       type = types.attrsOf types.str;
       default = { };
@@ -687,6 +747,10 @@ in
       {
         assertion = cfg.secrets.enable -> cfg.secrets.masterKeyFile != null;
         message = "services.loom-server.secrets.masterKeyFile must be set when secrets system is enabled.";
+      }
+      {
+        assertion = cfg.scim.enable -> (cfg.scim.tokenFile != null && cfg.scim.orgId != null);
+        message = "services.loom-server.scim.tokenFile and orgId must be set when SCIM is enabled.";
       }
     ];
 
@@ -791,6 +855,10 @@ in
           LOOM_SECRETS_SVID_TTL_SECONDS = toString cfg.secrets.svidTtlSeconds;
           LOOM_SECRETS_VERIFY_POD_EXISTS = if cfg.secrets.verifyPodExists then "true" else "false";
         })
+        (mkIf cfg.whatsapp.enable {
+          LOOM_SERVER_WHATSAPP_BASE_URL = cfg.whatsapp.baseUrl;
+          LOOM_SERVER_WHATSAPP_TIMEOUT_SECS = toString cfg.whatsapp.timeoutSecs;
+        })
         (mkIf cfg.geoip.enable {
           LOOM_SERVER_GEOIP_DATABASE_PATH = toString cfg.geoip.databasePath;
         })
@@ -817,6 +885,10 @@ in
         }
         (mkIf (cfg.docsIndexPath != null) {
           LOOM_SERVER_DOCS_INDEX = toString cfg.docsIndexPath;
+        })
+        (mkIf cfg.scim.enable {
+          LOOM_SERVER_SCIM_ENABLED = "true";
+          LOOM_SERVER_SCIM_ORG_ID = cfg.scim.orgId;
         })
         cfg.extraEnvironment
       ];
@@ -857,6 +929,9 @@ in
 
         # SMTP Secrets
         ${loadSecret cfg.smtp.passwordFile "LOOM_SERVER_SMTP_PASSWORD"}
+
+        # SCIM Secrets
+        ${loadSecret cfg.scim.tokenFile "LOOM_SERVER_SCIM_TOKEN"}
 
         # Weaver Secrets System (pass file paths, not contents)
         ${optionalString (cfg.secrets.masterKeyFile != null) ''

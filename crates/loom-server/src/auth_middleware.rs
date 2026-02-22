@@ -58,9 +58,10 @@ use tracing::instrument;
 
 use crate::{
 	api::AppState,
-	db::{ApiKeyRepository, SessionRepository, UserRepository},
+	db::{ApiKeyRepository, AuthSessionRepository, UserRepository},
 	error::ErrorResponse,
 };
+use loom_server_audit::{AuditEventType, AuditLogBuilder, UserId as AuditUserId};
 
 /// Authentication middleware that extracts auth context from requests.
 ///
@@ -127,6 +128,16 @@ pub async fn auth_layer(
 					if let Some(ref user) = auth_ctx.current_user {
 						span.record("auth_method", "api_key");
 						span.record("user_id", tracing::field::display(&user.user.id));
+
+						// Log API key usage for security auditing
+						if let Some(api_key_id) = user.api_key_id {
+							state.audit_service.log(
+								AuditLogBuilder::new(AuditEventType::ApiKeyUsed)
+									.actor(AuditUserId::new(user.user.id.into_inner()))
+									.resource("api_key", api_key_id.to_string())
+									.build(),
+							);
+						}
 					}
 					request.extensions_mut().insert(auth_ctx);
 					return next.run(request).await;
@@ -190,7 +201,7 @@ pub async fn auth_layer(
 #[instrument(skip(session_token, session_repo, user_repo), fields(session_id = tracing::field::Empty))]
 async fn authenticate_session(
 	session_token: &str,
-	session_repo: &Arc<SessionRepository>,
+	session_repo: &Arc<AuthSessionRepository>,
 	user_repo: &Arc<UserRepository>,
 ) -> Option<AuthContext> {
 	let token_hash = hash_token(session_token);
@@ -319,7 +330,7 @@ async fn authenticate_api_key(
 #[instrument(skip(access_token, session_repo, user_repo), fields(token_id = tracing::field::Empty))]
 async fn authenticate_access_token(
 	access_token: &str,
-	session_repo: &Arc<SessionRepository>,
+	session_repo: &Arc<AuthSessionRepository>,
 	user_repo: &Arc<UserRepository>,
 ) -> Option<AuthContext> {
 	let token_hash = hash_token(access_token);

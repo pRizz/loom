@@ -23,6 +23,22 @@ msgstr "管理"
 msgid "nav.jobs"
 msgstr "ジョブ"
 
+#: nav.observability
+msgid "nav.observability"
+msgstr "Observability"
+
+#: nav.crashes
+msgid "nav.crashes"
+msgstr "Crashes"
+
+#: nav.crons
+msgid "nav.crons"
+msgstr "Crons"
+
+#: nav.sessions
+msgid "nav.sessions"
+msgstr "Sessions"
+
 #: thread.new
 msgid "thread.new"
 msgstr "新規スレッド"
@@ -1390,6 +1406,18 @@ msgstr "バックグラウンドジョブ"
 msgid "admin.health.auth_providers"
 msgstr "認証プロバイダー"
 
+#: admin.health.scim
+msgid "admin.health.scim"
+msgstr "SCIM"
+
+#: admin.health.secrets
+msgid "admin.health.secrets"
+msgstr "Secrets"
+
+#: admin.health.whatsapp
+msgid "admin.health.whatsapp"
+msgstr "WhatsApp"
+
 #: jobs.title
 msgid "jobs.title"
 msgstr "バックグラウンドジョブ"
@@ -2546,6 +2574,10 @@ msgstr "チーム"
 #: org.tabs.apiKeys
 msgid "org.tabs.apiKeys"
 msgstr "APIキー"
+
+#: org.tabs.whatsapp
+msgid "org.tabs.whatsapp"
+msgstr "WhatsApp"
 
 #: org.tabs.settings
 msgid "org.tabs.settings"

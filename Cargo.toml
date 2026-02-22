@@ -27,6 +27,7 @@ members = [
 	"crates/loom-server-llm-proxy",
 	"crates/loom-server-llm-service",
 	"crates/loom-server-llm-vertex",
+	"crates/loom-server-llm-zai",
 	"crates/loom-common-secret",
 	"crates/loom-server",
 	"crates/loom-common-thread",
@@ -39,6 +40,7 @@ members = [
 	"crates/loom-common-i18n",
 	"crates/loom-server-geoip",
 	"crates/loom-server-jobs",
+	"crates/loom-jobs",
 	"crates/loom-server-logs",
 	"crates/loom-scim",
 	"crates/loom-server-scim",
@@ -63,6 +65,18 @@ members = [
 	"crates/loom-analytics-core",
 	"crates/loom-server-analytics",
 	"crates/loom-analytics",
+	"crates/loom-crons-core",
+	"crates/loom-crons",
+	"crates/loom-server-crons",
+	"crates/loom-crash-core",
+	"crates/loom-crash-symbolicate",
+	"crates/loom-crash",
+	"crates/loom-server-crash",
+	"crates/loom-sessions-core",
+	"crates/loom-server-sessions",
+	"crates/loom-server-clips",
+	"crates/loom-whatsapp",
+	"crates/loom-server-whatsapp",
 	]
 
 [workspace.package]
@@ -161,9 +175,19 @@ loom-server-jobs = { path = "crates/loom-server-jobs" }
 loom-common-webhook = { path = "crates/loom-common-webhook" }
 loom-flags-core = { path = "crates/loom-flags-core" }
 loom-analytics-core = { path = "crates/loom-analytics-core" }
+loom-crons-core = { path = "crates/loom-crons-core" }
+loom-server-crons = { path = "crates/loom-server-crons" }
+loom-crash-core = { path = "crates/loom-crash-core" }
+loom-crash-symbolicate = { path = "crates/loom-crash-symbolicate" }
+loom-crash = { path = "crates/loom-crash" }
+loom-server-crash = { path = "crates/loom-server-crash" }
+loom-sessions-core = { path = "crates/loom-sessions-core" }
+loom-server-sessions = { path = "crates/loom-server-sessions" }
 loom-analytics = { path = "crates/loom-analytics" }
 loom-server-analytics = { path = "crates/loom-server-analytics" }
 loom-common-http = { path = "crates/loom-common-http" }
+loom-whatsapp = { path = "crates/loom-whatsapp" }
+loom-server-whatsapp = { path = "crates/loom-server-whatsapp" }
 
 # Build profile optimizations for faster development builds
 [profile.dev]

@@ -42,7 +42,7 @@ use loom_server_config::QueueOverflowPolicy;
 
 use crate::{
 	db::{
-		ApiKeyRepository, AuditRepository, OrgRepository, SessionRepository, ShareRepository,
+		ApiKeyRepository, AuditRepository, AuthSessionRepository, OrgRepository, ShareRepository,
 		TeamRepository, ThreadRepository, UserRepository,
 	},
 	llm_proxy,
@@ -59,7 +59,7 @@ use sqlx::SqlitePool;
 pub struct AppState {
 	pub repo: Arc<ThreadRepository>,
 	pub user_repo: Arc<UserRepository>,
-	pub session_repo: Arc<SessionRepository>,
+	pub session_repo: Arc<AuthSessionRepository>,
 	pub org_repo: Arc<OrgRepository>,
 	pub team_repo: Arc<TeamRepository>,
 	pub api_key_repo: Arc<ApiKeyRepository>,
@@ -110,6 +110,16 @@ pub struct AppState {
 	pub analytics_state: Option<
 		Arc<loom_server_analytics::AnalyticsState<loom_server_analytics::SqliteAnalyticsRepository>>,
 	>,
+	pub crons_repo: Arc<loom_server_crons::SqliteCronsRepository>,
+	pub crons_broadcaster: Arc<loom_server_crons::CronsBroadcaster>,
+	pub crash_repo: Arc<loom_server_crash::SqliteCrashRepository>,
+	pub crash_broadcaster: Arc<loom_server_crash::CrashBroadcaster>,
+	pub sessions_repo: Arc<loom_server_sessions::SqliteSessionsRepository>,
+	pub clips_repo: Option<Arc<loom_server_db::ClipsRepository>>,
+	pub clips_git_store: Option<Arc<loom_server_clips::ClipsGitStore>>,
+	pub whatsapp_repo: Option<Arc<loom_server_whatsapp::WhatsAppRepository>>,
+	pub whatsapp_service: Option<Arc<loom_server_whatsapp::WhatsAppService>>,
+	pub mcp_sessions: Option<Arc<routes::mcp::McpSessionStore>>,
 }
 
 /// Creates the application state, initializing optional components.
@@ -124,10 +134,15 @@ pub async fn create_app_state(
 ) -> AppState {
 	// Create auth repositories
 	let user_repo = Arc::new(UserRepository::new(pool.clone()));
-	let session_repo = Arc::new(SessionRepository::new(pool.clone()));
+	let session_repo = Arc::new(AuthSessionRepository::new(pool.clone()));
 	let org_repo = Arc::new(OrgRepository::new(pool.clone()));
 	let team_repo = Arc::new(TeamRepository::new(pool.clone()));
 	let api_key_repo = Arc::new(ApiKeyRepository::new(pool.clone()));
+
+	// Ensure the system mirrors organization exists for on-demand mirroring
+	if let Err(e) = org_repo.ensure_mirrors_org().await {
+		tracing::error!(error = %e, "Failed to ensure mirrors organization exists");
+	}
 
 	// Create user provisioning service
 	let user_provisioning = Arc::new(loom_server_provisioning::UserProvisioningService::new(
@@ -292,6 +307,30 @@ pub async fn create_app_state(
 	let flags_repo = Arc::new(loom_server_flags::SqliteFlagsRepository::new(pool.clone()));
 	let flags_broadcaster = Arc::new(loom_server_flags::FlagsBroadcaster::with_defaults());
 
+	// Initialize crons repository and broadcaster
+	let crons_repo = Arc::new(loom_server_crons::SqliteCronsRepository::new(pool.clone()));
+	let crons_broadcaster = Arc::new(loom_server_crons::CronsBroadcaster::with_defaults());
+
+	// Initialize crash repository and broadcaster
+	let crash_repo = Arc::new(loom_server_crash::SqliteCrashRepository::new(pool.clone()));
+	let crash_broadcaster = Arc::new(loom_server_crash::CrashBroadcaster::new(
+		loom_server_crash::CrashBroadcasterConfig::default(),
+	));
+
+	// Initialize sessions repository
+	let sessions_repo = Arc::new(loom_server_sessions::SqliteSessionsRepository::new(
+		pool.clone(),
+	));
+
+	// Initialize clips repository and git store
+	let clips_repo = Arc::new(loom_server_db::ClipsRepository::new(pool.clone()));
+	let clips_git_store = Arc::new(loom_server_clips::ClipsGitStore::new(
+		std::path::PathBuf::from(
+			std::env::var("LOOM_DATA_DIR").unwrap_or_else(|_| "/var/lib/loom".to_string()),
+		)
+		.join("clips"),
+	));
+
 	// Initialize analytics repository and state with audit hook
 	let analytics_repo = loom_server_analytics::SqliteAnalyticsRepository::new(pool.clone());
 	let analytics_audit_hook: loom_server_analytics::SharedMergeAuditHook =
@@ -301,6 +340,17 @@ pub async fn create_app_state(
 		analytics_audit_hook,
 	);
 	tracing::info!("Analytics system initialized with audit logging");
+
+	// Initialize WhatsApp repository and service
+	let whatsapp_repo = Arc::new(loom_server_whatsapp::WhatsAppRepository::new(pool.clone()));
+	let whatsapp_service = Arc::new(loom_server_whatsapp::WhatsAppService::new(
+		whatsapp_repo.clone(),
+	));
+	tracing::info!("WhatsApp integration initialized");
+
+	// Initialize MCP session store
+	let mcp_sessions = routes::mcp::create_session_store();
+	tracing::info!("MCP session store initialized");
 
 	AppState {
 		repo,
@@ -354,6 +404,16 @@ pub async fn create_app_state(
 		flags_broadcaster,
 		analytics_repo: Some(Arc::new(analytics_repo)),
 		analytics_state: Some(Arc::new(analytics_state)),
+		crons_repo,
+		crons_broadcaster,
+		crash_repo,
+		crash_broadcaster,
+		sessions_repo,
+		clips_repo: Some(clips_repo),
+		clips_git_store: Some(clips_git_store),
+		whatsapp_repo: Some(whatsapp_repo),
+		whatsapp_service: Some(whatsapp_service),
+		mcp_sessions: Some(mcp_sessions),
 	}
 }
 
@@ -836,6 +896,15 @@ pub fn create_router(state: AppState) -> Router {
 			"/api/github/webhook",
 			post(routes::github::github_webhook),
 		)
+		// WhatsApp webhooks (signature verified separately)
+		.route(
+			"/api/whatsapp/webhook",
+			get(routes::whatsapp::whatsapp_webhook_verify),
+		)
+		.route(
+			"/api/whatsapp/webhook",
+			post(routes::whatsapp::whatsapp_webhook),
+		)
 		// Weaver auth routes (public - auth via K8s SA JWT)
 		.route(
 			"/internal/weaver-auth/token",
@@ -874,6 +943,23 @@ pub fn create_router(state: AppState) -> Router {
 		)
 		// Documentation search
 		.route("/docs/search", get(routes::docs::search_handler))
+		// Self-monitoring configuration (public for SDK initialization)
+		.route(
+			"/api/self-monitoring/web-config",
+			get(routes::self_monitoring::get_web_config),
+		)
+		.route(
+			"/api/self-monitoring/cli-config",
+			get(routes::self_monitoring::get_cli_config),
+		)
+		.route(
+			"/api/self-monitoring/projects",
+			get(routes::self_monitoring::get_internal_projects),
+		)
+		.route(
+			"/api/self-monitoring/analytics-config",
+			get(routes::self_monitoring::get_analytics_config),
+		)
 		// Feature flags SSE streaming (SDK key auth handled in handler)
 		.route("/api/flags/stream", get(routes::flags::stream_flags))
 		// Analytics SDK routes (API key auth handled in handler)
@@ -912,6 +998,24 @@ pub fn create_router(state: AppState) -> Router {
 		.route(
 			"/api/analytics/events/export",
 			post(routes::analytics::export_events),
+		)
+		// Cron monitoring ping endpoints (public - uses ping key for auth)
+		.route("/ping/{key}", get(routes::crons::ping_success).post(routes::crons::ping_with_body))
+		.route("/ping/{key}/start", get(routes::crons::ping_start))
+		.route("/ping/{key}/fail", get(routes::crons::ping_fail))
+		// Crash SDK capture endpoint (public - uses API key auth in handler)
+		.route(
+			"/api/crash/capture/sdk",
+			post(routes::crash::capture_crash_with_api_key),
+		)
+		// Session SDK endpoints (public - uses API key auth in handler)
+		.route(
+			"/api/sessions/start/sdk",
+			post(routes::app_sessions::start_session_with_api_key),
+		)
+		.route(
+			"/api/sessions/end/sdk",
+			post(routes::app_sessions::end_session_with_api_key),
 		)
 		.build();
 
@@ -986,6 +1090,36 @@ pub fn create_router(state: AppState) -> Router {
 		.route(
 			"/api/orgs/{org_id}/members/{user_id}",
 			delete(routes::orgs::remove_org_member),
+		)
+		// WhatsApp config routes
+		.route(
+			"/api/orgs/{org_id}/whatsapp/config",
+			get(routes::orgs::whatsapp::get_whatsapp_config),
+		)
+		.route(
+			"/api/orgs/{org_id}/whatsapp/config",
+			post(routes::orgs::whatsapp::create_or_update_whatsapp_config),
+		)
+		.route(
+			"/api/orgs/{org_id}/whatsapp/config",
+			delete(routes::orgs::whatsapp::delete_whatsapp_config),
+		)
+		// WhatsApp group routes
+		.route(
+			"/api/orgs/{org_id}/whatsapp/groups",
+			get(routes::orgs::whatsapp::list_whatsapp_groups),
+		)
+		.route(
+			"/api/orgs/{org_id}/whatsapp/groups",
+			post(routes::orgs::whatsapp::create_whatsapp_group),
+		)
+		.route(
+			"/api/orgs/{org_id}/whatsapp/groups/{group_id}",
+			delete(routes::orgs::whatsapp::delete_whatsapp_group),
+		)
+		.route(
+			"/api/orgs/{org_id}/whatsapp/conversations/{conversation_id}/move",
+			post(routes::orgs::whatsapp::move_whatsapp_conversation),
 		)
 		// Team routes
 		.route(
@@ -1194,6 +1328,159 @@ pub fn create_router(state: AppState) -> Router {
 			"/api/orgs/{org_id}/analytics/api-keys/{key_id}",
 			delete(routes::analytics::revoke_api_key),
 		)
+		// Analytics query routes (user auth for web UI)
+		.route(
+			"/api/orgs/{org_id}/analytics/events",
+			get(routes::analytics::list_events_user_auth),
+		)
+		.route(
+			"/api/orgs/{org_id}/analytics/events/count",
+			get(routes::analytics::count_events_user_auth),
+		)
+		.route(
+			"/api/orgs/{org_id}/analytics/persons",
+			get(routes::analytics::list_persons_user_auth),
+		)
+		// Cron monitoring API routes (authenticated)
+		.route(
+			"/api/crons/monitors",
+			get(routes::crons::list_monitors).post(routes::crons::create_monitor),
+		)
+		.route(
+			"/api/crons/monitors/{slug}",
+			get(routes::crons::get_monitor)
+				.patch(routes::crons::update_monitor)
+				.delete(routes::crons::delete_monitor),
+		)
+		.route(
+			"/api/crons/monitors/{slug}/pause",
+			post(routes::crons::pause_monitor),
+		)
+		.route(
+			"/api/crons/monitors/{slug}/resume",
+			post(routes::crons::resume_monitor),
+		)
+		.route(
+			"/api/crons/monitors/{slug}/checkins",
+			get(routes::crons::list_checkins).post(routes::crons::create_checkin),
+		)
+		.route(
+			"/api/crons/checkins/{id}",
+			get(routes::crons::get_checkin).patch(routes::crons::update_checkin),
+		)
+		.route("/api/crons/stream", get(routes::crons::stream_crons))
+		.route(
+			"/api/crons/monitors/{slug}/stats",
+			get(routes::crons::get_monitor_stats),
+		)
+		.route(
+			"/api/crons/stats/overview",
+			get(routes::crons::get_stats_overview),
+		)
+		// Crash analytics routes (authenticated)
+		.route(
+			"/api/crash/capture",
+			post(routes::crash::capture_crash),
+		)
+		.route("/api/crash/batch", post(routes::crash::batch_capture_crash))
+		.route(
+			"/api/crash/projects",
+			get(routes::crash::list_projects).post(routes::crash::create_project),
+		)
+		.route(
+			"/api/crash/projects/{project_id}",
+			get(routes::crash::get_project)
+				.patch(routes::crash::update_project)
+				.delete(routes::crash::delete_project),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/issues",
+			get(routes::crash::list_issues),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/issues/{issue_id}/resolve",
+			post(routes::crash::resolve_issue),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/issues/{issue_id}/unresolve",
+			post(routes::crash::unresolve_issue),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/issues/{issue_id}/ignore",
+			post(routes::crash::ignore_issue),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/issues/{issue_id}/assign",
+			post(routes::crash::assign_issue),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/issues/{issue_id}",
+			get(routes::crash::get_issue).delete(routes::crash::delete_issue),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/issues/{issue_id}/events",
+			get(routes::crash::list_issue_events),
+		)
+		// Event query routes (project-level)
+		.route(
+			"/api/crash/projects/{project_id}/events",
+			get(routes::crash::list_events),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/events/{event_id}",
+			get(routes::crash::get_event),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/stream",
+			get(routes::crash::stream_crash),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/releases",
+			get(routes::crash::list_releases).post(routes::crash::create_release),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/releases/{version}",
+			get(routes::crash::get_release),
+		)
+		// Artifact routes (symbol upload)
+		.route(
+			"/api/crash/projects/{project_id}/artifacts",
+			get(routes::crash::list_artifacts).post(routes::crash::upload_artifacts),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/artifacts/{artifact_id}",
+			get(routes::crash::get_artifact).delete(routes::crash::delete_artifact),
+		)
+		// API key routes
+		.route(
+			"/api/crash/projects/{project_id}/api-keys",
+			get(routes::crash::list_api_keys).post(routes::crash::create_api_key),
+		)
+		.route(
+			"/api/crash/projects/{project_id}/api-keys/{key_id}",
+			delete(routes::crash::revoke_api_key),
+		)
+		// App sessions routes (authenticated)
+		.route(
+			"/api/sessions/start",
+			post(routes::app_sessions::start_session),
+		)
+		.route(
+			"/api/sessions/end",
+			post(routes::app_sessions::end_session),
+		)
+		.route(
+			"/api/app-sessions",
+			get(routes::app_sessions::list_sessions),
+		)
+		.route(
+			"/api/app-sessions/releases",
+			get(routes::app_sessions::list_release_health),
+		)
+		.route(
+			"/api/app-sessions/releases/{version}",
+			get(routes::app_sessions::get_release_health),
+		)
 		// Invitation routes (authenticated)
 		.route(
 			"/api/orgs/{org_id}/invitations",
@@ -1251,6 +1538,19 @@ pub fn create_router(state: AppState) -> Router {
 			"/api/users/me/identities/{id}",
 			delete(routes::users::unlink_identity),
 		)
+		// WhatsApp phone linking routes
+		.route(
+			"/api/users/me/whatsapp/link",
+			post(routes::users::whatsapp_link_phone),
+		)
+		.route(
+			"/api/users/me/whatsapp/verify",
+			post(routes::users::whatsapp_verify_phone),
+		)
+		.route(
+			"/api/users/me/whatsapp/unlink",
+			delete(routes::users::whatsapp_unlink_phone),
+		)
 		// Repository routes
 		.route("/api/repos", post(routes::repos::create_repo))
 		.route("/api/repos/{id}", get(routes::repos::get_repo))
@@ -1276,6 +1576,57 @@ pub fn create_router(state: AppState) -> Router {
 		.route(
 			"/api/repos/{id}/teams/{tid}",
 			delete(routes::repos::revoke_repo_team_access),
+		)
+		// Clips routes
+		// NOTE: Routes with literal segments must come BEFORE wildcard-only routes
+		// to ensure proper matching. E.g., /api/clips/{id}/star must come before
+		// /api/clips/{owner}/{name} so that "star" is matched as a literal.
+		.route("/api/clips", post(routes::clips::create_clip))
+		.route("/api/clips/starred", get(routes::clips::list_starred_clips))
+		.route("/api/clips/public", get(routes::clips::list_public_clips))
+		.route("/api/clips/search", get(routes::clips::search_clips))
+		// ID-based routes with literal third segment (must come before {owner}/{name})
+		.route("/api/clips/{id}/files", get(routes::clips::list_clip_files))
+		.route(
+			"/api/clips/{id}/files",
+			post(routes::clips::update_clip_files),
+		)
+		.route(
+			"/api/clips/{id}/files/{*path}",
+			get(routes::clips::get_clip_file),
+		)
+		.route(
+			"/api/clips/{id}/raw/{*path}",
+			get(routes::clips::get_clip_file_raw),
+		)
+		.route("/api/clips/{id}/fork", post(routes::clips::fork_clip))
+		.route(
+			"/api/clips/{id}/star",
+			post(routes::clips::star_clip).delete(routes::clips::unstar_clip),
+		)
+		.route(
+			"/api/clips/{id}/revisions",
+			get(routes::clips::list_clip_revisions),
+		)
+		.route(
+			"/api/clips/{id}/starred",
+			get(routes::clips::get_clip_star_status),
+		)
+		// Single-segment ID routes
+		.route("/api/clips/{id}", patch(routes::clips::update_clip))
+		.route("/api/clips/{id}", delete(routes::clips::delete_clip))
+		// Two-segment wildcard route (must come LAST among /api/clips/* routes)
+		.route(
+			"/api/clips/{owner}/{name}",
+			get(routes::clips::get_clip),
+		)
+		.route(
+			"/api/users/{id}/clips",
+			get(routes::clips::list_user_clips),
+		)
+		.route(
+			"/api/orgs/{id}/clips",
+			get(routes::clips::list_org_clips),
 		)
 		// Branch protection routes
 		.route(
@@ -1437,6 +1788,14 @@ pub fn create_router(state: AppState) -> Router {
 			"/proxy/vertex/stream",
 			post(llm_proxy::proxy_vertex_stream),
 		)
+		.route(
+			"/proxy/zai/complete",
+			post(llm_proxy::proxy_zai_complete),
+		)
+		.route(
+			"/proxy/zai/stream",
+			post(llm_proxy::proxy_zai_stream),
+		)
 		// Server query endpoints
 		.route(
 			"/api/sessions/{session_id}/query-response",
@@ -1475,7 +1834,9 @@ pub fn create_router(state: AppState) -> Router {
 			.route(
 				"/api/weavers/cleanup",
 				post(routes::weaver::trigger_cleanup),
-			);
+			)
+			// MCP endpoint for weaver provisioning
+			.route("/mcp", post(routes::mcp::mcp_handler));
 	}
 
 	// Add WireGuard tunnel routes if enabled

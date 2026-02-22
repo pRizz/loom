@@ -148,12 +148,8 @@ in
             proxyPass = cfg.serverUrl;
           };
 
-          "/ws" = {
+          "/metrics" = {
             proxyPass = cfg.serverUrl;
-            proxyWebsockets = true;
-            extraConfig = ''
-              proxy_read_timeout 86400;
-            '';
           };
 
           # CLI binary distribution - exact match takes priority
@@ -178,6 +174,11 @@ in
 
           # Internal API - weaver audit sidecar events
           "^~ /internal/" = {
+            proxyPass = cfg.serverUrl;
+          };
+
+          # Cron monitoring ping endpoints
+          "^~ /ping/" = {
             proxyPass = cfg.serverUrl;
           };
 

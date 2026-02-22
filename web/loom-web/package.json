@@ -6,6 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
+		"prebuild": "pnpm lingui:compile",
 		"build": "vite build",
 		"postbuild": "pnpm docs:index || echo 'Docs index: export failed'",
 		"docs:index": "tsx scripts/export-docs-index.ts",
@@ -25,6 +26,8 @@
 	"dependencies": {
 		"@lingui/core": "^5.7.0",
 		"@lingui/message-utils": "^5.7.0",
+		"@loom/analytics": "workspace:*",
+		"@loom/crash": "workspace:*",
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/kit": "^2.49.2",
 		"@xstate/svelte": "^5.0.0",

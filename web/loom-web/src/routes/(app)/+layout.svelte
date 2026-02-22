@@ -8,8 +8,14 @@
 	import { getApiClient } from '$lib/api/client';
 	import { i18n, setLocale, getCurrentLocale, isRtl, type Locale, locales } from '$lib/i18n';
 	import { ImpersonationBanner, ThreadDivider } from '$lib/ui';
+	import { NotificationProvider } from '$lib/components/notifications';
+	import { AnalyticsProvider, reset as analyticsReset, capture } from '$lib/analytics';
 	import type { Snippet } from 'svelte';
 	import type { CurrentUser, ImpersonationState } from '$lib/api/types';
+
+	function trackNavClick(item: string, path: string) {
+		capture('nav_clicked', { item, path });
+	}
 
 	interface Props {
 		children: Snippet;
@@ -57,6 +63,8 @@
 
 	async function handleLogout() {
 		try {
+			// Reset analytics identity on logout
+			analyticsReset();
 			const client = getApiClient();
 			await client.logout();
 			await goto('/login');
@@ -66,6 +74,7 @@
 	}
 </script>
 
+<AnalyticsProvider user={data.user ? { id: data.user.id, email: data.user.email, display_name: data.user.display_name } : null}>
 <div class="app-layout">
 	{#if impersonationState?.is_impersonating}
 		<ImpersonationBanner impersonation={impersonationState} onStop={loadImpersonationState} />
@@ -74,24 +83,44 @@
 	<header class="app-header">
 		<div class="header-content">
 			<div class="header-left">
-				<a href="/threads" class="logo">
+				<a href="/threads" class="logo" onclick={() => trackNavClick('logo', '/threads')}>
 					Loom
 				</a>
 				<nav class="nav">
-					<a href="/threads" class="nav-link">
+					<a href="/threads" class="nav-link" onclick={() => trackNavClick('threads', '/threads')}>
 						{i18n._('nav.threads')}
 					</a>
-					<a href="/repos" class="nav-link">
+					<a href="/repos" class="nav-link" onclick={() => trackNavClick('repos', '/repos')}>
 						Repos
 					</a>
-					<a href="/weavers" class="nav-link">
+					<a href="/clips" class="nav-link" onclick={() => trackNavClick('clips', '/clips')}>
+						Clips
+					</a>
+					<a href="/weavers" class="nav-link" onclick={() => trackNavClick('weavers', '/weavers')}>
 						{i18n._('nav.weavers')}
 					</a>
-					<a href="/settings/profile" class="nav-link">
+					<div class="nav-group">
+						<span class="nav-group-label">{i18n._('nav.observability')}</span>
+						<div class="nav-group-links">
+							<a href="/analytics" class="nav-link" onclick={() => trackNavClick('analytics', '/analytics')}>
+								Analytics
+							</a>
+							<a href="/crashes" class="nav-link" onclick={() => trackNavClick('crashes', '/crashes')}>
+								{i18n._('nav.crashes')}
+							</a>
+							<a href="/crons" class="nav-link" onclick={() => trackNavClick('crons', '/crons')}>
+								{i18n._('nav.crons')}
+							</a>
+							<a href="/sessions" class="nav-link" onclick={() => trackNavClick('sessions', '/sessions')}>
+								{i18n._('nav.sessions')}
+							</a>
+						</div>
+					</div>
+					<a href="/settings/profile" class="nav-link" onclick={() => trackNavClick('settings', '/settings/profile')}>
 						{i18n._('nav.settings')}
 					</a>
 					{#if isSystemAdmin}
-						<a href="/admin" class="nav-link nav-link-admin">
+						<a href="/admin" class="nav-link nav-link-admin" onclick={() => trackNavClick('admin', '/admin')}>
 							{i18n._('nav.admin')}
 						</a>
 					{/if}
@@ -118,7 +147,7 @@
 							{data.user.display_name}
 						</span>
 					</div>
-					<button onclick={handleLogout} class="logout-btn">
+					<button onclick={() => { trackNavClick('logout', '/login'); handleLogout(); }} class="logout-btn">
 						{i18n._('auth.signOut')}
 					</button>
 				{/if}
@@ -130,7 +159,9 @@
 	<main class="app-main">
 		{@render children()}
 	</main>
+	<NotificationProvider />
 </div>
+</AnalyticsProvider>
 
 <style>
 	.app-layout {
@@ -196,6 +227,60 @@
 	.nav-link-admin:hover {
 		color: var(--color-warning);
 		opacity: 0.8;
+	}
+
+	.nav-group {
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+
+	.nav-group-label {
+		font-size: var(--text-sm);
+		color: var(--color-fg-muted);
+		font-family: var(--font-mono);
+		cursor: pointer;
+		transition: color 0.15s ease;
+	}
+
+	.nav-group-label:hover {
+		color: var(--color-fg);
+	}
+
+	.nav-group-label::after {
+		content: '▾';
+		margin-left: var(--space-1);
+		font-size: 0.7em;
+	}
+
+	.nav-group-links {
+		display: none;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background: var(--color-bg-muted);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		padding: var(--space-2);
+		min-width: 120px;
+		z-index: 100;
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	}
+
+	.nav-group:hover .nav-group-links {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-1);
+	}
+
+	.nav-group-links .nav-link {
+		padding: var(--space-2) var(--space-3);
+		border-radius: var(--radius-sm);
+		white-space: nowrap;
+	}
+
+	.nav-group-links .nav-link:hover {
+		background: var(--color-bg-subtle);
 	}
 
 	.header-right {

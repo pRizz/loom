@@ -63,8 +63,12 @@ use loom_cli_tools::{
 use url::Url;
 
 mod auth;
+mod crash_client;
 mod credential_helper;
+mod crons_client;
 mod locale;
+mod self_monitoring;
+mod sessions_client;
 mod update;
 mod version;
 mod weaver_client;
@@ -243,6 +247,21 @@ enum Command {
 		#[command(subcommand)]
 		command: WgCommand,
 	},
+	/// Crash analytics commands
+	Crash {
+		#[command(subcommand)]
+		command: CrashCommand,
+	},
+	/// Crons monitoring commands
+	Crons {
+		#[command(subcommand)]
+		command: CronsCommand,
+	},
+	/// Session analytics commands
+	Sessions {
+		#[command(subcommand)]
+		command: SessionsCommand,
+	},
 }
 
 #[derive(Subcommand, Debug)]
@@ -251,6 +270,292 @@ enum WgCommand {
 	Devices {
 		#[command(subcommand)]
 		command: loom_cli_wgtunnel::DevicesCommands,
+	},
+}
+
+#[derive(Subcommand, Debug)]
+enum CrashCommand {
+	/// List crash projects for an organization
+	Projects {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+	/// List issues for a crash project
+	Issues {
+		/// Project ID (required)
+		#[arg(long, short)]
+		project: String,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+	/// Upload source maps for a release
+	UploadSourcemaps {
+		/// Project ID (required)
+		#[arg(long, short)]
+		project: String,
+		/// Release version (required)
+		#[arg(long, short)]
+		release: String,
+		/// Files to upload (source maps and/or JS files)
+		#[arg(required = true)]
+		files: Vec<std::path::PathBuf>,
+	},
+	/// Create a new crash project
+	CreateProject {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Project name (required)
+		#[arg(long, short)]
+		name: String,
+		/// Platform (javascript, node, rust)
+		#[arg(long, default_value = "javascript")]
+		platform: String,
+	},
+	/// Create an API key for a crash project
+	CreateApiKey {
+		/// Project ID (required)
+		#[arg(long, short)]
+		project: String,
+		/// Key name (required)
+		#[arg(long, short)]
+		name: String,
+		/// Key type (capture or admin)
+		#[arg(long, short = 't', default_value = "capture")]
+		key_type: String,
+	},
+	/// List API keys for a crash project
+	ApiKeys {
+		/// Project ID (required)
+		#[arg(long, short)]
+		project: String,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+}
+
+#[derive(Subcommand, Debug)]
+enum CronsCommand {
+	/// List cron monitors for an organization
+	Monitors {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+	/// Get details of a specific monitor
+	Get {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Monitor slug (required)
+		#[arg(long, short)]
+		slug: String,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+	/// Create a new cron monitor
+	Create {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Monitor slug (required, URL-safe identifier)
+		#[arg(long, short)]
+		slug: String,
+		/// Monitor name (required)
+		#[arg(long, short)]
+		name: String,
+		/// Cron expression (e.g., "0 0 * * *" for daily at midnight)
+		#[arg(long, short, conflicts_with = "interval")]
+		cron: Option<String>,
+		/// Interval in minutes (alternative to cron expression)
+		#[arg(long, short, conflicts_with = "cron")]
+		interval: Option<u32>,
+		/// Timezone (default: UTC)
+		#[arg(long, default_value = "UTC")]
+		timezone: String,
+		/// Check-in margin in minutes (default: 5)
+		#[arg(long, default_value = "5")]
+		margin: u32,
+		/// Max runtime in minutes (optional)
+		#[arg(long)]
+		max_runtime: Option<u32>,
+	},
+	/// Delete a cron monitor
+	Delete {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Monitor slug (required)
+		#[arg(long, short)]
+		slug: String,
+	},
+	/// List check-ins for a monitor
+	Checkins {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Monitor slug (required)
+		#[arg(long, short)]
+		slug: String,
+		/// Maximum number of results
+		#[arg(long, short, default_value = "20")]
+		limit: u32,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+	/// Send a ping to a monitor (success)
+	Ping {
+		/// Ping key (UUID from monitor details)
+		key: String,
+	},
+	/// Send a fail ping to a monitor
+	PingFail {
+		/// Ping key (UUID from monitor details)
+		key: String,
+	},
+	/// Update a cron monitor
+	Update {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Monitor slug (required)
+		#[arg(long, short)]
+		slug: String,
+		/// New monitor name
+		#[arg(long, short)]
+		name: Option<String>,
+		/// New description
+		#[arg(long, short)]
+		description: Option<String>,
+		/// New cron expression (e.g., "0 0 * * *")
+		#[arg(long, conflicts_with = "interval")]
+		cron: Option<String>,
+		/// New interval in minutes
+		#[arg(long, conflicts_with = "cron")]
+		interval: Option<u32>,
+		/// New timezone
+		#[arg(long)]
+		timezone: Option<String>,
+		/// New check-in margin in minutes
+		#[arg(long)]
+		margin: Option<u32>,
+		/// New max runtime in minutes (use 0 to clear)
+		#[arg(long)]
+		max_runtime: Option<u32>,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+	/// Pause monitoring for a cron monitor
+	Pause {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Monitor slug (required)
+		#[arg(long, short)]
+		slug: String,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+	/// Resume monitoring for a paused cron monitor
+	Resume {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Monitor slug (required)
+		#[arg(long, short)]
+		slug: String,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+	/// Get stats for a specific monitor
+	Stats {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Monitor slug (required)
+		#[arg(long, short)]
+		slug: String,
+		/// Time period: day, week, month (default: week)
+		#[arg(long, short, default_value = "week")]
+		period: String,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+	/// Get overview stats for all monitors in an organization
+	Overview {
+		/// Organization ID (required)
+		#[arg(long, short)]
+		org: String,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+}
+
+#[derive(Subcommand, Debug)]
+enum SessionsCommand {
+	/// List sessions for a project
+	List {
+		/// Project ID (required)
+		#[arg(long, short)]
+		project: String,
+		/// Maximum number of results
+		#[arg(long, short, default_value = "50")]
+		limit: u32,
+		/// Offset for pagination
+		#[arg(long, default_value = "0")]
+		offset: u32,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+	/// List release health for a project
+	Releases {
+		/// Project ID (required)
+		#[arg(long, short)]
+		project: String,
+		/// Environment filter (default: production)
+		#[arg(long, short, default_value = "production")]
+		environment: String,
+		/// Number of days to look back (default: 7)
+		#[arg(long, short, default_value = "7")]
+		days: u32,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
+	},
+	/// Get release health detail for a specific version
+	Release {
+		/// Project ID (required)
+		#[arg(long, short)]
+		project: String,
+		/// Release version (required)
+		#[arg(long, short)]
+		version: String,
+		/// Environment filter (default: production)
+		#[arg(long, short, default_value = "production")]
+		environment: String,
+		/// Number of days to look back (default: 7)
+		#[arg(long, short, default_value = "7")]
+		days: u32,
+		/// Output as JSON
+		#[arg(long)]
+		json: bool,
 	},
 }
 
@@ -1031,6 +1336,15 @@ async fn main() -> Result<()> {
 			"starting loom"
 	);
 
+	// Initialize self-monitoring for crash reporting
+	// This is non-blocking and failures are logged but don't prevent CLI from running
+	tokio::spawn({
+		let server_url = args.server_url.clone();
+		async move {
+			self_monitoring::initialize_self_monitoring(&server_url).await;
+		}
+	});
+
 	// Get auth token for thread sync
 	let auth_token = auth::load_token(&args.server_url).await;
 
@@ -1332,6 +1646,18 @@ async fn main() -> Result<()> {
 					}
 				},
 			}
+		}
+		Some(Command::Crash { command }) => {
+			let token = auth::load_token(&args.server_url).await;
+			run_crash_command(&args.server_url, token, command).await
+		}
+		Some(Command::Crons { command }) => {
+			let token = auth::load_token(&args.server_url).await;
+			run_crons_command(&args.server_url, token, command).await
+		}
+		Some(Command::Sessions { command }) => {
+			let token = auth::load_token(&args.server_url).await;
+			run_sessions_command(&args.server_url, token, command).await
 		}
 		None => {
 			let thread = create_new_thread(&config, &args)?;
@@ -1643,4 +1969,606 @@ async fn run_weaver_attach(
 
 	Ok(())
 }
-// test change
+
+async fn run_crash_command(
+	server_url: &str,
+	token: Option<loom_common_secret::SecretString>,
+	command: &CrashCommand,
+) -> Result<()> {
+	let mut client = crash_client::CrashClient::new(server_url)?;
+	if let Some(token) = token {
+		client = client.with_token(token);
+	}
+
+	match command {
+		CrashCommand::Projects { org, json } => {
+			let projects = client.list_projects(org).await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&projects)?);
+			} else if projects.is_empty() {
+				println!("No crash projects found for organization.");
+			} else {
+				println!(
+					"{:<40} {:<30} {:<12} {:<20}",
+					"ID", "NAME", "PLATFORM", "CREATED"
+				);
+				println!("{}", "-".repeat(102));
+				for p in &projects {
+					let name_display = if p.name.len() > 28 {
+						format!("{}...", &p.name[..25])
+					} else {
+						p.name.clone()
+					};
+					println!(
+						"{:<40} {:<30} {:<12} {:<20}",
+						p.id,
+						name_display,
+						p.platform,
+						p.created_at.format("%Y-%m-%d %H:%M")
+					);
+				}
+			}
+		}
+		CrashCommand::Issues { project, json } => {
+			let issues = client.list_issues(project).await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&issues)?);
+			} else if issues.is_empty() {
+				println!("No issues found for project.");
+			} else {
+				println!(
+					"{:<12} {:<50} {:<12} {:>8} {:<20}",
+					"SHORT_ID", "TITLE", "STATUS", "EVENTS", "LAST_SEEN"
+				);
+				println!("{}", "-".repeat(102));
+				for issue in &issues {
+					let title_display = if issue.title.len() > 48 {
+						format!("{}...", &issue.title[..45])
+					} else {
+						issue.title.clone()
+					};
+					println!(
+						"{:<12} {:<50} {:<12} {:>8} {:<20}",
+						issue.short_id,
+						title_display,
+						issue.status,
+						issue.event_count,
+						issue.last_seen.format("%Y-%m-%d %H:%M")
+					);
+				}
+			}
+		}
+		CrashCommand::UploadSourcemaps {
+			project,
+			release,
+			files,
+		} => {
+			println!("Uploading source maps for release {}...", release);
+
+			// Convert PathBuf to Path references
+			let file_refs: Vec<&std::path::Path> = files.iter().map(|p| p.as_path()).collect();
+			let result = client
+				.upload_sourcemaps(project, release, &file_refs)
+				.await?;
+
+			println!("Uploaded {} artifact(s):", result.count);
+			for artifact in &result.artifacts {
+				println!(
+					"  {} ({}, {} bytes)",
+					artifact.name, artifact.artifact_type, artifact.size_bytes
+				);
+			}
+		}
+		CrashCommand::CreateProject {
+			org,
+			name,
+			platform,
+		} => {
+			let request = crash_client::CreateProjectRequest {
+				name: name.clone(),
+				org_id: org.clone(),
+				platform: platform.clone(),
+			};
+			let project = client.create_project(&request).await?;
+			println!("Created project:");
+			println!("  ID: {}", project.id);
+			println!("  Name: {}", project.name);
+			println!("  Platform: {}", project.platform);
+		}
+		CrashCommand::CreateApiKey {
+			project,
+			name,
+			key_type,
+		} => {
+			let key = client.create_api_key(project, name, key_type).await?;
+			println!("Created API key:");
+			println!("  ID: {}", key.id);
+			println!("  Name: {}", key.name);
+			println!("  Type: {}", key.key_type);
+			if let Some(raw_key) = &key.raw_key {
+				println!("\n  API Key (save this, it won't be shown again):");
+				println!("  {}", raw_key);
+			}
+		}
+		CrashCommand::ApiKeys { project, json } => {
+			let api_keys = client.list_api_keys(project).await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&api_keys)?);
+			} else if api_keys.is_empty() {
+				println!("No API keys found for project.");
+			} else {
+				println!(
+					"{:<40} {:<30} {:<12} {:<20}",
+					"ID", "NAME", "TYPE", "LAST_USED"
+				);
+				println!("{}", "-".repeat(102));
+				for key in &api_keys {
+					let last_used = key
+						.last_used_at
+						.map(|dt| dt.format("%Y-%m-%d %H:%M").to_string())
+						.unwrap_or_else(|| "never".to_string());
+					println!(
+						"{:<40} {:<30} {:<12} {:<20}",
+						key.id, key.name, key.key_type, last_used
+					);
+				}
+			}
+		}
+	}
+
+	Ok(())
+}
+
+async fn run_crons_command(
+	server_url: &str,
+	token: Option<loom_common_secret::SecretString>,
+	command: &CronsCommand,
+) -> Result<()> {
+	let mut client = crons_client::CronsClient::new(server_url)?;
+	if let Some(token) = token {
+		client = client.with_token(token);
+	}
+
+	match command {
+		CronsCommand::Monitors { org, json } => {
+			let monitors: Vec<crons_client::MonitorSummary> = client.list_monitors(org).await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&monitors)?);
+			} else if monitors.is_empty() {
+				println!("No monitors found for organization.");
+			} else {
+				println!(
+					"{:<30} {:<30} {:<10} {:<10} {:>6} {:<20}",
+					"SLUG", "NAME", "STATUS", "HEALTH", "FAILS", "LAST_CHECKIN"
+				);
+				println!("{}", "-".repeat(106));
+				for m in &monitors {
+					let name_display = if m.name.len() > 28 {
+						format!("{}...", &m.name[..25])
+					} else {
+						m.name.clone()
+					};
+					let last_checkin = m
+						.last_checkin_at
+						.map(|dt: chrono::DateTime<chrono::Utc>| dt.format("%Y-%m-%d %H:%M").to_string())
+						.unwrap_or_else(|| "never".to_string());
+					println!(
+						"{:<30} {:<30} {:<10} {:<10} {:>6} {:<20}",
+						m.slug, name_display, m.status, m.health, m.consecutive_failures, last_checkin
+					);
+				}
+			}
+		}
+		CronsCommand::Get { org, slug, json } => {
+			let monitor = client.get_monitor(org, slug).await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&monitor)?);
+			} else {
+				println!("Monitor: {}", monitor.name);
+				println!("  ID: {}", monitor.id);
+				println!("  Slug: {}", monitor.slug);
+				println!("  Status: {}", monitor.status);
+				println!("  Health: {}", monitor.health);
+				println!(
+					"  Schedule: {}",
+					match &monitor.schedule {
+						crons_client::MonitorSchedule::Cron { expression } => format!("cron({})", expression),
+						crons_client::MonitorSchedule::Interval { minutes } =>
+							format!("every {} minutes", minutes),
+					}
+				);
+				println!("  Timezone: {}", monitor.timezone);
+				println!(
+					"  Check-in margin: {} minutes",
+					monitor.checkin_margin_minutes
+				);
+				if let Some(max) = monitor.max_runtime_minutes {
+					println!("  Max runtime: {} minutes", max);
+				}
+				println!("  Ping key: {}", monitor.ping_key);
+				println!(
+					"  Ping URL: {}/ping/{}",
+					server_url.trim_end_matches('/'),
+					monitor.ping_key
+				);
+				println!("  Total check-ins: {}", monitor.total_checkins);
+				println!("  Total failures: {}", monitor.total_failures);
+				println!("  Consecutive failures: {}", monitor.consecutive_failures);
+				if let Some(last) = &monitor.last_checkin_at {
+					println!("  Last check-in: {}", last.format("%Y-%m-%d %H:%M:%S UTC"));
+				}
+				if let Some(next) = &monitor.next_expected_at {
+					println!("  Next expected: {}", next.format("%Y-%m-%d %H:%M:%S UTC"));
+				}
+			}
+		}
+		CronsCommand::Create {
+			org,
+			slug,
+			name,
+			cron,
+			interval,
+			timezone,
+			margin,
+			max_runtime,
+		} => {
+			let schedule = match (cron, interval) {
+				(Some(expr), None) => crons_client::MonitorScheduleRequest::Cron {
+					expression: expr.clone(),
+				},
+				(None, Some(mins)) => crons_client::MonitorScheduleRequest::Interval { minutes: *mins },
+				(None, None) => anyhow::bail!("Either --cron or --interval is required"),
+				(Some(_), Some(_)) => {
+					anyhow::bail!("Cannot specify both --cron and --interval")
+				}
+			};
+
+			let request = crons_client::CreateMonitorRequest {
+				org_id: org.clone(),
+				slug: slug.clone(),
+				name: name.clone(),
+				description: None,
+				schedule,
+				timezone: Some(timezone.clone()),
+				checkin_margin_minutes: Some(*margin),
+				max_runtime_minutes: *max_runtime,
+			};
+
+			let result = client.create_monitor(&request).await?;
+			println!("Created monitor:");
+			println!("  ID: {}", result.monitor.id);
+			println!("  Slug: {}", result.monitor.slug);
+			println!("  Name: {}", result.monitor.name);
+			println!("  Ping URL: {}", result.ping_url);
+			println!("\nTo send a ping:");
+			println!("  curl {}", result.ping_url);
+			println!("  curl {}/start", result.ping_url);
+			println!("  curl {}/fail", result.ping_url);
+		}
+		CronsCommand::Delete { org, slug } => {
+			client.delete_monitor(org, slug).await?;
+			println!("Monitor '{}' deleted.", slug);
+		}
+		CronsCommand::Checkins {
+			org,
+			slug,
+			limit,
+			json,
+		} => {
+			let checkins: Vec<crons_client::CheckIn> =
+				client.list_checkins(org, slug, Some(*limit)).await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&checkins)?);
+			} else if checkins.is_empty() {
+				println!("No check-ins found for monitor '{}'.", slug);
+			} else {
+				println!(
+					"{:<40} {:<12} {:>10} {:<8} {:<20}",
+					"ID", "STATUS", "DURATION", "EXIT", "FINISHED"
+				);
+				println!("{}", "-".repeat(90));
+				for c in &checkins {
+					let duration = c
+						.duration_ms
+						.map(|d: u64| format!("{}ms", d))
+						.unwrap_or_else(|| "-".to_string());
+					let exit = c
+						.exit_code
+						.map(|e: i32| e.to_string())
+						.unwrap_or_else(|| "-".to_string());
+					println!(
+						"{:<40} {:<12} {:>10} {:<8} {:<20}",
+						c.id,
+						c.status,
+						duration,
+						exit,
+						c.finished_at.format("%Y-%m-%d %H:%M:%S")
+					);
+				}
+			}
+		}
+		CronsCommand::Ping { key } => {
+			client.ping(key).await?;
+			println!("Ping sent successfully.");
+		}
+		CronsCommand::PingFail { key } => {
+			client.ping_fail(key).await?;
+			println!("Fail ping sent successfully.");
+		}
+		CronsCommand::Update {
+			org,
+			slug,
+			name,
+			description,
+			cron,
+			interval,
+			timezone,
+			margin,
+			max_runtime,
+			json,
+		} => {
+			// Build schedule if either cron or interval is provided
+			let schedule = match (cron, interval) {
+				(Some(expr), None) => Some(crons_client::MonitorScheduleRequest::Cron {
+					expression: expr.clone(),
+				}),
+				(None, Some(mins)) => {
+					Some(crons_client::MonitorScheduleRequest::Interval { minutes: *mins })
+				}
+				(None, None) => None,
+				_ => unreachable!("clap conflicts_with prevents both being set"),
+			};
+
+			// Handle max_runtime: 0 means clear it (Some(None)), otherwise set it (Some(Some(n)))
+			let max_runtime_option = max_runtime.map(|n| if n == 0 { None } else { Some(n) });
+
+			let request = crons_client::UpdateMonitorRequest {
+				org_id: org.clone(),
+				name: name.clone(),
+				description: description.clone(),
+				schedule,
+				timezone: timezone.clone(),
+				checkin_margin_minutes: *margin,
+				max_runtime_minutes: max_runtime_option,
+			};
+
+			let monitor = client.update_monitor(slug, &request).await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&monitor)?);
+			} else {
+				println!("Monitor '{}' updated:", monitor.slug);
+				println!("  Name: {}", monitor.name);
+				println!("  Status: {}", monitor.status);
+				println!("  Health: {}", monitor.health);
+				println!(
+					"  Schedule: {}",
+					match &monitor.schedule {
+						crons_client::MonitorSchedule::Cron { expression } => format!("cron({})", expression),
+						crons_client::MonitorSchedule::Interval { minutes } =>
+							format!("every {} minutes", minutes),
+					}
+				);
+				println!("  Timezone: {}", monitor.timezone);
+				println!(
+					"  Check-in margin: {} minutes",
+					monitor.checkin_margin_minutes
+				);
+				if let Some(max) = monitor.max_runtime_minutes {
+					println!("  Max runtime: {} minutes", max);
+				}
+			}
+		}
+		CronsCommand::Pause { org, slug, json } => {
+			let monitor = client.pause_monitor(org, slug).await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&monitor)?);
+			} else {
+				println!("Monitor '{}' paused.", monitor.slug);
+				println!("  Status: {}", monitor.status);
+				println!("  Monitoring is temporarily disabled. Use 'loom crons resume' to re-enable.");
+			}
+		}
+		CronsCommand::Resume { org, slug, json } => {
+			let monitor = client.resume_monitor(org, slug).await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&monitor)?);
+			} else {
+				println!("Monitor '{}' resumed.", monitor.slug);
+				println!("  Status: {}", monitor.status);
+				if let Some(next) = &monitor.next_expected_at {
+					println!("  Next expected: {}", next.format("%Y-%m-%d %H:%M:%S UTC"));
+				}
+			}
+		}
+		CronsCommand::Stats {
+			org,
+			slug,
+			period,
+			json,
+		} => {
+			let stats = client.get_monitor_stats(org, slug, Some(period)).await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&stats)?);
+			} else {
+				println!("Stats for '{}' ({})", slug, stats.period);
+				println!("{}", "-".repeat(40));
+				println!("  Total check-ins:     {}", stats.total_checkins);
+				println!("  Successful:          {}", stats.successful_checkins);
+				println!("  Failed:              {}", stats.failed_checkins);
+				println!("  Missed:              {}", stats.missed_checkins);
+				println!("  Timeout:             {}", stats.timeout_checkins);
+				println!();
+				println!("  Uptime:              {:.1}%", stats.uptime_percentage);
+				println!();
+				if let Some(avg) = stats.avg_duration_ms {
+					println!("  Avg duration:        {}ms", avg);
+				}
+				if let Some(p50) = stats.p50_duration_ms {
+					println!("  P50 duration:        {}ms", p50);
+				}
+				if let Some(p95) = stats.p95_duration_ms {
+					println!("  P95 duration:        {}ms", p95);
+				}
+				if let Some(max) = stats.max_duration_ms {
+					println!("  Max duration:        {}ms", max);
+				}
+			}
+		}
+		CronsCommand::Overview { org, json } => {
+			let overview = client.get_stats_overview(org).await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&overview)?);
+			} else {
+				println!("Cron Monitoring Overview");
+				println!("{}", "-".repeat(40));
+				println!("  Total monitors:      {}", overview.total_monitors);
+				println!("  Active:              {}", overview.active_monitors);
+				println!("  Paused:              {}", overview.paused_monitors);
+				println!();
+				println!("Health:");
+				println!("  Healthy:             {}", overview.healthy_monitors);
+				println!("  Failing:             {}", overview.failing_monitors);
+				println!("  Missed:              {}", overview.missed_monitors);
+				println!();
+				println!("Last 24 hours:");
+				println!("  Total check-ins:     {}", overview.total_checkins_24h);
+				println!("  Total failures:      {}", overview.total_failures_24h);
+				println!(
+					"  Overall uptime:      {:.1}%",
+					overview.overall_uptime_percentage
+				);
+			}
+		}
+	}
+
+	Ok(())
+}
+
+async fn run_sessions_command(
+	server_url: &str,
+	token: Option<loom_common_secret::SecretString>,
+	command: &SessionsCommand,
+) -> Result<()> {
+	let mut client = sessions_client::SessionsClient::new(server_url)?;
+	if let Some(token) = token {
+		client = client.with_token(token);
+	}
+
+	match command {
+		SessionsCommand::List {
+			project,
+			limit,
+			offset,
+			json,
+		} => {
+			let sessions = client
+				.list_sessions(project, Some(*limit), Some(*offset))
+				.await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&sessions)?);
+			} else if sessions.is_empty() {
+				println!("No sessions found for project.");
+			} else {
+				println!(
+					"{:<40} {:<20} {:<12} {:<12} {:>8} {:>8} {:<20}",
+					"ID", "DISTINCT_ID", "STATUS", "PLATFORM", "ERRORS", "CRASHES", "STARTED"
+				);
+				println!("{}", "-".repeat(120));
+				for s in &sessions {
+					let distinct_display = if s.distinct_id.len() > 18 {
+						format!("{}...", &s.distinct_id[..15])
+					} else {
+						s.distinct_id.clone()
+					};
+					println!(
+						"{:<40} {:<20} {:<12} {:<12} {:>8} {:>8} {:<20}",
+						s.id,
+						distinct_display,
+						s.status,
+						s.platform,
+						s.error_count,
+						s.crash_count,
+						s.started_at.format("%Y-%m-%d %H:%M")
+					);
+				}
+			}
+		}
+		SessionsCommand::Releases {
+			project,
+			environment,
+			days,
+			json,
+		} => {
+			let releases = client
+				.list_release_health(project, Some(environment), Some(*days))
+				.await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&releases)?);
+			} else if releases.is_empty() {
+				println!("No release health data found for project.");
+			} else {
+				println!(
+					"{:<20} {:<15} {:>10} {:>10} {:>12} {:>12} {:<12}",
+					"RELEASE", "ENVIRONMENT", "SESSIONS", "CRASHED", "CFR_SESSION", "CFR_USER", "ADOPTION"
+				);
+				println!("{}", "-".repeat(91));
+				for r in &releases {
+					let release_display = if r.release.len() > 18 {
+						format!("{}...", &r.release[..15])
+					} else {
+						r.release.clone()
+					};
+					println!(
+						"{:<20} {:<15} {:>10} {:>10} {:>11.1}% {:>11.1}% {:<12}",
+						release_display,
+						r.environment,
+						r.total_sessions,
+						r.crashed_sessions,
+						r.crash_free_session_rate,
+						r.crash_free_user_rate,
+						r.adoption_stage
+					);
+				}
+			}
+		}
+		SessionsCommand::Release {
+			project,
+			version,
+			environment,
+			days,
+			json,
+		} => {
+			let health = client
+				.get_release_health(project, version, Some(environment), Some(*days))
+				.await?;
+			if *json {
+				println!("{}", serde_json::to_string_pretty(&health)?);
+			} else {
+				println!("Release: {}", health.release);
+				println!("  Environment: {}", health.environment);
+				println!("  Total sessions: {}", health.total_sessions);
+				println!("  Crashed sessions: {}", health.crashed_sessions);
+				println!(
+					"  Crash-free session rate: {:.2}%",
+					health.crash_free_session_rate
+				);
+				println!(
+					"  Crash-free user rate: {:.2}%",
+					health.crash_free_user_rate
+				);
+				println!("  Adoption rate: {:.2}%", health.adoption_rate);
+				println!("  Adoption stage: {}", health.adoption_stage);
+				println!(
+					"  First seen: {}",
+					health.first_seen.format("%Y-%m-%d %H:%M:%S UTC")
+				);
+				println!(
+					"  Last seen: {}",
+					health.last_seen.format("%Y-%m-%d %H:%M:%S UTC")
+				);
+			}
+		}
+	}
+
+	Ok(())
+}

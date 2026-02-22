@@ -126,6 +126,12 @@
     mode = "0400";
   };
 
+  # Z.ai API key disabled until properly encrypted
+  # sops.secrets.loom-zai-api-key = {
+  #   owner = "loom-server";
+  #   mode = "0400";
+  # };
+
   sops.secrets.loom-google-oauth-client-id = {
     owner = "loom-server";
     mode = "0400";
@@ -173,6 +179,13 @@
   sops.secrets.cloudflare-dns-api-token = {
     owner = "acme";
     group = "acme";
+    mode = "0400";
+  };
+
+  # SCIM (Okta) provisioning token
+  # Generate with: openssl rand -base64 32
+  sops.secrets.loom-scim-token = {
+    owner = "loom-server";
     mode = "0400";
   };
 
@@ -271,6 +284,18 @@
       apiKeyFile = config.sops.secrets.loom-serper-api-key.path;
     };
 
+    # WhatsApp Business API
+    # Per-org credentials are configured via web UI at /settings/orgs/{orgId}/whatsapp
+    whatsapp = {
+      enable = true;
+    };
+
+    # Z.ai disabled until API key is properly encrypted in loom.yaml
+    zai = {
+      enable = false;
+      # apiKeyFile = config.sops.secrets.loom-zai-api-key.path;
+    };
+
     weaver = {
       enable = true;
       namespace = "loom-weavers";
@@ -313,6 +338,13 @@
 
     # Documentation search index from loom-web static files
     docsIndexPath = "${pkgs.loom-web}/share/loom-web/docs-index.json";
+
+    # SCIM provisioning for Okta
+    scim = {
+      enable = true;
+      tokenFile = config.sops.secrets.loom-scim-token.path;
+      orgId = "550e8400-e29b-41d4-a716-446655440000";
+    };
   };
 
   # Loom Web - Web frontend

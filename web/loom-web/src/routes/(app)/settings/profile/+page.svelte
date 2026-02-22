@@ -9,6 +9,7 @@
 	import { getApiClient } from '$lib/api/client';
 	import { authStore } from '$lib/auth';
 	import { Card, Button, Input, ThreadDivider } from '$lib/ui';
+	import { trackFormSubmit, trackFilterChange } from '$lib/analytics';
 
 	const parentData = $derived($page.data as { user: import('$lib/api/types').CurrentUser & { username?: string } });
 	const user = $derived(parentData.user);
@@ -55,6 +56,7 @@
 			return;
 		}
 
+		trackFormSubmit('profile_settings');
 		saving = true;
 		successMessage = null;
 		errorMessage = null;
@@ -98,6 +100,7 @@
 
 	function handleLocaleChange(event: Event) {
 		const target = event.target as HTMLSelectElement;
+		trackFilterChange('locale', target.value, { page: 'profile_settings' });
 		selectedLocale = target.value as Locale;
 	}
 </script>
@@ -183,6 +186,21 @@
 				</Button>
 			</div>
 		</form>
+	</Card>
+
+	<Card>
+		<div class="flex items-center justify-between">
+			<div>
+				<h3 class="font-medium text-fg">WhatsApp</h3>
+				<p class="text-sm text-fg-muted">Link your WhatsApp number to receive AI responses</p>
+			</div>
+			<a
+				href="/settings/profile/whatsapp"
+				class="px-4 py-2 text-sm font-medium rounded-md border border-border text-fg hover:bg-bg-muted transition-colors"
+			>
+				Configure
+			</a>
+		</div>
 	</Card>
 </div>
 

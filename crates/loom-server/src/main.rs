@@ -82,6 +82,41 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	// Run database migrations
 	loom_server::db::run_migrations(&pool).await?;
 
+	// Initialize self-monitoring for Loom itself (internal crash reporting)
+	let base_url = format!(
+		"{}://{}:{}",
+		if config.http.host == "0.0.0.0" || config.http.host == "127.0.0.1" {
+			"http"
+		} else {
+			"https"
+		},
+		&config.http.host,
+		config.http.port
+	);
+	let release = env!("CARGO_PKG_VERSION");
+	let environment = std::env::var("LOOM_ENVIRONMENT").unwrap_or_else(|_| "production".to_string());
+
+	match loom_server::self_monitoring::initialize_self_monitoring(
+		&pool,
+		&base_url,
+		release,
+		&environment,
+	)
+	.await
+	{
+		Ok(self_mon_config) => {
+			tracing::info!(
+				server_api_key = ?self_mon_config.server_api_key.as_ref().map(|k| &k[..10]),
+				web_api_key = ?self_mon_config.web_api_key.as_ref().map(|k| &k[..10]),
+				cli_api_key = ?self_mon_config.cli_api_key.as_ref().map(|k| &k[..10]),
+				"Self-monitoring initialized"
+			);
+		}
+		Err(e) => {
+			tracing::warn!(error = %e, "Failed to initialize self-monitoring, continuing without it");
+		}
+	}
+
 	let repo = Arc::new(ThreadRepository::new(pool.clone()));
 	let mut state = create_app_state(pool.clone(), repo, &config, Some(log_buffer)).await;
 
@@ -117,9 +152,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 	// Register session cleanup job
 	{
 		use loom_server::jobs::SessionCleanupJob;
-		use loom_server_db::SessionRepository;
+		use loom_server_db::AuthSessionRepository;
 		scheduler.register_periodic(
-			Arc::new(SessionCleanupJob::new(SessionRepository::new(pool.clone()))),
+			Arc::new(SessionCleanupJob::new(AuthSessionRepository::new(pool.clone()))),
 			Duration::from_secs(config.auth.session_cleanup_interval_secs),
 		);
 	}
@@ -184,6 +219,75 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 			)),
 			Duration::from_secs(config.jobs.scm_maintenance_interval_secs),
 		);
+	}
+
+	// Register cron monitoring background jobs
+	{
+		use loom_server::jobs::{CronMissedRunDetectorJob, CronTimeoutDetectorJob};
+
+		// Run every 60 seconds to check for missed runs and timeouts
+		scheduler.register_periodic(
+			Arc::new(CronMissedRunDetectorJob::new(Arc::clone(&state.crons_repo))),
+			Duration::from_secs(60),
+		);
+		scheduler.register_periodic(
+			Arc::new(CronTimeoutDetectorJob::new(Arc::clone(&state.crons_repo))),
+			Duration::from_secs(60),
+		);
+
+		tracing::info!("Registered cron monitoring background jobs");
+	}
+
+	// Register session aggregation job
+	{
+		use loom_server::jobs::SessionAggregationJob;
+
+		// Run every hour to aggregate app sessions into release health metrics
+		scheduler.register_periodic(
+			Arc::new(SessionAggregationJob::new(Arc::clone(&state.sessions_repo))),
+			Duration::from_secs(60 * 60), // 1 hour
+		);
+
+		tracing::info!("Registered session aggregation background job");
+	}
+
+	// Register app session cleanup job
+	{
+		use loom_server::jobs::AppSessionCleanupJob;
+
+		// Run daily to delete old app sessions (keep aggregates forever)
+		scheduler.register_periodic(
+			Arc::new(AppSessionCleanupJob::new(Arc::clone(&state.sessions_repo))),
+			Duration::from_secs(24 * 60 * 60), // 24 hours
+		);
+
+		tracing::info!("Registered app session cleanup background job");
+	}
+
+	// Register crash event cleanup job
+	{
+		use loom_server::jobs::CrashEventCleanupJob;
+
+		// Run daily to delete old crash events (90-day retention)
+		scheduler.register_periodic(
+			Arc::new(CrashEventCleanupJob::new(Arc::clone(&state.crash_repo))),
+			Duration::from_secs(24 * 60 * 60), // 24 hours
+		);
+
+		tracing::info!("Registered crash event cleanup background job");
+	}
+
+	// Register symbol artifact cleanup job
+	{
+		use loom_server::jobs::SymbolArtifactCleanupJob;
+
+		// Run daily to delete symbol artifacts not accessed in 90 days
+		scheduler.register_periodic(
+			Arc::new(SymbolArtifactCleanupJob::new(Arc::clone(&state.crash_repo))),
+			Duration::from_secs(24 * 60 * 60), // 24 hours
+		);
+
+		tracing::info!("Registered symbol artifact cleanup background job");
 	}
 
 	let scheduler = Arc::new(scheduler);

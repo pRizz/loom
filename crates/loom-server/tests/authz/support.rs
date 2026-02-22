@@ -211,6 +211,8 @@ impl TestApp {
 		let temp_dir = tempfile::tempdir().unwrap();
 		// Set LOOM_SERVER_DATA_DIR for repo disk storage
 		std::env::set_var("LOOM_SERVER_DATA_DIR", temp_dir.path());
+		// Set LOOM_DATA_DIR for clips storage
+		std::env::set_var("LOOM_DATA_DIR", temp_dir.path());
 		let db_path = temp_dir.path().join("test_authz.db");
 		let db_url = format!("sqlite:{}?mode=rwc", db_path.display());
 		let pool = loom_server::db::create_pool(&db_url).await.unwrap();
@@ -274,6 +276,26 @@ impl TestApp {
 		self
 			.request(Method::DELETE, path, user, Option::<()>::None)
 			.await
+	}
+
+	/// POST with a custom header (e.g., for API key auth)
+	pub async fn post_with_header(
+		&self,
+		path: &str,
+		header_name: &str,
+		header_value: &str,
+		body: impl Serialize,
+	) -> Response<Body> {
+		let builder = Request::builder()
+			.method(Method::POST)
+			.uri(path)
+			.header("content-type", "application/json")
+			.header(header_name, header_value);
+
+		let request_body = Body::from(serde_json::to_string(&body).unwrap());
+		let request = builder.body(request_body).unwrap();
+
+		self.router.clone().oneshot(request).await.unwrap()
 	}
 
 	async fn request<T: Serialize>(

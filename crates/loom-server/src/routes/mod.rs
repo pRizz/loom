@@ -10,8 +10,12 @@ pub mod admin_jobs;
 pub mod admin_logs;
 pub mod analytics;
 pub mod api_keys;
+pub mod app_sessions;
 pub mod auth;
 pub mod bin;
+pub mod clips;
+pub mod crash;
+pub mod crons;
 pub mod cse;
 pub mod debug;
 pub mod docs;
@@ -22,11 +26,13 @@ pub mod github;
 pub mod health;
 pub mod invitations;
 pub mod maintenance;
+pub mod mcp;
 pub mod mirrors;
 pub mod orgs;
 pub mod protection;
 pub mod repos;
 pub mod secrets;
+pub mod self_monitoring;
 pub mod serper;
 pub mod sessions;
 pub mod share;
@@ -39,6 +45,10 @@ pub mod weaver_auth;
 pub mod weaver_secrets;
 pub mod webhooks;
 pub mod wgtunnel;
+pub mod whatsapp;
+
+// Re-export clips types
+pub use clips::ClipsErrorResponse;
 
 // Re-export all API types from loom-server-api for backward compatibility
 pub use loom_server_api::admin::*;

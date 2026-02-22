@@ -27,6 +27,22 @@ msgstr "Admin"
 msgid "nav.jobs"
 msgstr "Jobs"
 
+#: nav.observability
+msgid "nav.observability"
+msgstr "Observability"
+
+#: nav.crashes
+msgid "nav.crashes"
+msgstr "Crashes"
+
+#: nav.crons
+msgid "nav.crons"
+msgstr "Crons"
+
+#: nav.sessions
+msgid "nav.sessions"
+msgstr "Sessions"
+
 #: thread.new
 msgid "thread.new"
 msgstr "New Thread"
@@ -1030,6 +1046,18 @@ msgstr "Background Jobs"
 #: admin.health.auth_providers
 msgid "admin.health.auth_providers"
 msgstr "Auth Providers"
+
+#: admin.health.scim
+msgid "admin.health.scim"
+msgstr "SCIM"
+
+#: admin.health.secrets
+msgid "admin.health.secrets"
+msgstr "Secrets"
+
+#: admin.health.whatsapp
+msgid "admin.health.whatsapp"
+msgstr "WhatsApp"
 
 #: admin.logs.title
 msgid "admin.logs.title"
@@ -2502,6 +2530,10 @@ msgstr "Teams"
 #: org.tabs.apiKeys
 msgid "org.tabs.apiKeys"
 msgstr "API Keys"
+
+#: org.tabs.whatsapp
+msgid "org.tabs.whatsapp"
+msgstr "WhatsApp"
 
 #: org.tabs.settings
 msgid "org.tabs.settings"

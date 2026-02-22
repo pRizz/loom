@@ -13,7 +13,7 @@ stdenv.mkDerivation (finalAttrs: {
   pname = "loom-web";
   version = "0.1.0";
 
-  src = ../../web/loom-web;
+  src = ../../web;
 
   nativeBuildInputs = [
     nodejs_22
@@ -23,21 +23,27 @@ stdenv.mkDerivation (finalAttrs: {
 
   pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs) pname version src;
+    pnpm = pnpm_9;
     fetcherVersion = 2;
-    hash = "sha256-cEMTsGSnDHwBI9sTzqrarTgoYChFKwLlQkRIXR8ClHw=";
+    hash = "sha256-xHzPvJ4IPLIk3KXlT8UumzA9m2E/OJLIXHxm2fvjTb0=";
   };
 
   buildPhase = ''
     runHook preBuild
-    pnpm run lingui:compile
-    pnpm run build
+    # Build workspace dependencies first
+    pnpm --filter @loom/http run build
+    pnpm --filter @loom/crash run build
+    pnpm --filter @loom/analytics run build
+    # Then build loom-web
+    pnpm --filter @loom/web run lingui:compile
+    pnpm --filter @loom/web run build
     runHook postBuild
   '';
 
   installPhase = ''
     runHook preInstall
     mkdir -p $out/share/loom-web
-    cp -r build/* $out/share/loom-web/
+    cp -r loom-web/build/* $out/share/loom-web/
     runHook postInstall
   '';
 

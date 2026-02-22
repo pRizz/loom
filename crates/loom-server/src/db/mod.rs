@@ -17,11 +17,11 @@ use crate::error::ServerError;
 
 pub use loom_server_db::{
 	create_pool, ApiKeyRepository, DbError, GithubInstallation, GithubInstallationInfo, GithubRepo,
-	OrgRepository, SessionRepository, ShareRepository, TeamRepository, ThreadRepository,
+	AuthSessionRepository, OrgRepository, ShareRepository, TeamRepository, ThreadRepository,
 	ThreadSearchHit, UserRepository,
 };
 
-/// Run all database migrations (001-032).
+/// Run all database migrations (001-036).
 ///
 /// # Arguments
 /// * `pool` - SQLite connection pool
@@ -364,6 +364,126 @@ pub async fn run_migrations(pool: &SqlitePool) -> Result<(), ServerError> {
 			let msg = e.to_string();
 			if !msg.contains("already exists") && !msg.contains("duplicate column") {
 				return Err(e.into());
+			}
+		}
+	}
+
+	let m33 = include_str!("../../migrations/033_crash_analytics.sql");
+	for stmt in m33.split(';').filter(|s| !s.trim().is_empty()) {
+		if let Err(e) = sqlx::query(stmt).execute(pool).await {
+			let msg = e.to_string();
+			if !msg.contains("already exists") && !msg.contains("duplicate column") {
+				return Err(e.into());
+			}
+		}
+	}
+
+	let m34 = include_str!("../../migrations/034_cron_monitoring.sql");
+	for stmt in m34.split(';').filter(|s| !s.trim().is_empty()) {
+		if let Err(e) = sqlx::query(stmt).execute(pool).await {
+			let msg = e.to_string();
+			if !msg.contains("already exists") && !msg.contains("duplicate column") {
+				return Err(e.into());
+			}
+		}
+	}
+
+	let m35 = include_str!("../../migrations/035_sessions.sql");
+	for stmt in m35.split(';').filter(|s| !s.trim().is_empty()) {
+		if let Err(e) = sqlx::query(stmt).execute(pool).await {
+			let msg = e.to_string();
+			if !msg.contains("already exists") && !msg.contains("duplicate column") {
+				return Err(e.into());
+			}
+		}
+	}
+
+	let m36 = include_str!("../../migrations/036_crash_api_keys_key_prefix.sql");
+	for stmt in m36.split(';').filter(|s| !s.trim().is_empty()) {
+		if let Err(e) = sqlx::query(stmt).execute(pool).await {
+			let msg = e.to_string();
+			if !msg.contains("already exists")
+				&& !msg.contains("duplicate column")
+				&& !msg.contains("UNIQUE constraint failed")
+			{
+				return Err(e.into());
+			}
+		}
+	}
+
+	let m37 = include_str!("../../migrations/037_clips.sql");
+	for stmt in m37.split(';').filter(|s| !s.trim().is_empty()) {
+		if let Err(e) = sqlx::query(stmt).execute(pool).await {
+			let msg = e.to_string();
+			if !msg.contains("already exists") && !msg.contains("duplicate column") {
+				return Err(e.into());
+			}
+		}
+	}
+
+	let m38 = include_str!("../../migrations/038_clip_stars.sql");
+	for stmt in m38.split(';').filter(|s| !s.trim().is_empty()) {
+		if let Err(e) = sqlx::query(stmt).execute(pool).await {
+			let msg = e.to_string();
+			if !msg.contains("already exists") && !msg.contains("duplicate column") {
+				return Err(e.into());
+			}
+		}
+	}
+
+	let m39 = include_str!("../../migrations/039_clips_fts.sql");
+	// FTS migration has triggers - needs special handling like thread_fts
+	if let Some(vt_end) = m39.find(");") {
+		let create_vt = &m39[..vt_end + 2];
+		if let Err(e) = sqlx::query(create_vt.trim()).execute(pool).await {
+			let msg = e.to_string();
+			if !msg.contains("already exists") && !msg.contains("table clips_fts already exists") {
+				tracing::warn!(error = %e, "Clips FTS CREATE VIRTUAL TABLE failed");
+			}
+		}
+
+		let remaining = &m39[vt_end + 2..];
+		for trigger_block in remaining.split("END;") {
+			let trigger = trigger_block.trim();
+			if trigger.is_empty() {
+				continue;
+			}
+			if trigger.contains("CREATE TRIGGER") {
+				let full_trigger = format!("{trigger} END;");
+				if let Err(e) = sqlx::query(&full_trigger).execute(pool).await {
+					let msg = e.to_string();
+					if !msg.contains("already exists") && !msg.contains("trigger") {
+						tracing::warn!(error = %e, "Clips FTS trigger creation failed");
+					}
+				}
+			} else if trigger.contains("INSERT INTO clips_fts") {
+				// Backfill statement
+				if let Err(e) = sqlx::query(trigger).execute(pool).await {
+					let msg = e.to_string();
+					if !msg.contains("UNIQUE constraint") {
+						tracing::warn!(error = %e, "Clips FTS backfill failed");
+					}
+				}
+			}
+		}
+	}
+
+	let m40 = include_str!("../../migrations/040_whatsapp.sql");
+	for stmt in m40.split(';') {
+		// Strip leading comment lines to get to actual SQL
+		let stmt: String = stmt
+			.lines()
+			.filter(|line| !line.trim().starts_with("--"))
+			.collect::<Vec<_>>()
+			.join("\n");
+		let stmt = stmt.trim();
+		if stmt.is_empty() {
+			continue;
+		}
+		if let Err(e) = sqlx::query(stmt).execute(pool).await {
+			let msg = e.to_string();
+			if !msg.contains("already exists") {
+				tracing::warn!(error = %e, "WhatsApp migration statement failed");
 			}
 		}
 	}

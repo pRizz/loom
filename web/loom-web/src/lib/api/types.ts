@@ -548,6 +548,32 @@ export interface AuthProvidersHealth {
 	providers: AuthProviderHealth[];
 }
 
+export interface ScimHealth {
+	status: HealthStatus;
+	enabled: boolean;
+	configured: boolean;
+	org_id?: string;
+	org_exists: boolean;
+	error?: string;
+}
+
+export interface SecretsHealth {
+	status: HealthStatus;
+	latency_ms: number;
+	configured: boolean;
+	master_key_present: boolean;
+	svid_signing_key_present: boolean;
+	error?: string;
+}
+
+export interface WhatsAppHealth {
+	status: HealthStatus;
+	latency_ms: number;
+	configured: boolean;
+	configs_count: number;
+	error?: string;
+}
+
 export interface HealthComponents {
 	database: DatabaseHealth;
 	bin_dir: BinDirHealth;
@@ -560,6 +586,9 @@ export interface HealthComponents {
 	geoip: GeoIpHealth;
 	jobs?: JobsHealth;
 	auth_providers: AuthProvidersHealth;
+	scim: ScimHealth;
+	secrets?: SecretsHealth;
+	whatsapp?: WhatsAppHealth;
 }
 
 export interface HealthVersionInfo {
@@ -593,7 +622,411 @@ export interface ListLogsResponse {
 	current_id: number;
 }
 
+// =============================================================================
+// Crash Analytics Types
+// =============================================================================
+
+export interface CrashProject {
+	id: string;
+	org_id: string;
+	name: string;
+	slug: string;
+	platform: CrashPlatform;
+	created_at: string;
+	updated_at: string;
+}
+
+export type CrashPlatform = 'javascript' | 'node' | 'rust' | 'other';
+
+export interface CrashProjectListResponse {
+	projects: CrashProject[];
+}
+
+export type IssueStatus = 'unresolved' | 'resolved' | 'ignored' | 'regressed';
+export type IssueLevel = 'error' | 'warning' | 'info';
+export type IssuePriority = 'high' | 'medium' | 'low';
+
+export interface IssueMetadata {
+	exception_type: string;
+	exception_value: string;
+	filename?: string;
+	function?: string;
+}
+
+export interface Issue {
+	id: string;
+	org_id: string;
+	project_id: string;
+	short_id: string;
+	fingerprint: string;
+	title: string;
+	culprit?: string;
+	metadata: IssueMetadata;
+	status: IssueStatus;
+	level: IssueLevel;
+	priority: IssuePriority;
+	event_count: number;
+	user_count: number;
+	first_seen: string;
+	last_seen: string;
+	resolved_at?: string;
+	resolved_by?: string;
+	resolved_in_release?: string;
+	times_regressed: number;
+	last_regressed_at?: string;
+	regressed_in_release?: string;
+	assigned_to?: string;
+	created_at: string;
+	updated_at: string;
+}
+
+export interface IssueListResponse {
+	issues: Issue[];
+	total: number;
+}
+
+export interface CrashFrame {
+	filename?: string;
+	function?: string;
+	lineno?: number;
+	colno?: number;
+	abs_path?: string;
+	context_line?: string;
+	pre_context?: string[];
+	post_context?: string[];
+	in_app: boolean;
+}
+
+export interface CrashStacktrace {
+	frames: CrashFrame[];
+}
+
+export interface CrashBreadcrumb {
+	timestamp: string;
+	category: string;
+	message?: string;
+	level: string;
+	data?: Record<string, unknown>;
+}
+
+export interface CrashUserContext {
+	id?: string;
+	email?: string;
+	username?: string;
+	ip_address?: string;
+}
+
+export interface CrashEvent {
+	id: string;
+	project_id: string;
+	issue_id: string;
+	platform: CrashPlatform;
+	timestamp: string;
+	received_at: string;
+	release?: string;
+	environment: string;
+	exception_type: string;
+	exception_value: string;
+	stacktrace?: CrashStacktrace;
+	raw_stacktrace?: CrashStacktrace;
+	breadcrumbs?: CrashBreadcrumb[];
+	user?: CrashUserContext;
+	tags?: Record<string, string>;
+	extra?: Record<string, unknown>;
+	active_flags?: string[];
+}
+
+export interface CrashEventListResponse {
+	events: CrashEvent[];
+	total: number;
+}
+
+// =============================================================================
+// Crons Monitoring Types
+// =============================================================================
+
+export type MonitorStatus = 'active' | 'paused' | 'disabled';
+export type MonitorHealth = 'healthy' | 'failing' | 'missed' | 'timeout' | 'unknown';
+export type CheckInStatus = 'ok' | 'error' | 'in_progress';
+
+export interface MonitorSchedule {
+	type: 'cron' | 'interval';
+	expression?: string;
+	minutes?: number;
+}
+
+export interface Monitor {
+	id: string;
+	org_id: string;
+	slug: string;
+	name: string;
+	description?: string;
+	status: MonitorStatus;
+	health: MonitorHealth;
+	schedule: MonitorSchedule;
+	timezone: string;
+	checkin_margin_minutes: number;
+	max_runtime_minutes?: number;
+	ping_key: string;
+	environments: string[];
+	last_checkin_at?: string;
+	last_checkin_status?: CheckInStatus;
+	next_expected_at?: string;
+	consecutive_failures: number;
+	total_checkins: number;
+	total_failures: number;
+	created_at: string;
+	updated_at: string;
+}
+
+export interface MonitorListResponse {
+	monitors: Monitor[];
+}
+
+export interface CheckIn {
+	id: string;
+	monitor_id: string;
+	status: CheckInStatus;
+	duration_ms?: number;
+	environment?: string;
+	output?: string;
+	created_at: string;
+}
+
+export interface CheckInListResponse {
+	checkins: CheckIn[];
+	total: number;
+}
+
+export interface CreateMonitorRequest {
+	slug: string;
+	name: string;
+	description?: string;
+	schedule: MonitorSchedule;
+	timezone?: string;
+	checkin_margin_minutes?: number;
+	max_runtime_minutes?: number;
+	environments?: string[];
+}
+
+export interface UpdateMonitorRequest {
+	name?: string;
+	description?: string;
+	schedule?: MonitorSchedule;
+	timezone?: string;
+	checkin_margin_minutes?: number;
+	max_runtime_minutes?: number;
+	environments?: string[];
+}
+
+// =============================================================================
+// Sessions & Release Health Types
+// =============================================================================
+
+export type SessionStatus = 'active' | 'exited' | 'crashed' | 'abnormal';
+export type AdoptionStage = 'new' | 'growing' | 'adopted' | 'replaced';
+
+export interface AppSession {
+	id: string;
+	project_id: string;
+	distinct_id: string;
+	status: SessionStatus;
+	release?: string;
+	environment: string;
+	platform: string;
+	crashed: boolean;
+	error_count: number;
+	duration_ms?: number;
+	started_at: string;
+	ended_at?: string;
+}
+
+export interface AppSessionListResponse {
+	sessions: AppSession[];
+	total: number;
+}
+
+export interface ReleaseHealth {
+	project_id: string;
+	release: string;
+	environment: string;
+	total_sessions: number;
+	crashed_sessions: number;
+	errored_sessions: number;
+	total_users: number;
+	crashed_users: number;
+	crash_free_session_rate: number;
+	crash_free_user_rate: number;
+	adoption_rate: number;
+	adoption_stage: AdoptionStage;
+	first_seen: string;
+	last_seen: string;
+	crash_free_rate_trend?: number;
+}
+
+export interface ReleaseHealthListResponse {
+	releases: ReleaseHealth[];
+}
+
+export interface CrashFreeDataPoint {
+	timestamp: string;
+	crash_free_rate: number;
+	total_sessions: number;
+	crashed_sessions: number;
+}
+
 // Error class for API errors
+// =============================================================================
+// Product Analytics Types
+// =============================================================================
+
+export interface AnalyticsEvent {
+	id: string;
+	org_id: string;
+	person_id?: string;
+	distinct_id: string;
+	event_name: string;
+	properties: Record<string, unknown>;
+	timestamp: string;
+	ip_address?: string;
+	user_agent?: string;
+	lib?: string;
+	lib_version?: string;
+	created_at: string;
+}
+
+export interface AnalyticsEventListResponse {
+	events: AnalyticsEvent[];
+	has_more: boolean;
+}
+
+export interface AnalyticsEventCountResponse {
+	count: number;
+}
+
+export interface AnalyticsPerson {
+	id: string;
+	org_id: string;
+	properties: Record<string, unknown>;
+	created_at: string;
+	updated_at: string;
+	merged_into_id?: string;
+	merged_at?: string;
+	identities: AnalyticsPersonIdentity[];
+}
+
+export interface AnalyticsPersonIdentity {
+	id: string;
+	person_id: string;
+	distinct_id: string;
+	identity_type: 'anonymous' | 'identified';
+	created_at: string;
+}
+
+export interface AnalyticsPersonListResponse {
+	persons: AnalyticsPerson[];
+	has_more: boolean;
+}
+
+export interface AnalyticsListParams {
+	limit?: number;
+	offset?: number;
+	event_name?: string;
+	distinct_id?: string;
+	person_id?: string;
+	start_date?: string;
+	end_date?: string;
+}
+
+// =========================================================================
+// WhatsApp Types
+// =========================================================================
+
+export interface WhatsAppConfig {
+	id: string;
+	phone_number_id: string;
+	enabled: boolean;
+	webhook_url: string;
+	created_at: string;
+	updated_at: string;
+}
+
+export interface CreateWhatsAppConfigRequest {
+	phone_number_id: string;
+	access_token: string;
+	app_secret: string;
+	verify_token: string;
+}
+
+export interface WhatsAppGroup {
+	id: string;
+	name: string;
+	description: string | null;
+	color: string | null;
+	is_default: boolean;
+	created_at: string;
+	updated_at: string;
+}
+
+export interface CreateWhatsAppGroupRequest {
+	name: string;
+	description?: string;
+	color?: string;
+}
+
+export interface WhatsAppGroupListResponse {
+	groups: WhatsAppGroup[];
+}
+
+export interface WhatsAppConversation {
+	id: string;
+	wa_phone_number: string;
+	group_id: string | null;
+	user_id: string | null;
+	thread_id: string | null;
+	last_customer_message_at: string;
+	session_expires_at: string;
+	session_active: boolean;
+	status: string;
+	created_at: string;
+}
+
+export interface WhatsAppConversationListResponse {
+	conversations: WhatsAppConversation[];
+}
+
+export interface MoveConversationRequest {
+	group_id: string | null;
+}
+
+export interface LinkPhoneRequest {
+	phone_number: string;
+}
+
+export interface LinkPhoneResponse {
+	message: string;
+	expires_in_seconds: number;
+}
+
+export interface VerifyPhoneRequest {
+	phone_number: string;
+	otp: string;
+}
+
+export interface VerifyPhoneResponse {
+	message: string;
+	phone_number: string;
+}
+
+export interface WhatsAppSuccessResponse {
+	message: string;
+}
+
+export interface WhatsAppErrorResponse {
+	error: string;
+	message: string;
+}
+
 export class ApiError extends Error {
 	constructor(
 		public readonly status: number,

@@ -18,18 +18,26 @@ Design documentation for Loom, an AI-powered coding agent in Rust.
 | [streaming.md](./streaming.md) | [loom-llm-service](../crates/loom-llm-service/) | SSE streaming for real-time LLM responses |
 | [error-handling.md](./error-handling.md) | [loom-core](../crates/loom-core/) | Error types using `thiserror` |
 
-## Analytics & Experimentation
+## Observability Suite
+
+Loom's integrated observability platform: analytics, crash tracking, cron monitoring, and session health.
 
 | Spec | Code | Purpose |
 |------|------|---------|
 | [analytics-system.md](./analytics-system.md) | [loom-analytics-core](../crates/loom-analytics-core/), [loom-analytics](../crates/loom-analytics/), [loom-server-analytics](../crates/loom-server-analytics/) | Product analytics with PostHog-style identity resolution |
 | [analytics-implementation-plan.md](./analytics-implementation-plan.md) | — | Implementation checklist with citations |
+| [crash-system.md](./crash-system.md) | [loom-crash-core](../crates/loom-crash-core/), [loom-crash](../crates/loom-crash/), [loom-crash-symbolicate](../crates/loom-crash-symbolicate/), [loom-server-crash](../crates/loom-server-crash/) | Crash analytics with source maps, regression detection |
+| [crons-system.md](./crons-system.md) | [loom-crons-core](../crates/loom-crons-core/), [loom-crons](../crates/loom-crons/), [loom-server-crons](../crates/loom-server-crons/) | Cron/job monitoring with ping URLs and SDK check-ins |
+| [sessions-system.md](./sessions-system.md) | [loom-sessions-core](../crates/loom-sessions-core/), [loom-server-sessions](../crates/loom-server-sessions/) | Session analytics with release health and crash-free rate |
+| [observability-ui.md](./observability-ui.md) | [web/loom-web](../web/loom-web/) | Unified web UI for all observability features |
+
+**Implementation Plan:** [hidave.md](../hidave.md) — Detailed phased implementation with citations
 
 ## LLM Integration
 
 | Spec | Code | Purpose |
 |------|------|---------|
-| [llm-client.md](./llm-client.md) | [loom-llm-anthropic](../crates/loom-llm-anthropic/), [loom-llm-openai](../crates/loom-llm-openai/) | `LlmClient` trait for providers |
+| [llm-client.md](./llm-client.md) | [loom-llm-anthropic](../crates/loom-llm-anthropic/), [loom-llm-openai](../crates/loom-llm-openai/), [loom-server-llm-zai](../crates/loom-server-llm-zai/) | `LlmClient` trait for providers |
 | [anthropic-oauth-pool.md](./anthropic-oauth-pool.md) | [loom-llm-anthropic](../crates/loom-llm-anthropic/) | Claude subscription pooling with failover |
 | [anthropic-max-pool-management.md](./anthropic-max-pool-management.md) | [loom-server](../crates/loom-server/) | Admin UI for OAuth pool management |
 | [claude-subscription-auth.md](./claude-subscription-auth.md) | [loom-llm-anthropic](../crates/loom-llm-anthropic/) | OAuth 2.0 PKCE for Claude Pro/Max |
@@ -62,6 +70,7 @@ Design documentation for Loom, an AI-powered coding agent in Rust.
 | [health-check.md](./health-check.md) | [loom-server](../crates/loom-server/) | `/health` endpoint |
 | [retry-strategy.md](./retry-strategy.md) | [loom-http](../crates/loom-http/) | Exponential backoff |
 | [job-scheduler-system.md](./job-scheduler-system.md) | [loom-jobs](../crates/loom-jobs/) | Background job system |
+| [mcp-system.md](./mcp-system.md) | [loom-server](../crates/loom-server/) | MCP server endpoint for weaver provisioning |
 
 ## Terminal UI (TUI)
 
@@ -81,6 +90,7 @@ Design documentation for Loom, an AI-powered coding agent in Rust.
 | Spec | Code | Purpose |
 |------|------|---------|
 | [scm-system.md](./scm-system.md) | [loom-scm](../crates/loom-server-scm/), [loom-scm-mirror](../crates/loom-scm-mirror/) | Git hosting, mirroring, webhooks, branch protection |
+| [clips-system.md](./clips-system.md) | [loom-server-clips](../crates/loom-server-clips/) | Short-form code snippets (gists) with secret redaction |
 
 ## Spool (Version Control)
 
@@ -97,6 +107,12 @@ Design documentation for Loom, an AI-powered coding agent in Rust.
 | [search-system.md](./search-system.md) | [loom-thread](../crates/loom-thread/) | FTS5 search for threads |
 | [web-search-system.md](./web-search-system.md) | [loom-google-cse](../crates/loom-google-cse/) | Google CSE integration |
 | [github-app-system.md](./github-app-system.md) | [loom-github-app](../crates/loom-github-app/) | GitHub App for API access |
+
+## Messaging Integrations
+
+| Spec | Code | Purpose |
+|------|------|---------|
+| [whatsapp-system.md](./whatsapp-system.md) | [loom-whatsapp](../crates/loom-whatsapp/), [loom-server-whatsapp](../crates/loom-server-whatsapp/) | WhatsApp Business API integration |
 
 ## Weaver (Remote Execution)
 
@@ -123,5 +139,5 @@ Design documentation for Loom, an AI-powered coding agent in Rust.
 | [distribution.md](./distribution.md) | [loom-version](../crates/loom-version/) | Binary builds and self-update |
 | [container-system.md](./container-system.md) | [docker/](../docker/), [flake.nix](../flake.nix) | Docker/OCI via Nix |
 | [sbom-system.md](./sbom-system.md) | [.github/](../.github/) | SBOM generation (SPDX/CycloneDX) |
-| [i18n-system.md](./i18n-system.md) | [loom-i18n](../crates/loom-i18n/) | Internationalization with gettext |
+| [i18n-system.md](./i18n-system.md) | [loom-common-i18n](../crates/loom-common-i18n/) | Internationalization with gettext (17 locales) |
 | [testing.md](./testing.md) | [crates/](../crates/) | Property-based testing with proptest |
