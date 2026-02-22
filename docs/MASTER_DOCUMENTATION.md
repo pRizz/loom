@@ -22,6 +22,12 @@ Diátaxis sections:
 - Reference: `/docs/reference`
 - Explanation: `/docs/explanation`
 
+Adoption guides:
+
+- GSD to Loom adoption (root canonical): `/Users/peterryszkiewicz/Repos/loom/docs/GSD_TO_LOOM_ADOPTION.md`
+- Loom onboarding tutorial: `/docs/tutorials/getting-started`
+- Thread workflow tutorial: `/docs/tutorials/first-thread`
+
 Complete current page map (from `web/loom-web/static/docs-index.json`):
 
 - Tutorials
@@ -65,6 +71,7 @@ High-value generated reference pages:
 ### B. Repository-level navigation docs
 
 - Quick guide: `/Users/peterryszkiewicz/Repos/loom/docs/USER_GUIDE.md`
+- GSD migration guide: `/Users/peterryszkiewicz/Repos/loom/docs/GSD_TO_LOOM_ADOPTION.md`
 - This master index: `/Users/peterryszkiewicz/Repos/loom/docs/MASTER_DOCUMENTATION.md`
 
 ### C. Specs (design-level documentation)

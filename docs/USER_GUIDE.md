@@ -11,6 +11,7 @@ Quick navigation hub for Loom users, operators, admins, and integrators.
 
 - Docs hub: `/docs`
 - Master documentation index: `/Users/peterryszkiewicz/Repos/loom/docs/MASTER_DOCUMENTATION.md`
+- GSD adoption guide: `/Users/peterryszkiewicz/Repos/loom/docs/GSD_TO_LOOM_ADOPTION.md`
 - Getting started tutorial: `/docs/tutorials/getting-started`
 - CLI reference (generated): `/docs/reference/cli`
 - Public surface matrix: `/docs/reference/public-surface-matrix`
