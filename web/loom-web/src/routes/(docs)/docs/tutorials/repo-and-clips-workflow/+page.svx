@@ -1,0 +1,66 @@
+---
+title: Repo And Clips Workflow
+summary: Browse repositories, inspect code history, and publish clips with code-derived references.
+diataxis: tutorial
+order: 60
+tags:
+  - repos
+  - clips
+---
+
+<script>
+	import { Callout } from '$lib/docs/components';
+</script>
+
+# Repo And Clips Workflow
+
+This workflow combines repository browsing surfaces and clip-sharing surfaces.
+
+## 1. Navigate repository browser in web UI
+
+Primary route family:
+
+- `/repos/:owner/:repo`
+- `/repos/:owner/:repo/tree/:path`
+- `/repos/:owner/:repo/blob/:path`
+- `/repos/:owner/:repo/blame/:path`
+- `/repos/:owner/:repo/commit/:sha`
+- `/repos/:owner/:repo/compare/:refs`
+
+These pages are backed by server routes under `/api/repos/{owner}/{name}/*`.
+
+## 2. Use Git smart protocol endpoints when needed
+
+Server routes include:
+
+- `/git/{owner}/{repo}/info/refs`
+- `/git/{owner}/{repo}/git-upload-pack`
+- `/git/{owner}/{repo}/git-receive-pack`
+
+Clips also expose Git-style endpoints under `/git/clips/{owner}/{name}/*`.
+
+## 3. Create and iterate clips
+
+Web clip routes:
+
+- `/clips/new`
+- `/clips/:owner/:name`
+- `/clips/:owner/:name/edit`
+- `/clips/:owner/:name/revisions`
+
+API routes include create/fork/update/delete/list/star operations under `/api/clips/*`.
+
+## 4. Coordinate Loom thread context with repo work
+
+When using CLI for implementation assistance:
+
+```bash
+loom
+loom search "repo migration decision"
+```
+
+Capture key commit references in thread prompts so later search and handoff are reliable.
+
+<Callout variant="tip" title="Clip publication pattern">
+	Use clips for concise, reviewable snippets while keeping long-form implementation rationale in Loom threads.
+</Callout>

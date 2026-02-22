@@ -1,75 +1,110 @@
 ---
 title: Getting Started with Loom
-summary: Create your first thread and learn the basics of AI-assisted coding.
+summary: Install the CLI, authenticate, and run your first thread workflow.
 diataxis: tutorial
 order: 10
 tags:
   - onboarding
-  - beginner
+  - cli
 ---
 
 <script>
-	import { Callout, LinkCard } from '$lib/docs/components';
+	import { Callout, LinkCard, Steps, Step } from '$lib/docs/components';
 </script>
 
 # Getting Started with Loom
 
-Welcome to Loom! This tutorial will walk you through creating your first AI-assisted coding session.
+This tutorial gets you from a clean machine to a working Loom CLI session.
 
-<Callout variant="info" title="Prerequisites">
-	Before you begin, make sure you have a Loom account, Node.js 20+ installed, and a terminal application.
+<Callout variant="info" title="What you will complete">
+	You will install `loom`, authenticate with a server, start a thread, and resume it from history.
 </Callout>
 
-## Step 1: Install the CLI
+## Prerequisites
 
-Install the Loom CLI using your preferred package manager:
+- A Loom server URL (for example `https://loom.ghuntley.com`)
+- A user account on that server
+- A terminal environment with Rust/Nix available
 
-```bash
-pnpm add -g loom-cli
-```
+## 1. Install the CLI
 
-## Step 2: Authenticate
+Pick one path.
 
-Log in to your Loom account:
-
-```bash
-loom login
-```
-
-This will open a browser window for authentication.
-
-## Step 3: Verify Installation
-
-Check that everything is working:
+<Steps>
+	<Step title="Build with Nix (recommended in this repository)">
 
 ```bash
-loom --version
+nix build .#loom-cli-c2n
+./result/bin/loom version
 ```
 
-## Creating Your First Thread
-
-A **thread** is a conversation with the Loom AI agent. Let's create one:
+	</Step>
+	<Step title="Build with Cargo for active development">
 
 ```bash
-loom new "Help me write a React component"
+cargo build -p loom-cli
+./target/debug/loom version
 ```
 
-The agent will respond with suggestions and code. You can continue the conversation naturally.
+	</Step>
+</Steps>
 
-<Callout variant="tip">
-	Use descriptive prompts to get better results. Include context about your project, coding style preferences, and specific requirements.
+## 2. Authenticate
+
+Login stores credentials for the configured server URL.
+
+```bash
+loom --server-url https://loom.ghuntley.com login
+```
+
+To verify auth state, run a command that requires server access, such as listing weavers:
+
+```bash
+loom --server-url https://loom.ghuntley.com weaver ps
+```
+
+## 3. Start your first interactive thread
+
+Running `loom` with no subcommand creates a new thread and enters the REPL.
+
+```bash
+loom --server-url https://loom.ghuntley.com
+```
+
+Type your request, then exit with `Ctrl+C` when finished.
+
+## 4. Inspect and resume thread history
+
+```bash
+loom list
+loom resume
+loom resume <thread-id>
+```
+
+- `loom list` shows known threads.
+- `loom resume` reopens the most recent thread.
+- `loom resume <thread-id>` resumes a specific thread.
+
+<Callout variant="tip" title="Private local-only sessions">
+	Use `loom private` when the session must never sync to the server.
 </Callout>
 
-## Next Steps
+## Next workflows
 
-<LinkCard 
-	href="/docs/tutorials/first-thread" 
-	title="Your First Thread" 
-	description="Deep dive into thread management and conversation flow"
+<LinkCard
+	href="/docs/tutorials/first-thread"
+	title="First Thread Workflow"
+	description="Thread lifecycle, sharing, search, and replay patterns."
 />
 
-<LinkCard 
-	href="/docs/how-to/configure-auth" 
-	title="Configure Authentication" 
-	description="Set up OAuth and API keys"
+<LinkCard
+	href="/docs/tutorials/weaver-remote-execution"
+	title="Remote Weaver Execution"
+	description="Create, attach, and operate remote execution environments."
+/>
+
+<LinkCard
+	href="/docs/reference/cli"
+	title="CLI Reference"
+	description="Generated command inventory with coverage and maturity."
 />

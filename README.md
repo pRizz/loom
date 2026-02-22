@@ -20,6 +20,13 @@ The system is designed around three core principles:
 2. **Extensibility** - Easy addition of new LLM providers and tools via trait implementations
 3. **Reliability** - Robust error handling with retry mechanisms and structured logging
 
+## Documentation
+
+- Documentation hub (web route): `/docs`
+- Master docs + generation runbook: [`docs/MASTER_DOCUMENTATION.md`](docs/MASTER_DOCUMENTATION.md)
+- Repository quick guide: [`docs/USER_GUIDE.md`](docs/USER_GUIDE.md)
+- Public surface matrix (generated): `/docs/reference/public-surface-matrix`
+
 ## Architecture
 
 Loom is organized as a Cargo workspace with 30+ crates:

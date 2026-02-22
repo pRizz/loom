@@ -1,0 +1,74 @@
+---
+title: Configure WhatsApp
+summary: Configure org-level WhatsApp integration, webhook validation, and user linking.
+diataxis: how-to
+order: 40
+tags:
+  - whatsapp
+  - messaging
+---
+
+<script>
+	import { Callout } from '$lib/docs/components';
+</script>
+
+# Configure WhatsApp
+
+Loom supports WhatsApp configuration at org scope and user-linking flows.
+
+## 1. Set platform client defaults (optional)
+
+```bash
+export LOOM_SERVER_WHATSAPP_BASE_URL="https://graph.facebook.com/v21.0"
+export LOOM_SERVER_WHATSAPP_TIMEOUT_SECS="30"
+```
+
+## 2. Configure org-level WhatsApp credentials
+
+Use web UI routes:
+
+- `/settings/orgs/:orgId/whatsapp`
+- `/settings/orgs/:orgId/whatsapp/groups`
+
+Or API routes:
+
+- `POST /api/orgs/{org_id}/whatsapp/config`
+- `GET /api/orgs/{org_id}/whatsapp/config`
+- `DELETE /api/orgs/{org_id}/whatsapp/config`
+
+## 3. Configure webhook in Meta
+
+Set callback URL:
+
+```text
+https://loom.example.com/api/whatsapp/webhook
+```
+
+Verification and delivery routes:
+
+- `GET /api/whatsapp/webhook` (challenge verification)
+- `POST /api/whatsapp/webhook` (message delivery)
+
+## 4. Link user accounts to WhatsApp identity
+
+User self-service routes:
+
+- `POST /api/users/me/whatsapp/link`
+- `POST /api/users/me/whatsapp/verify`
+- `DELETE /api/users/me/whatsapp/unlink`
+
+## 5. Validate group routing
+
+Group management routes:
+
+- `GET /api/orgs/{org_id}/whatsapp/groups`
+- `POST /api/orgs/{org_id}/whatsapp/groups`
+- `DELETE /api/orgs/{org_id}/whatsapp/groups/{group_id}`
+
+Conversation move route:
+
+- `POST /api/orgs/{org_id}/whatsapp/conversations/{conversation_id}/move`
+
+<Callout variant="warning" title="Secret handling">
+	Store WhatsApp access credentials as secrets and rotate them periodically.
+</Callout>

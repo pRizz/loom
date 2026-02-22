@@ -1,6 +1,6 @@
 ---
 title: CLI Reference
-summary: Complete command reference for the Loom CLI.
+summary: Code-derived command inventory for the Loom CLI with maturity and access coverage.
 diataxis: reference
 order: 10
 tags:
@@ -8,88 +8,69 @@ tags:
   - reference
 ---
 
-<script>
-	import { Callout } from '$lib/docs/components';
+<script lang="ts">
+	import { Callout, SurfaceTable } from '$lib/docs/components';
+	import { getCliRows } from '$lib/docs/surface/view-model';
+
+	const rows = getCliRows();
+	const threadRows = rows.filter((row) =>
+		row.label.startsWith('loom list') ||
+		row.label.startsWith('loom resume') ||
+		row.label.startsWith('loom private') ||
+		row.label.startsWith('loom share') ||
+		row.label.startsWith('loom search')
+	);
+	const operationalRows = rows.filter((row) =>
+		row.label.startsWith('loom weaver') ||
+		row.label.startsWith('loom tunnel') ||
+		row.label.startsWith('loom ssh') ||
+		row.label.startsWith('loom wg')
+	);
 </script>
 
 # CLI Reference
 
-Complete reference for all Loom CLI commands.
+This page is generated from the Rust command declarations under `crates/loom-cli*`.
 
-## Global Options
+## High-value workflows
 
-| Option | Description |
-|--------|-------------|
-| `--help, -h` | Show help message |
-| `--version, -V` | Show version number |
-| `--server-url` | Override server URL |
-| `--verbose, -v` | Enable verbose output |
-
-## Commands
-
-### `loom new`
-
-Create a new thread with an initial message.
+### Thread lifecycle
 
 ```bash
-loom new [message]
+loom
+loom list
+loom resume [thread-id]
+loom private
+loom share [thread-id] --visibility organization|private|public
+loom share [thread-id] --support
+loom search "query"
 ```
 
-**Options:**
-- `--image <path>` - Attach an image to the message
-
-**Examples:**
+### Remote execution and connectivity
 
 ```bash
-loom new "Help me refactor this function"
-loom new "What's in this screenshot?" --image ./screenshot.png
+loom weaver ps
+loom weaver new --image IMAGE --repo URL --branch BRANCH
+loom weaver attach <weaver-id>
+loom ssh <weaver-id>
+loom tunnel up --weaver <weaver-id>
+loom wg devices list
 ```
 
-### `loom attach`
-
-Attach to an existing thread.
+### Operational observability commands
 
 ```bash
-loom attach <thread-id>
+loom crash projects --org <org-id>
+loom crons monitors --org <org-id>
+loom sessions list --project <project-id>
 ```
 
-### `loom threads`
-
-Manage threads.
-
-```bash
-loom threads list          # List all threads
-loom threads show <id>     # Show thread details
-loom threads delete <id>   # Delete a thread
-loom threads export <id>   # Export thread to JSON
-```
-
-### `loom login`
-
-Authenticate with the Loom server.
-
-```bash
-loom login [--provider <name>]
-```
-
-<Callout variant="info">
-	Supported providers: `github`, `google`, `magic-link`
+<Callout variant="info" title="Generated inventory">
+	The table below is code-derived and validated in CI via `pnpm docs:surface:check`.
 </Callout>
 
-### `loom logout`
+<SurfaceTable title="Thread And Session Commands" rows={threadRows} />
 
-Clear authentication credentials.
+<SurfaceTable title="Operational And Weaver Commands" rows={operationalRows} />
 
-```bash
-loom logout
-```
-
-### `loom weaver`
-
-Manage remote execution environments.
-
-```bash
-loom weaver ps             # List running weavers
-loom weaver create         # Create a new weaver
-loom weaver delete <id>    # Delete a weaver
-```
+<SurfaceTable title="Full CLI Surface" rows={rows} />

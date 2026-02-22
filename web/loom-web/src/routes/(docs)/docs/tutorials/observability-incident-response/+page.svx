@@ -1,0 +1,70 @@
+---
+title: Observability Incident Response
+summary: Use crash, crons, and sessions surfaces to detect, triage, and close incidents.
+diataxis: tutorial
+order: 50
+tags:
+  - observability
+  - operations
+---
+
+<script>
+	import { Callout } from '$lib/docs/components';
+</script>
+
+# Observability Incident Response
+
+Loom exposes three primary observability domains: **crash**, **crons**, and **sessions**.
+
+## 1. Triage crash signals
+
+```bash
+loom crash projects --org <org-id>
+loom crash issues --project <project-id>
+loom crash api-keys --project <project-id>
+```
+
+Common escalation path:
+
+```bash
+loom crash create-project --org <org-id> --name "api" --platform rust
+loom crash create-api-key --project <project-id> --name ci-capture --key-type capture
+```
+
+## 2. Monitor scheduled job health with crons
+
+```bash
+loom crons monitors --org <org-id>
+loom crons get --org <org-id> --slug <monitor-slug>
+loom crons stats --org <org-id> --slug <monitor-slug> --period week
+```
+
+Create/update/pause/resume:
+
+```bash
+loom crons create --org <org-id> --slug billing-sync --name "Billing Sync" --cron "*/5 * * * *"
+loom crons pause --org <org-id> --slug billing-sync
+loom crons resume --org <org-id> --slug billing-sync
+```
+
+## 3. Review session health
+
+```bash
+loom sessions list --project <project-id>
+loom sessions releases --project <project-id> --environment production --days 7
+loom sessions release --project <project-id> --version <release-version>
+```
+
+## 4. Use ping URLs for external checks
+
+Server routes support ping status updates:
+
+- `GET/POST /ping/{key}`
+- `GET /ping/{key}/start`
+- `GET /ping/{key}/fail`
+
+These are typically called from cron jobs or external schedulers.
+
+<Callout variant="warning" title="Response ownership">
+	When an incident involves shared code context, link the operational artifact to a Loom thread and set visibility explicitly.
+</Callout>

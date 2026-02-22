@@ -1,0 +1,87 @@
+---
+title: Troubleshoot Common Failures
+summary: Diagnose authentication, weaver, tunnel, and docs drift failures quickly.
+diataxis: how-to
+order: 70
+tags:
+  - troubleshooting
+  - operations
+---
+
+<script>
+	import { Callout } from '$lib/docs/components';
+</script>
+
+# Troubleshoot Common Failures
+
+Use this checklist when Loom commands or platform routes fail.
+
+## Authentication and session failures
+
+### Symptom: `401 Unauthorized`
+
+Checks:
+
+1. `loom --server-url <url> login`
+2. Verify command uses the same `--server-url` as login.
+3. Test `/auth/providers` and `/auth/me` on the target server.
+
+### Symptom: OAuth callback loop
+
+Checks:
+
+1. Verify provider redirect URI exactly matches Loom callback route.
+2. Confirm provider env vars are loaded in the active server process.
+
+## Weaver failures
+
+### Symptom: `ErrImagePull` or immediate pod exit
+
+Checks:
+
+1. Validate image path and registry access.
+2. Confirm image entrypoint keeps process alive.
+3. Inspect `loom weaver ps` and server logs.
+
+### Symptom: Attach fails
+
+Checks:
+
+1. Confirm weaver is still listed.
+2. Delete/recreate stale weaver session.
+
+## Tunnel/SSH failures
+
+### Symptom: `loom ssh` cannot connect
+
+Checks:
+
+1. Register/list device: `loom wg devices list`.
+2. Verify `loom tunnel status` while session is active.
+3. Revoke stale device and re-register.
+
+## Thread workflow failures
+
+### Symptom: Cannot share thread
+
+Cause: `loom private` sessions are local-only.
+
+Fix: Start a non-private session (`loom`) for shareable workflows.
+
+## Documentation drift failures in CI
+
+### Symptom: `docs:surface:check` fails
+
+Fix:
+
+```bash
+cd web/loom-web
+pnpm docs:surface
+pnpm docs:surface:check
+```
+
+Commit regenerated files under `src/lib/docs/generated/`.
+
+<Callout variant="tip" title="Escalation policy">
+	When incidents span code + runtime + auth, open a Loom thread and attach exact command output and route IDs from the generated reference pages.
+</Callout>

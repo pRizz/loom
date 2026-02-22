@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "domain": "vscode",
+  "items": [
+    {
+      "id": "vscode:command:loom.cancelCurrentTurn",
+      "domain": "vscode",
+      "kind": "command",
+      "label": "Cancel Current Turn",
+      "summary": "Loom command",
+      "commandId": "loom.cancelCurrentTurn",
+      "title": "Cancel Current Turn",
+      "category": "Loom",
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "id": "vscode:command:loom.explainSelection",
+      "domain": "vscode",
+      "kind": "command",
+      "label": "Explain Selection",
+      "summary": "Loom command",
+      "commandId": "loom.explainSelection",
+      "title": "Explain Selection",
+      "category": "Loom",
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "id": "vscode:command:loom.newSession",
+      "domain": "vscode",
+      "kind": "command",
+      "label": "New Session",
+      "summary": "Loom command",
+      "commandId": "loom.newSession",
+      "title": "New Session",
+      "category": "Loom",
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "id": "vscode:command:loom.openChat",
+      "domain": "vscode",
+      "kind": "command",
+      "label": "Open Chat",
+      "summary": "Loom command",
+      "commandId": "loom.openChat",
+      "title": "Open Chat",
+      "category": "Loom",
+      "keybinding": "ctrl+shift+l | cmd+shift+l",
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "id": "vscode:command:loom.refactorSelection",
+      "domain": "vscode",
+      "kind": "command",
+      "label": "Refactor Selection",
+      "summary": "Loom command",
+      "commandId": "loom.refactorSelection",
+      "title": "Refactor Selection",
+      "category": "Loom",
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "id": "vscode:command:loom.restartAgent",
+      "domain": "vscode",
+      "kind": "command",
+      "label": "Restart Agent",
+      "summary": "Loom command",
+      "commandId": "loom.restartAgent",
+      "title": "Restart Agent",
+      "category": "Loom",
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "id": "vscode:command:loom.showLogs",
+      "domain": "vscode",
+      "kind": "command",
+      "label": "Show Logs",
+      "summary": "Loom command",
+      "commandId": "loom.showLogs",
+      "title": "Show Logs",
+      "category": "Loom",
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 100
+        }
+      ]
+    },
+    {
+      "id": "vscode:setting:loom.additionalArgs",
+      "domain": "vscode",
+      "kind": "setting",
+      "label": "loom.additionalArgs",
+      "summary": "Additional arguments to pass to the Loom agent.",
+      "settingKey": "loom.additionalArgs",
+      "settingType": "array",
+      "defaultValue": [],
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "id": "vscode:setting:loom.autoStart",
+      "domain": "vscode",
+      "kind": "setting",
+      "label": "loom.autoStart",
+      "summary": "Automatically start the Loom agent when the extension activates.",
+      "settingKey": "loom.autoStart",
+      "settingType": "boolean",
+      "defaultValue": true,
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 62
+        }
+      ]
+    },
+    {
+      "id": "vscode:setting:loom.logLevel",
+      "domain": "vscode",
+      "kind": "setting",
+      "label": "loom.logLevel",
+      "summary": "Log level for the Loom extension.",
+      "settingKey": "loom.logLevel",
+      "settingType": "string",
+      "defaultValue": "info",
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "id": "vscode:setting:loom.loomPath",
+      "domain": "vscode",
+      "kind": "setting",
+      "label": "loom.loomPath",
+      "summary": "Path to the Loom executable. If empty, uses PATH.",
+      "settingKey": "loom.loomPath",
+      "settingType": "string",
+      "defaultValue": "",
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 37
+        }
+      ]
+    },
+    {
+      "id": "vscode:setting:loom.serverUrl",
+      "domain": "vscode",
+      "kind": "setting",
+      "label": "loom.serverUrl",
+      "summary": "URL of the Loom server. If empty, starts a local agent process.",
+      "settingKey": "loom.serverUrl",
+      "settingType": "string",
+      "defaultValue": "",
+      "source": [
+        {
+          "file": "ide/vscode/package.json",
+          "line": 67
+        }
+      ]
+    }
+  ]
+}

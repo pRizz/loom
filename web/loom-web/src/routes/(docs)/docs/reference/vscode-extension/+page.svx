@@ -1,0 +1,45 @@
+---
+title: VS Code Extension Reference
+summary: Command and setting inventory generated from ide/vscode/package.json.
+diataxis: reference
+order: 50
+tags:
+  - vscode
+  - editor
+---
+
+<script lang="ts">
+	import { Callout, SurfaceTable } from '$lib/docs/components';
+	import { getVsCodeRows } from '$lib/docs/surface/view-model';
+
+	const rows = getVsCodeRows();
+	const commandRows = rows.filter((row) => row.id.startsWith('vscode:command:'));
+	const settingRows = rows.filter((row) => row.id.startsWith('vscode:setting:'));
+</script>
+
+# VS Code Extension Reference
+
+This reference is generated from `ide/vscode/package.json` and includes contributed commands and settings.
+
+## Activation model
+
+The extension activates on these triggers:
+
+- `onCommand:loom.openChat`
+- `onView:loom.chatView`
+- `onCommand:loom.explainSelection`
+- `onCommand:loom.refactorSelection`
+
+## Generated inventory
+
+<SurfaceTable title="Commands" rows={commandRows} />
+
+<SurfaceTable title="Settings" rows={settingRows} />
+
+## Full extension surface
+
+<SurfaceTable rows={rows} />
+
+<Callout variant="tip" title="Keybinding">
+	`loom.openChat` ships with `Ctrl+Shift+L` on Windows/Linux and `Cmd+Shift+L` on macOS.
+</Callout>

@@ -1,0 +1,1249 @@
+{
+  "version": 1,
+  "domain": "cli",
+  "items": [
+    {
+      "id": "cli:loom",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom",
+      "summary": "Loom CLI root command.",
+      "command": "loom",
+      "parentCommand": null,
+      "depth": 0,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.acp-agent",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom acp-agent",
+      "summary": "Run as ACP agent over stdio (for editor integration)",
+      "command": "loom acp-agent",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 195
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.attach",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom attach",
+      "summary": "Attach to a running weaver (alias: weaver attach)",
+      "command": "loom attach",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 218
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crash",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crash",
+      "summary": "Crash analytics commands",
+      "command": "loom crash",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 251
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crash.api-keys",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crash api-keys",
+      "summary": "List API keys for a crash project",
+      "command": "loom crash api-keys",
+      "parentCommand": "loom crash",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 333
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crash.create-api-key",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crash create-api-key",
+      "summary": "Create an API key for a crash project",
+      "command": "loom crash create-api-key",
+      "parentCommand": "loom crash",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 321
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crash.create-project",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crash create-project",
+      "summary": "Create a new crash project",
+      "command": "loom crash create-project",
+      "parentCommand": "loom crash",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 309
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crash.issues",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crash issues",
+      "summary": "List issues for a crash project",
+      "command": "loom crash issues",
+      "parentCommand": "loom crash",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 288
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crash.projects",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crash projects",
+      "summary": "List crash projects for an organization",
+      "command": "loom crash projects",
+      "parentCommand": "loom crash",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 279
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crash.upload-sourcemaps",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crash upload-sourcemaps",
+      "summary": "Upload source maps for a release",
+      "command": "loom crash upload-sourcemaps",
+      "parentCommand": "loom crash",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 297
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.credential-helper",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom credential-helper",
+      "summary": "Git credential helper for Loom SCM authentication  Configure git to use this helper: git config --global credential.https://loom.ghuntley.com.helper 'loom credential-helper'",
+      "command": "loom credential-helper",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 232
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons",
+      "summary": "Crons monitoring commands",
+      "command": "loom crons",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 256
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.checkins",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons checkins",
+      "summary": "List check-ins for a monitor",
+      "command": "loom crons checkins",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 403
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.create",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons create",
+      "summary": "Create a new cron monitor",
+      "command": "loom crons create",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 367
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.delete",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons delete",
+      "summary": "Delete a cron monitor",
+      "command": "loom crons delete",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 394
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.get",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons get",
+      "summary": "Get details of a specific monitor",
+      "command": "loom crons get",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 355
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.monitors",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons monitors",
+      "summary": "List cron monitors for an organization",
+      "command": "loom crons monitors",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 346
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.overview",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons overview",
+      "summary": "Get overview stats for all monitors in an organization",
+      "command": "loom crons overview",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 500
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.pause",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons pause",
+      "summary": "Pause monitoring for a cron monitor",
+      "command": "loom crons pause",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 461
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.ping",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons ping",
+      "summary": "Send a ping to a monitor (success)",
+      "command": "loom crons ping",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 418
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.ping-fail",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons ping-fail",
+      "summary": "Send a fail ping to a monitor",
+      "command": "loom crons ping-fail",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 423
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.resume",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons resume",
+      "summary": "Resume monitoring for a paused cron monitor",
+      "command": "loom crons resume",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 473
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.stats",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons stats",
+      "summary": "Get stats for a specific monitor",
+      "command": "loom crons stats",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 485
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.crons.update",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom crons update",
+      "summary": "Update a cron monitor",
+      "command": "loom crons update",
+      "parentCommand": "loom crons",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 428
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.list",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom list",
+      "summary": "List local threads",
+      "command": "loom list",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 160
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.login",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom login",
+      "summary": "Authenticate with Loom services",
+      "command": "loom login",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 156
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.logout",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom logout",
+      "summary": "Log out from Loom services",
+      "command": "loom logout",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 158
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.new",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom new",
+      "summary": "Create a new remote weaver session (alias: weaver new)",
+      "command": "loom new",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 197
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.private",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom private",
+      "summary": "Start a new private (local-only) session that never syncs",
+      "command": "loom private",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 167
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.resume",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom resume",
+      "summary": "Resume an existing thread",
+      "command": "loom resume",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 162
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.search",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom search",
+      "summary": "Search threads by content, git metadata, or commit SHA",
+      "command": "loom search",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 180
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.sessions",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom sessions",
+      "summary": "Session analytics commands",
+      "command": "loom sessions",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 261
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.sessions.list",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom sessions list",
+      "summary": "List sessions for a project",
+      "command": "loom sessions list",
+      "parentCommand": "loom sessions",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 513
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.sessions.release",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom sessions release",
+      "summary": "Get release health detail for a specific version",
+      "command": "loom sessions release",
+      "parentCommand": "loom sessions",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 543
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.sessions.releases",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom sessions releases",
+      "summary": "List release health for a project",
+      "command": "loom sessions releases",
+      "parentCommand": "loom sessions",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 528
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.share",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom share",
+      "summary": "Change server-side visibility of a synced thread",
+      "command": "loom share",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 169
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool",
+      "summary": "Spool version control (jj-based VCS with tapestry naming)",
+      "command": "loom spool",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 234
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.compare",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool compare",
+      "command": "loom spool compare",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.draw",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool draw",
+      "command": "loom spool draw",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.duplicate",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool duplicate",
+      "command": "loom spool duplicate",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 36
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.edit",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool edit",
+      "command": "loom spool edit",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 35
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.knot",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool knot",
+      "command": "loom spool knot",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.mark",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool mark",
+      "command": "loom spool mark",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.mend",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool mend",
+      "command": "loom spool mend",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 27
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.pin",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool pin",
+      "command": "loom spool pin",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 28
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.pin.create",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool pin create",
+      "summary": "Create a new pin at the current stitch",
+      "command": "loom spool pin create",
+      "parentCommand": "loom spool pin",
+      "depth": 3,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/commands/pin.rs",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.pin.delete",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool pin delete",
+      "summary": "Delete a pin",
+      "command": "loom spool pin delete",
+      "parentCommand": "loom spool pin",
+      "depth": 3,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/commands/pin.rs",
+          "line": 25
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.pin.list",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool pin list",
+      "summary": "List all pins (bookmarks)",
+      "command": "loom spool pin list",
+      "parentCommand": "loom spool pin",
+      "depth": 3,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/commands/pin.rs",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.pin.move",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool pin move",
+      "summary": "Move a pin to the current stitch",
+      "command": "loom spool pin move",
+      "parentCommand": "loom spool pin",
+      "depth": 3,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/commands/pin.rs",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.ply",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool ply",
+      "command": "loom spool ply",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.rethread",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool rethread",
+      "command": "loom spool rethread",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 23
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.show",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool show",
+      "command": "loom spool show",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.shuttle",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool shuttle",
+      "command": "loom spool shuttle",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 29
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.snip",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool snip",
+      "command": "loom spool snip",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 26
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.stitch",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool stitch",
+      "command": "loom spool stitch",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.tension",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool tension",
+      "command": "loom spool tension",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.tension-log",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool tension-log",
+      "command": "loom spool tension-log",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 31
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.trace",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool trace",
+      "command": "loom spool trace",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.unpick",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool unpick",
+      "command": "loom spool unpick",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 32
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.unravel",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool unravel",
+      "command": "loom spool unravel",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 25
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.untangle",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool untangle",
+      "command": "loom spool untangle",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.spool.wind",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom spool wind",
+      "command": "loom spool wind",
+      "parentCommand": "loom spool",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-spool/src/lib.rs",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.ssh",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom ssh",
+      "summary": "SSH to a weaver through WireGuard tunnel",
+      "command": "loom ssh",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 244
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.tunnel",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom tunnel",
+      "summary": "WireGuard tunnel management",
+      "command": "loom tunnel",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 239
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.tunnel.down",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom tunnel down",
+      "summary": "Stop the WireGuard tunnel",
+      "command": "loom tunnel down",
+      "parentCommand": "loom tunnel",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-wgtunnel/src/commands/tunnel.rs",
+          "line": 20
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.tunnel.status",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom tunnel status",
+      "summary": "Show tunnel status",
+      "command": "loom tunnel status",
+      "parentCommand": "loom tunnel",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-wgtunnel/src/commands/tunnel.rs",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.tunnel.up",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom tunnel up",
+      "summary": "Start the WireGuard tunnel",
+      "command": "loom tunnel up",
+      "parentCommand": "loom tunnel",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli-wgtunnel/src/commands/tunnel.rs",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.update",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom update",
+      "summary": "Update Loom to the latest version from the server",
+      "command": "loom update",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 193
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.version",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom version",
+      "summary": "Show version and build information",
+      "command": "loom version",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 191
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.weaver",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom weaver",
+      "summary": "Weaver management commands",
+      "command": "loom weaver",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 223
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.weaver.attach",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom weaver attach",
+      "summary": "Attach to a running weaver",
+      "command": "loom weaver attach",
+      "parentCommand": "loom weaver",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 136
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.weaver.delete",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom weaver delete",
+      "summary": "Delete a weaver",
+      "command": "loom weaver delete",
+      "parentCommand": "loom weaver",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 147
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.weaver.new",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom weaver new",
+      "summary": "Create a new remote weaver session",
+      "command": "loom weaver new",
+      "parentCommand": "loom weaver",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 115
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.weaver.ps",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom weaver ps",
+      "summary": "List running weavers",
+      "command": "loom weaver ps",
+      "parentCommand": "loom weaver",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 141
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.wg",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom wg",
+      "summary": "WireGuard device management",
+      "command": "loom wg",
+      "parentCommand": "loom",
+      "depth": 1,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 246
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.wg.devices",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom wg devices",
+      "summary": "Device management subcommands",
+      "command": "loom wg devices",
+      "parentCommand": "loom wg",
+      "depth": 2,
+      "source": [
+        {
+          "file": "crates/loom-cli/src/main.rs",
+          "line": 270
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.wg.devices.list",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom wg devices list",
+      "summary": "List registered devices",
+      "command": "loom wg devices list",
+      "parentCommand": "loom wg devices",
+      "depth": 3,
+      "source": [
+        {
+          "file": "crates/loom-cli-wgtunnel/src/commands/devices.rs",
+          "line": 13
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.wg.devices.register",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom wg devices register",
+      "summary": "Register current device",
+      "command": "loom wg devices register",
+      "parentCommand": "loom wg devices",
+      "depth": 3,
+      "source": [
+        {
+          "file": "crates/loom-cli-wgtunnel/src/commands/devices.rs",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "id": "cli:loom.wg.devices.revoke",
+      "domain": "cli",
+      "kind": "command",
+      "label": "loom wg devices revoke",
+      "summary": "Revoke a device",
+      "command": "loom wg devices revoke",
+      "parentCommand": "loom wg devices",
+      "depth": 3,
+      "source": [
+        {
+          "file": "crates/loom-cli-wgtunnel/src/commands/devices.rs",
+          "line": 17
+        }
+      ]
+    }
+  ]
+}

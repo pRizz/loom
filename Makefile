@@ -7,7 +7,7 @@ GITLEAKS_VENDOR_DIR := crates/loom-redact/third_party/gitleaks
 
 .PHONY: all build test lint format check clean help dev dev-server dev-web update-gitleaks sbom sbom-spdx sbom-cyclonedx release \
 	docker-build docker-build-nix docker-run docker-web-build \
-	web-install web-dev web-build web-test web-storybook web-storybook-build web-lint web-format web-check
+	web-install web-dev web-build web-test web-storybook web-storybook-build web-lint web-format web-check web-docs-check
 
 # Help target
 help:
@@ -33,6 +33,7 @@ help:
 	@echo "  make web-lint           - Lint and format check"
 	@echo "  make web-format         - Format code with Prettier"
 	@echo "  make web-check          - Full checks (lint + test + build)"
+	@echo "  make web-docs-check     - Verify generated public docs surface is up to date"
 	@echo "  make web-storybook      - Start Storybook dev server"
 	@echo "  make web-storybook-build - Build Storybook static site"
 	@echo ""
@@ -233,6 +234,10 @@ web-format:
 web-check: web-lint web-test web-build
 	@echo "loom-web checks complete"
 
+web-docs-check:
+	@echo "Checking generated public docs surface..."
+	cd $(WEB_DIR) && pnpm docs:surface:check
+
 # Start Storybook dev server
 web-storybook:
 	@echo "Starting Storybook..."
@@ -245,5 +250,4 @@ web-storybook-build:
 
 nixos-switch:
 	sudo nixos-rebuild switch --flake .#virtualMachine
-
 

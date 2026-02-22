@@ -1,71 +1,319 @@
 {
   "version": 1,
-  "generated_at": "2026-01-25T09:26:56.828Z",
+  "generated_at": "2026-02-22T16:32:35.074Z",
   "docs": [
     {
       "doc_id": "explanation/architecture",
       "path": "/docs/explanation/architecture",
       "title": "Architecture Overview",
-      "summary": "Understand how Loom's components work together.",
+      "summary": "How CLI, server, web, and extension surfaces fit together in Loom.",
       "diataxis": "explanation",
       "tags": [
         "architecture",
-        "internals"
+        "platform"
       ],
-      "updated_at": "2026-01-25T09:26:56.827Z",
-      "body": "Architecture Overview Loom is designed as a distributed system with several key components working together. System Components Loom Server The central hub that coordinates: - Thread Management: Storing and syncing conversations - LLM Proxy: Routing requests to AI providers - Authentication: User identity and access control - Weaver Provisioning: Managing remote execution environments Loom CLI The command-line interface that users interact with directly. It: - Maintains a local connection to the server - Provides a REPL for conversations - Executes tools on the local filesystem Weavers Ephemeral execution environments for running agent tasks: - Kubernetes pods with isolated filesystems - Pre-configured with development tools - Automatically cleaned up after use Data Flow 1. User sends a message via CLI 2. CLI forwards to server via WebSocket 3. Server proxies to LLM provider 4. Response streams back through the same path 5. Tool calls may route to local CLI or remote Weaver The server acts as a \"man in the middle\" to enable features like session sharing, audit logging, and usage tracking. State Machine The agent operates as a state machine: | State | Description | |-------|-------------| | Idle | Waiting for user input | | Calling LLM | Sending request to AI provider | | Processing Response | Parsing LLM output | | Executing Tool | Running a tool call | | Complete | Task finished | Transitions are triggered by events like user messages, LLM responses, and tool completions. Design Principles 1. Server-side LLM: The agent logic runs on the server, not in the CLI 2. Streaming First: All responses stream in real-time 3. Tool Isolation: Tools can run locally or remotely 4. Audit Everything: Complete history of all actions"
+      "updated_at": "2026-02-22T16:32:35.072Z",
+      "body": "Architecture Overview Loom is a multi-surface system with a shared backend and multiple client entry points. Core surfaces - CLI ( ): primary operator/developer interface for threads, weavers, spool, and observability workflows. - Server ( ): HTTP API, auth/session handling, thread sync, web assets, integrations. - Web app ( ): authenticated UI for threads, repos, clips, admin, and observability views. - VS Code extension ( ): editor-facing integration and chat workflows. Execution model 1. User action starts from CLI/web/extension. 2. Client authenticates against server routes ( , ). 3. Server coordinates state persistence (threads, org/team, flags, analytics, etc.). 4. Optional remote execution happens through Weaver + WireGuard tunnel services. 5. Results stream back to the originating surface. Data and control boundaries - Thread state is persisted and can be resumed/searched. - Authz decisions are enforced server-side through public/authed/admin/scim routers. - Remote execution resources are isolated from local CLI process execution. - Generated public-surface docs are built from source declarations and checked in CI. Use the linked explanation pages to deep dive on specific boundaries instead of treating this page as exhaustive. Related deep dives"
+    },
+    {
+      "doc_id": "explanation/authz-and-identity-model",
+      "path": "/docs/explanation/authz-and-identity-model",
+      "title": "Authz And Identity Model",
+      "summary": "How identity providers and route classes map to access control in Loom.",
+      "diataxis": "explanation",
+      "tags": [
+        "authz",
+        "identity"
+      ],
+      "updated_at": "2026-02-22T16:32:35.073Z",
+      "body": "Authz And Identity Model Loom uses route classes and middleware to enforce access boundaries. Route classes - PublicRouter: unauthenticated routes (health, provider discovery, auth entrypoints, docs search, webhook/ping surfaces). - AuthedRouter: authenticated user routes ( product surfaces). - Admin routes: nested under , protected by elevated role checks. - SCIM routes: , bearer-token protected for IdP provisioning. - Optional-auth routes: mixed-access Git and browser route family. Identity providers Server supports provider-backed login flows through configured OAuth clients: - GitHub - Google - Okta - device and magic-link related auth routes Session model - Browser/session auth is managed server-side. - CLI stores auth token and forwards it to server-backed APIs. - ACP/editor integrations rely on authenticated server interaction through CLI agent pathways. Role boundaries Typical boundaries include: - end-user authenticated actions - org-admin actions - system-admin actions - SCIM integrator token actions Each generated surface ID is labeled with auth scope and audience in the public-surface matrix."
+    },
+    {
+      "doc_id": "explanation/observability-model",
+      "path": "/docs/explanation/observability-model",
+      "title": "Observability Model",
+      "summary": "How crash, crons, and sessions data surfaces support incident workflows.",
+      "diataxis": "explanation",
+      "tags": [
+        "observability",
+        "analytics"
+      ],
+      "updated_at": "2026-02-22T16:32:35.073Z",
+      "body": "Observability Model Loom observability spans three operational data domains. Crash domain Purpose: capture, triage, and resolve runtime failures. Surface examples: - CLI: - Web: , , - API: Crons domain Purpose: monitor scheduled jobs/check-ins and detect missed executions. Surface examples: - CLI: - Web: , , - API: - Ping URLs: , , Sessions domain Purpose: release health and crash-free session insights. Surface examples: - CLI: - Web: , - API: Unified response model 1. Detect signal in observability surface. 2. Scope blast radius with project/org filters. 3. Correlate with thread/repo context in Loom. 4. Execute fix workflow and confirm recovery metrics. Observability surfaces are mapped in coverage metadata so teams can reason about stable vs beta vs internal operations paths."
+    },
+    {
+      "doc_id": "explanation/thread-and-sharing-model",
+      "path": "/docs/explanation/thread-and-sharing-model",
+      "title": "Thread And Sharing Model",
+      "summary": "Understand thread lifecycle, storage, and visibility transitions.",
+      "diataxis": "explanation",
+      "tags": [
+        "threads",
+        "sharing"
+      ],
+      "updated_at": "2026-02-22T16:32:35.073Z",
+      "body": "Thread And Sharing Model A Loom thread is the persisted unit of interaction history and context. Lifecycle states - Created: new thread from or . - Active: REPL exchanges and tool calls update state. - Paused: user exits REPL; thread remains resumable. - Resumed: rehydrates state. - Shared: visibility or support access updated. Storage model - Local store is always present for CLI continuity. - Synced store mirrors to server when session is not local-only. - Search surfaces ( ) query server first (when configured), then local fallback. Visibility model - : org-visible thread. - : user-private but server-synced thread. - : publicly visible thread. - : support-team access flag. Private session exception produces local-only threads ( ) that cannot be shared later. Choose normal sessions for collaborative work; choose private sessions for non-sync requirements."
+    },
+    {
+      "doc_id": "explanation/weaver-and-tunnel-model",
+      "path": "/docs/explanation/weaver-and-tunnel-model",
+      "title": "Weaver And Tunnel Model",
+      "summary": "Conceptual model for remote execution, attach paths, and WireGuard transport.",
+      "diataxis": "explanation",
+      "tags": [
+        "weaver",
+        "tunnel"
+      ],
+      "updated_at": "2026-02-22T16:32:35.073Z",
+      "body": "Weaver And Tunnel Model Weaver provides remote execution environments; WireGuard surfaces provide secure transport paths. Weaver model - Weaver creation is requested via CLI/API and provisioned by server-side infrastructure. - Sessions are listed, attached, and deleted through and routes. - Web surfaces mirror this state at and . Attach paths - (or ) for interactive attach. - for SSH entry over managed connectivity. WireGuard tunnel model - Device registry establishes trusted client identities. - Session creation links device-to-weaver tunnel endpoints. - DERP map route supports relay path discovery. Key API family: - - - Operational constraints - Tunnel-up currently targets one weaver at a time. - Stale devices/sessions should be revoked/deleted to reduce drift. Think of Weaver as compute lifecycle and WireGuard as transport lifecycle. They interact, but they are not the same control surface."
     },
     {
       "doc_id": "how-to/configure-auth",
       "path": "/docs/how-to/configure-auth",
       "title": "Configure Authentication",
-      "summary": "Set up OAuth providers and API keys for Loom.",
+      "summary": "Configure server OAuth providers and authenticate CLI users against Loom.",
       "diataxis": "how-to",
       "tags": [
-        "authentication",
-        "configuration"
+        "auth",
+        "oauth"
       ],
-      "updated_at": "2026-01-25T09:26:56.828Z",
-      "body": "Configure Authentication This guide shows you how to set up authentication for Loom. OAuth Setup 1. Create OAuth Application Go to your identity provider (GitHub, Google, etc.) and create a new OAuth application. Set the callback URL to: 2. Configure Environment Add credentials to your environment: 3. Test Authentication Verify the setup: Never commit OAuth secrets to version control. Use environment variables or a secrets manager. API Keys For programmatic access, generate an API key: Store the key securely and use it with:"
+      "updated_at": "2026-02-22T16:32:35.073Z",
+      "body": "Configure Authentication Use this guide to configure server-side authentication and verify CLI login flows. Provider environment variables Set provider credentials on the Loom server process. GitHub OAuth Google OAuth Okta OAuth Core auth controls - auto-authenticates requests for development only. - blocks self-signup and requires provisioning. Do not run with in production. Validate provider availability The public endpoint below returns enabled providers: CLI login flow Troubleshooting quick checks - Redirect URI mismatch: confirm callback URL exactly matches server route. - Provider not listed in : confirm env vars are loaded in the running process. - Login loop: clear stale cookies/session and retry."
+    },
+    {
+      "doc_id": "how-to/configure-scim",
+      "path": "/docs/how-to/configure-scim",
+      "title": "Configure SCIM",
+      "summary": "Enable SCIM provisioning and validate RFC-style user/group operations.",
+      "diataxis": "how-to",
+      "tags": [
+        "scim",
+        "identity"
+      ],
+      "updated_at": "2026-02-22T16:32:35.073Z",
+      "body": "Configure SCIM Loom exposes SCIM routes under for IdP provisioning. 1. Configure SCIM token and server URL Ensure the server is reachable at the base URL your IdP will call. 2. Set IdP SCIM base URL Use: 3. Validate discovery endpoints 4. Validate CRUD operations Core resources: - - - - - Your IdP should be able to create, patch, and delete records using bearer-token auth. Treat as a secret and rotate it on schedule."
+    },
+    {
+      "doc_id": "how-to/configure-server",
+      "path": "/docs/how-to/configure-server",
+      "title": "Configure Server",
+      "summary": "Stand up loom-server with essential environment settings and health checks.",
+      "diataxis": "how-to",
+      "tags": [
+        "server",
+        "deployment"
+      ],
+      "updated_at": "2026-02-22T16:32:35.073Z",
+      "body": "Configure Server This guide covers the minimum settings to run and validate readiness. 1. Set core runtime configuration For local testing: 2. Start server Or use your release binary/deployment mechanism. 3. Validate health and metrics routes 4. Enable optional subsystems as needed Examples of common additions: - OAuth providers ( , , ) - SCIM token ( ) - Weaver/WireGuard configuration (cluster + tunnel settings) - SMTP for email workflows Never run production with . 5. Smoke-test user-facing surfaces - Auth providers: - Docs search: - API auth check (after login): If these pass, continue with feature-specific guides for auth, SCIM, WhatsApp, and tunnels."
+    },
+    {
+      "doc_id": "how-to/configure-whatsapp",
+      "path": "/docs/how-to/configure-whatsapp",
+      "title": "Configure WhatsApp",
+      "summary": "Configure org-level WhatsApp integration, webhook validation, and user linking.",
+      "diataxis": "how-to",
+      "tags": [
+        "whatsapp",
+        "messaging"
+      ],
+      "updated_at": "2026-02-22T16:32:35.073Z",
+      "body": "Configure WhatsApp Loom supports WhatsApp configuration at org scope and user-linking flows. 1. Set platform client defaults (optional) 2. Configure org-level WhatsApp credentials Use web UI routes: - - Or API routes: - - - 3. Configure webhook in Meta Set callback URL: Verification and delivery routes: - (challenge verification) - (message delivery) 4. Link user accounts to WhatsApp identity User self-service routes: - - - 5. Validate group routing Group management routes: - - - Conversation move route: - Store WhatsApp access credentials as secrets and rotate them periodically."
+    },
+    {
+      "doc_id": "how-to/manage-orgs-teams-api-keys",
+      "path": "/docs/how-to/manage-orgs-teams-api-keys",
+      "title": "Manage Orgs, Teams, And API Keys",
+      "summary": "Operate organization access controls and API keys from web UI and HTTP APIs.",
+      "diataxis": "how-to",
+      "tags": [
+        "orgs",
+        "teams",
+        "api-keys"
+      ],
+      "updated_at": "2026-02-22T16:32:35.073Z",
+      "body": "Manage Orgs, Teams, And API Keys Use this guide for day-two administration of org-scoped access and tokens. Web UI surfaces - - - - These pages are the canonical admin flow for membership and team boundaries. Core org and membership APIs - - - - - - - - Team APIs - - - - - - - - API key APIs Organization API keys: - - - - Analytics API keys: - - - Treat org/team/key operations as admin-only; these surfaces are not end-user defaults."
+    },
+    {
+      "doc_id": "how-to/troubleshoot-common-failures",
+      "path": "/docs/how-to/troubleshoot-common-failures",
+      "title": "Troubleshoot Common Failures",
+      "summary": "Diagnose authentication, weaver, tunnel, and docs drift failures quickly.",
+      "diataxis": "how-to",
+      "tags": [
+        "troubleshooting",
+        "operations"
+      ],
+      "updated_at": "2026-02-22T16:32:35.073Z",
+      "body": "Troubleshoot Common Failures Use this checklist when Loom commands or platform routes fail. Authentication and session failures Symptom: Checks: 1. 2. Verify command uses the same as login. 3. Test and on the target server. Symptom: OAuth callback loop Checks: 1. Verify provider redirect URI exactly matches Loom callback route. 2. Confirm provider env vars are loaded in the active server process. Weaver failures Symptom: or immediate pod exit Checks: 1. Validate image path and registry access. 2. Confirm image entrypoint keeps process alive. 3. Inspect and server logs. Symptom: Attach fails Checks: 1. Confirm weaver is still listed. 2. Delete/recreate stale weaver session. Tunnel/SSH failures Symptom: cannot connect Checks: 1. Register/list device: . 2. Verify while session is active. 3. Revoke stale device and re-register. Thread workflow failures Symptom: Cannot share thread Cause: sessions are local-only. Fix: Start a non-private session ( ) for shareable workflows. Documentation drift failures in CI Symptom: fails Fix: Commit regenerated files under . When incidents span code + runtime + auth, open a Loom thread and attach exact command output and route IDs from the generated reference pages."
+    },
+    {
+      "doc_id": "how-to/use-wireguard-ssh",
+      "path": "/docs/how-to/use-wireguard-ssh",
+      "title": "Use WireGuard And SSH",
+      "summary": "Connect to Weaver workloads using Loom tunnel and SSH commands.",
+      "diataxis": "how-to",
+      "tags": [
+        "wireguard",
+        "ssh"
+      ],
+      "updated_at": "2026-02-22T16:32:35.073Z",
+      "body": "Use WireGuard And SSH This guide covers secure device registration, tunnel setup, and SSH access. 1. Register a device 2. Start a tunnel to one weaver When done: 3. SSH directly through Loom Useful flags: 4. Revoke old devices currently requires ; multi-weaver tunnel mode is not yet implemented. Server-side APIs involved - - - - - - -"
     },
     {
       "doc_id": "reference/cli",
       "path": "/docs/reference/cli",
       "title": "CLI Reference",
-      "summary": "Complete command reference for the Loom CLI.",
+      "summary": "Code-derived command inventory for the Loom CLI with maturity and access coverage.",
       "diataxis": "reference",
       "tags": [
         "cli",
         "reference"
       ],
-      "updated_at": "2026-01-25T09:26:56.828Z",
-      "body": "CLI Reference Complete reference for all Loom CLI commands. Global Options | Option | Description | |--------|-------------| | | Show help message | | | Show version number | | | Override server URL | | | Enable verbose output | Commands Create a new thread with an initial message. Options: - - Attach an image to the message Examples: Attach to an existing thread. Manage threads. Authenticate with the Loom server. Supported providers: , , Clear authentication credentials. Manage remote execution environments."
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "CLI Reference This page is generated from the Rust command declarations under . High-value workflows Thread lifecycle Remote execution and connectivity Operational observability commands The table below is code-derived and validated in CI via ."
+    },
+    {
+      "doc_id": "reference/configuration",
+      "path": "/docs/reference/configuration",
+      "title": "Configuration Reference",
+      "summary": "CLI, server, and extension configuration keys used across Loom public surfaces.",
+      "diataxis": "reference",
+      "tags": [
+        "configuration",
+        "env"
+      ],
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "Configuration Reference This page summarizes frequently-used runtime configuration knobs across Loom surfaces. CLI environment variables | Variable | Purpose | | --- | --- | | | Default server URL for CLI commands. | | | Default provider selection for CLI runtime. | | | Default workspace root for tool operations. | | / | CLI logging behavior. | | | Provider default in config loader. | | / | Direct provider credentials for compatible flows. | | / | Model override values. | | | Optional explicit thread-sync endpoint override. | | | Disable auto-commit integration in CLI sessions. | Server environment variables Core runtime | Variable | Purpose | | --- | --- | | / | HTTP bind address and port. | | | Canonical externally-visible server URL. | | | Database connection string. | | | Environment mode ( , , etc.). | | | Dev auto-auth toggle (must be off in production). | | | Disable self-signup flows. | OAuth providers | Prefix | Purpose | | --- | --- | | | GitHub OAuth setup. | | | Google OAuth setup. | | | Okta OAuth setup. | LLM + search | Variable family | Purpose | | --- | --- | | , , | Provider credentials and model defaults. | | , | Web search integrations. | Platform subsystems | Variable family | Purpose | | --- | --- | | | Weaver provisioning behavior. | | | SCIM enablement and org binding. | | | Outbound email settings. | | | Audit logging and sink behavior. | | | WhatsApp client defaults. | VS Code extension settings | Setting | Purpose | | --- | --- | | | Path to loom executable. | | | Remote server URL. | | | Extra args passed to loom process. | | | Extension log verbosity. | | | Auto-start behavior on activation. | The generated reference pages ( , , , ) are drift-checked against source code. Use this page as a configuration quick map."
+    },
+    {
+      "doc_id": "reference/http-api",
+      "path": "/docs/reference/http-api",
+      "title": "HTTP API Reference",
+      "summary": "Code-derived route inventory for public, authenticated, admin, SCIM, and optional-auth APIs.",
+      "diataxis": "reference",
+      "tags": [
+        "api",
+        "http"
+      ],
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "HTTP API Reference This inventory is generated directly from route declarations in: - - - - Every route row is joined with coverage metadata (audience, maturity, auth scope, and primary docs owner). Key route families Full route inventory"
+    },
+    {
+      "doc_id": "reference/public-surface-matrix",
+      "path": "/docs/reference/public-surface-matrix",
+      "title": "Public Surface Matrix",
+      "summary": "Unified matrix of CLI, HTTP, web, and VS Code surfaces with audience and maturity labeling.",
+      "diataxis": "reference",
+      "tags": [
+        "surface-matrix",
+        "governance"
+      ],
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "Public Surface Matrix This is the canonical cross-surface matrix for Loom public-facing interactions. Coverage snapshot | Metric | Count | | --- | ---: | | Total surfaces | {stats.total} | | CLI surfaces | {stats.cli} | | HTTP surfaces | {stats.http} | | Web UI surfaces | {stats.web} | | VS Code surfaces | {stats.vscode} | | Stable | {stats.maturity.stable} | | Beta | {stats.maturity.beta} | | Experimental | {stats.maturity.experimental} | | Internal | {stats.maturity.internal} | This matrix is generated from code and joined against coverage metadata. CI fails if generated inventories drift or if any surface lacks coverage mapping."
+    },
+    {
+      "doc_id": "reference/vscode-extension",
+      "path": "/docs/reference/vscode-extension",
+      "title": "VS Code Extension Reference",
+      "summary": "Command and setting inventory generated from ide/vscode/package.json.",
+      "diataxis": "reference",
+      "tags": [
+        "vscode",
+        "editor"
+      ],
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "VS Code Extension Reference This reference is generated from and includes contributed commands and settings. Activation model The extension activates on these triggers: - - - - Generated inventory Full extension surface ships with on Windows/Linux and on macOS."
+    },
+    {
+      "doc_id": "reference/web-ui",
+      "path": "/docs/reference/web-ui",
+      "title": "Web UI Reference",
+      "summary": "Code-derived page-route inventory for Loom web surfaces.",
+      "diataxis": "reference",
+      "tags": [
+        "web-ui",
+        "routes"
+      ],
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "Web UI Reference This inventory is generated from . Dynamic parameters are normalized as and catch-all segments as . Full page-route inventory"
     },
     {
       "doc_id": "tutorials/first-thread",
       "path": "/docs/tutorials/first-thread",
-      "title": "Your First Thread",
-      "summary": "Deep dive into thread management and conversation flow.",
+      "title": "First Thread Workflow",
+      "summary": "Work effectively with Loom thread lifecycle operations from creation through sharing.",
       "diataxis": "tutorial",
       "tags": [
         "threads",
-        "beginner"
+        "repl"
       ],
-      "updated_at": "2026-01-25T09:26:56.828Z",
-      "body": "Your First Thread This tutorial explores thread management in depth. You'll learn how to: - Start and manage conversations - Use tools effectively - Save and restore threads Understanding Threads A thread represents a complete conversation with the Loom agent. Each thread maintains: - Context: The agent remembers previous messages - State: Current progress in multi-step tasks - Tool History: Record of all tool executions Working with Threads List Your Threads View all your threads: Continue a Thread Resume a previous conversation: Export a Thread Save a thread for later reference: Threads are stored on the server. Local exports are snapshots and won't sync updates. Thread States | State | Description | |-------|-------------| | | Ready for input | | | Agent is processing | | | Waiting for tool completion | | | Task finished | | | Something went wrong |"
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "First Thread Workflow This walkthrough focuses on daily thread operations in the CLI. 1. Start a thread and capture context Inside the REPL, give direct instructions and include local repo context in your prompt. 2. Exit and verify thread persistence Press to leave the REPL, then list threads: 3. Resume work Or reopen an exact thread: 4. Search prior work Use full-text and metadata-aware search: 5. Control thread visibility For synced threads, set visibility explicitly: Visibility model - : visible to organization members - : synced but private to your account - : publicly accessible - : grants support-team access sessions are local-only and cannot be shared later. 6. Use a private thread when required Private mode is for sensitive work that must not sync to server-side storage. Common patterns Start with , pause with , resume with as needed. Run on the active thread to grant support visibility. Use to recover earlier decisions and commit references."
     },
     {
       "doc_id": "tutorials/getting-started",
       "path": "/docs/tutorials/getting-started",
       "title": "Getting Started with Loom",
-      "summary": "Create your first thread and learn the basics of AI-assisted coding.",
+      "summary": "Install the CLI, authenticate, and run your first thread workflow.",
       "diataxis": "tutorial",
       "tags": [
         "onboarding",
-        "beginner"
+        "cli"
       ],
-      "updated_at": "2026-01-25T09:26:56.828Z",
-      "body": "Getting Started with Loom Welcome to Loom! This tutorial will walk you through creating your first AI-assisted coding session. Before you begin, make sure you have a Loom account, Node.js 20+ installed, and a terminal application. Step 1: Install the CLI Install the Loom CLI using your preferred package manager: Step 2: Authenticate Log in to your Loom account: This will open a browser window for authentication. Step 3: Verify Installation Check that everything is working: Creating Your First Thread A thread is a conversation with the Loom AI agent. Let's create one: The agent will respond with suggestions and code. You can continue the conversation naturally. Use descriptive prompts to get better results. Include context about your project, coding style preferences, and specific requirements. Next Steps"
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "Getting Started with Loom This tutorial gets you from a clean machine to a working Loom CLI session. You will install , authenticate with a server, start a thread, and resume it from history. Prerequisites - A Loom server URL (for example ) - A user account on that server - A terminal environment with Rust/Nix available 1. Install the CLI Pick one path. 2. Authenticate Login stores credentials for the configured server URL. To verify auth state, run a command that requires server access, such as listing weavers: 3. Start your first interactive thread Running with no subcommand creates a new thread and enters the REPL. Type your request, then exit with when finished. 4. Inspect and resume thread history - shows known threads. - reopens the most recent thread. - resumes a specific thread. Use when the session must never sync to the server. Next workflows"
+    },
+    {
+      "doc_id": "tutorials/observability-incident-response",
+      "path": "/docs/tutorials/observability-incident-response",
+      "title": "Observability Incident Response",
+      "summary": "Use crash, crons, and sessions surfaces to detect, triage, and close incidents.",
+      "diataxis": "tutorial",
+      "tags": [
+        "observability",
+        "operations"
+      ],
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "Observability Incident Response Loom exposes three primary observability domains: crash, crons, and sessions. 1. Triage crash signals Common escalation path: 2. Monitor scheduled job health with crons Create/update/pause/resume: 3. Review session health 4. Use ping URLs for external checks Server routes support ping status updates: - - - These are typically called from cron jobs or external schedulers. When an incident involves shared code context, link the operational artifact to a Loom thread and set visibility explicitly."
+    },
+    {
+      "doc_id": "tutorials/repo-and-clips-workflow",
+      "path": "/docs/tutorials/repo-and-clips-workflow",
+      "title": "Repo And Clips Workflow",
+      "summary": "Browse repositories, inspect code history, and publish clips with code-derived references.",
+      "diataxis": "tutorial",
+      "tags": [
+        "repos",
+        "clips"
+      ],
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "Repo And Clips Workflow This workflow combines repository browsing surfaces and clip-sharing surfaces. 1. Navigate repository browser in web UI Primary route family: - - - - - - These pages are backed by server routes under . 2. Use Git smart protocol endpoints when needed Server routes include: - - - Clips also expose Git-style endpoints under . 3. Create and iterate clips Web clip routes: - - - - API routes include create/fork/update/delete/list/star operations under . 4. Coordinate Loom thread context with repo work When using CLI for implementation assistance: Capture key commit references in thread prompts so later search and handoff are reliable. Use clips for concise, reviewable snippets while keeping long-form implementation rationale in Loom threads."
+    },
+    {
+      "doc_id": "tutorials/team-collaboration",
+      "path": "/docs/tutorials/team-collaboration",
+      "title": "Team Collaboration Workflow",
+      "summary": "Run repeatable team workflows using thread visibility, support sharing, and org settings.",
+      "diataxis": "tutorial",
+      "tags": [
+        "collaboration",
+        "orgs"
+      ],
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "Team Collaboration Workflow This tutorial shows how teams coordinate work in Loom while keeping access boundaries explicit. 1. Work in a normal synced thread Normal sessions can be shared and resumed by policy. 2. Set thread visibility when handing off For selective visibility: For broad publication: 3. Escalate to support when needed This provides support-team access without changing your wider visibility default. 4. Manage org/team boundaries in web UI Use the web surfaces under: - - - These pages are the operational control point for membership and team routing. Start with when a session must remain local-only and non-shareable. 5. Audit and search shared context - to locate active threads. - to recover decisions and context. Pair this with admin audit surfaces ( ) for governance reviews."
+    },
+    {
+      "doc_id": "tutorials/weaver-remote-execution",
+      "path": "/docs/tutorials/weaver-remote-execution",
+      "title": "Weaver Remote Execution",
+      "summary": "Create, attach, inspect, and clean up Weaver execution environments.",
+      "diataxis": "tutorial",
+      "tags": [
+        "weaver",
+        "remote-execution"
+      ],
+      "updated_at": "2026-02-22T16:32:35.074Z",
+      "body": "Weaver Remote Execution Weavers are remote execution sessions managed by Loom server and exposed through CLI + web routes. 1. Authenticate and list existing weavers 2. Create a weaver Alias form is also supported: 3. Attach interactively Alias form: 4. Use SSH/tunnel transport when required Device lifecycle (WireGuard): 5. Clean up stale environments Use and in web UI for state inspection alongside CLI control. Failure triage checklist - : run against the same . - Immediate exit after create: verify image entrypoint runs a long-lived process. - Attach failure: verify the weaver still appears in ."
     }
   ]
 }

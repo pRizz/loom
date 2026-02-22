@@ -10,11 +10,40 @@ import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
-import { readFileSync } from 'fs';
+import { readFileSync, readdirSync, statSync } from 'fs';
+import { relative, join } from 'path';
 
 const threadworkDark = JSON.parse(
 	readFileSync('./src/lib/docs/themes/threadwork-dark.json', 'utf8')
 );
+
+const docsRootDir = './src/routes/(docs)/docs';
+
+function collectDocsSvxEntries(currentDir = docsRootDir) {
+	const entries = [];
+
+	for (const entry of readdirSync(currentDir)) {
+		const fullPath = join(currentDir, entry);
+		const stats = statSync(fullPath);
+
+		if (stats.isDirectory()) {
+			entries.push(...collectDocsSvxEntries(fullPath));
+			continue;
+		}
+
+		if (entry !== '+page.svx') {
+			continue;
+		}
+
+		const relativePath = relative(docsRootDir, fullPath).replaceAll('\\', '/');
+		const routePath = relativePath.replace('/+page.svx', '').replace('+page.svx', '');
+		entries.push(`/docs/${routePath}`);
+	}
+
+	return entries.sort();
+}
+
+const docsPrerenderEntries = ['/docs', ...collectDocsSvxEntries()];
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexConfig = {
@@ -40,18 +69,7 @@ const config = {
 			strict: false,
 		}),
 		prerender: {
-			entries: [
-				'/docs',
-				'/docs/tutorials',
-				'/docs/tutorials/getting-started',
-				'/docs/tutorials/first-thread',
-				'/docs/how-to',
-				'/docs/how-to/configure-auth',
-				'/docs/reference',
-				'/docs/reference/cli',
-				'/docs/explanation',
-				'/docs/explanation/architecture',
-			],
+			entries: docsPrerenderEntries,
 		},
 		alias: {
 			$lib: './src/lib',

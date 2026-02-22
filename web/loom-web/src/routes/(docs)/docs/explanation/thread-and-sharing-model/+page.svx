@@ -1,0 +1,46 @@
+---
+title: Thread And Sharing Model
+summary: Understand thread lifecycle, storage, and visibility transitions.
+diataxis: explanation
+order: 20
+tags:
+  - threads
+  - sharing
+---
+
+<script>
+	import { Callout } from '$lib/docs/components';
+</script>
+
+# Thread And Sharing Model
+
+A Loom thread is the persisted unit of interaction history and context.
+
+## Lifecycle states
+
+- **Created**: new thread from `loom` or `loom private`.
+- **Active**: REPL exchanges and tool calls update state.
+- **Paused**: user exits REPL; thread remains resumable.
+- **Resumed**: `loom resume` rehydrates state.
+- **Shared**: visibility or support access updated.
+
+## Storage model
+
+- Local store is always present for CLI continuity.
+- Synced store mirrors to server when session is not local-only.
+- Search surfaces (`loom search`) query server first (when configured), then local fallback.
+
+## Visibility model
+
+- `organization`: org-visible thread.
+- `private`: user-private but server-synced thread.
+- `public`: publicly visible thread.
+- `support`: support-team access flag.
+
+## Private session exception
+
+`loom private` produces local-only threads (`is_private=true`) that cannot be shared later.
+
+<Callout variant="warning" title="Design implication">
+	Choose normal sessions for collaborative work; choose private sessions for non-sync requirements.
+</Callout>

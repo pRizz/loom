@@ -1,0 +1,49 @@
+---
+title: Weaver And Tunnel Model
+summary: Conceptual model for remote execution, attach paths, and WireGuard transport.
+diataxis: explanation
+order: 40
+tags:
+  - weaver
+  - tunnel
+---
+
+<script>
+	import { Callout } from '$lib/docs/components';
+</script>
+
+# Weaver And Tunnel Model
+
+Weaver provides remote execution environments; WireGuard surfaces provide secure transport paths.
+
+## Weaver model
+
+- Weaver creation is requested via CLI/API and provisioned by server-side infrastructure.
+- Sessions are listed, attached, and deleted through `loom weaver *` and `/api/weaver*` routes.
+- Web surfaces mirror this state at `/weavers` and `/weavers/:weaverId`.
+
+## Attach paths
+
+- `loom weaver attach <id>` (or `loom attach <id>`) for interactive attach.
+- `loom ssh <id>` for SSH entry over managed connectivity.
+
+## WireGuard tunnel model
+
+- Device registry establishes trusted client identities.
+- Session creation links device-to-weaver tunnel endpoints.
+- DERP map route supports relay path discovery.
+
+Key API family:
+
+- `/api/wg/devices*`
+- `/api/wg/sessions*`
+- `/api/wg/derp-map`
+
+## Operational constraints
+
+- Tunnel-up currently targets one weaver at a time.
+- Stale devices/sessions should be revoked/deleted to reduce drift.
+
+<Callout variant="tip" title="Operational split">
+	Think of Weaver as compute lifecycle and WireGuard as transport lifecycle. They interact, but they are not the same control surface.
+</Callout>

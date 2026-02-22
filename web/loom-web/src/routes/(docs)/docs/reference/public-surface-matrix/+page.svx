@@ -1,0 +1,41 @@
+---
+title: Public Surface Matrix
+summary: Unified matrix of CLI, HTTP, web, and VS Code surfaces with audience and maturity labeling.
+diataxis: reference
+order: 60
+tags:
+  - surface-matrix
+  - governance
+---
+
+<script lang="ts">
+	import { SurfaceTable, Callout } from '$lib/docs/components';
+	import { getAllSurfaceRows, getSurfaceStats } from '$lib/docs/surface/view-model';
+
+	const rows = getAllSurfaceRows();
+	const stats = getSurfaceStats();
+</script>
+
+# Public Surface Matrix
+
+This is the canonical cross-surface matrix for Loom public-facing interactions.
+
+## Coverage snapshot
+
+| Metric | Count |
+| --- | ---: |
+| Total surfaces | {stats.total} |
+| CLI surfaces | {stats.cli} |
+| HTTP surfaces | {stats.http} |
+| Web UI surfaces | {stats.web} |
+| VS Code surfaces | {stats.vscode} |
+| Stable | {stats.maturity.stable} |
+| Beta | {stats.maturity.beta} |
+| Experimental | {stats.maturity.experimental} |
+| Internal | {stats.maturity.internal} |
+
+<Callout variant="info" title="Governance contract">
+	This matrix is generated from code and joined against coverage metadata. CI fails if generated inventories drift or if any surface lacks coverage mapping.
+</Callout>
+
+<SurfaceTable rows={rows} />

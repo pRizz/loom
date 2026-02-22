@@ -1,0 +1,53 @@
+---
+title: Authz And Identity Model
+summary: How identity providers and route classes map to access control in Loom.
+diataxis: explanation
+order: 30
+tags:
+  - authz
+  - identity
+---
+
+<script>
+	import { Callout } from '$lib/docs/components';
+</script>
+
+# Authz And Identity Model
+
+Loom uses route classes and middleware to enforce access boundaries.
+
+## Route classes
+
+- **PublicRouter**: unauthenticated routes (health, provider discovery, auth entrypoints, docs search, webhook/ping surfaces).
+- **AuthedRouter**: authenticated user routes (`/api/*` product surfaces).
+- **Admin routes**: nested under `/api/admin`, protected by elevated role checks.
+- **SCIM routes**: `/api/scim/*`, bearer-token protected for IdP provisioning.
+- **Optional-auth routes**: mixed-access Git and browser route family.
+
+## Identity providers
+
+Server supports provider-backed login flows through configured OAuth clients:
+
+- GitHub
+- Google
+- Okta
+- device and magic-link related auth routes
+
+## Session model
+
+- Browser/session auth is managed server-side.
+- CLI stores auth token and forwards it to server-backed APIs.
+- ACP/editor integrations rely on authenticated server interaction through CLI agent pathways.
+
+## Role boundaries
+
+Typical boundaries include:
+
+- end-user authenticated actions
+- org-admin actions
+- system-admin actions
+- SCIM integrator token actions
+
+<Callout variant="info" title="Coverage metadata">
+	Each generated surface ID is labeled with auth scope and audience in the public-surface matrix.
+</Callout>

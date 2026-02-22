@@ -1,0 +1,63 @@
+---
+title: HTTP API Reference
+summary: Code-derived route inventory for public, authenticated, admin, SCIM, and optional-auth APIs.
+diataxis: reference
+order: 20
+tags:
+  - api
+  - http
+---
+
+<script lang="ts">
+	import { Callout, SurfaceTable } from '$lib/docs/components';
+	import { getHttpRows } from '$lib/docs/surface/view-model';
+
+	const rows = getHttpRows();
+	const authRows = rows.filter((row) => row.path?.startsWith('/auth'));
+	const threadRows = rows.filter((row) => row.path?.startsWith('/api/threads'));
+	const weaverRows = rows.filter((row) =>
+		Boolean(
+			row.path?.startsWith('/api/weaver') ||
+			row.path?.startsWith('/api/weavers') ||
+			row.path?.startsWith('/api/wg') ||
+			row.path?.startsWith('/mcp')
+		)
+	);
+	const repoRows = rows.filter((row) =>
+		Boolean(
+			row.path?.startsWith('/git') ||
+			row.path?.startsWith('/api/repos') ||
+			row.path?.startsWith('/api/clips')
+		)
+	);
+	const adminRows = rows.filter((row) => row.path?.startsWith('/api/admin'));
+</script>
+
+# HTTP API Reference
+
+This inventory is generated directly from route declarations in:
+
+- `crates/loom-server/src/api.rs`
+- `crates/loom-server/src/routes/git/router.rs`
+- `crates/loom-server/src/routes/git_browser/router.rs`
+- `crates/loom-server-scim/src/routes.rs`
+
+<Callout variant="info" title="Auth and maturity labels">
+	Every route row is joined with coverage metadata (audience, maturity, auth scope, and primary docs owner).
+</Callout>
+
+## Key route families
+
+<SurfaceTable title="Auth And Session Routes" rows={authRows} />
+
+<SurfaceTable title="Thread Routes" rows={threadRows} />
+
+<SurfaceTable title="Weaver, Tunnel, And MCP Routes" rows={weaverRows} />
+
+<SurfaceTable title="Repository And Clips Routes" rows={repoRows} />
+
+<SurfaceTable title="Admin Routes" rows={adminRows} />
+
+## Full route inventory
+
+<SurfaceTable rows={rows} />

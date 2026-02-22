@@ -1,0 +1,3158 @@
+{
+  "cli:loom": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.acp-agent": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.attach": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "cli:loom.crash": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crash.api-keys": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crash.create-api-key": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crash.create-project": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crash.issues": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crash.projects": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crash.upload-sourcemaps": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.credential-helper": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.crons": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.checkins": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.create": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.delete": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.get": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.monitors": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.overview": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.pause": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.ping": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.ping-fail": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.resume": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.stats": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.crons.update": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.list": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.login": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.logout": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.new": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "cli:loom.private": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.resume": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.search": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.sessions": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.sessions.list": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.sessions.release": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.sessions.releases": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "cli:loom.share": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.compare": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.draw": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.duplicate": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.edit": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.knot": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.mark": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.mend": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.pin": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.pin.create": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.pin.delete": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.pin.list": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.pin.move": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.ply": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.rethread": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.show": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.shuttle": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.snip": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.stitch": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.tension": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.tension-log": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.trace": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.unpick": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.unravel": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.untangle": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.spool.wind": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.ssh": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "cli:loom.tunnel": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "cli:loom.tunnel.down": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "cli:loom.tunnel.status": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "cli:loom.tunnel.up": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "cli:loom.update": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.version": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/cli"
+  },
+  "cli:loom.weaver": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "cli:loom.weaver.attach": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "cli:loom.weaver.delete": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "cli:loom.weaver.new": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "cli:loom.weaver.ps": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "cli:loom.wg": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "cli:loom.wg.devices": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "cli:loom.wg.devices.list": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "cli:loom.wg.devices.register": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "cli:loom.wg.devices.revoke": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "http:DELETE:/api/admin/anthropic/accounts/{id}": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:DELETE:/api/admin/flags/{key}": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:DELETE:/api/admin/flags/kill-switches/{key}": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:DELETE:/api/admin/users/{id}": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:DELETE:/api/clips/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:DELETE:/api/clips/{id}/star": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:DELETE:/api/crash/projects/{project_id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:DELETE:/api/crash/projects/{project_id}/api-keys/{key_id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:DELETE:/api/crash/projects/{project_id}/artifacts/{artifact_id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:DELETE:/api/crash/projects/{project_id}/issues/{issue_id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:DELETE:/api/crons/monitors/{slug}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:DELETE:/api/orgs/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{id}/webhooks/{wid}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/analytics/api-keys/{key_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/api-keys/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/flags/environments/{env_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/flags/sdk-keys/{key_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/flags/strategies/{strategy_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/invitations/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/members/{user_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/secrets/{name}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/teams/{team_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/teams/{team_id}/members/{user_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/whatsapp/config": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/orgs/{org_id}/whatsapp/groups/{group_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/repos/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:DELETE:/api/repos/{id}/mirrors/{mirror_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:DELETE:/api/repos/{id}/protection/{rule_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:DELETE:/api/repos/{id}/teams/{tid}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:DELETE:/api/repos/{id}/webhooks/{wid}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:DELETE:/api/repos/{repo_id}/secrets/{name}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:DELETE:/api/scim/Groups/{id}": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:DELETE:/api/scim/Users/{id}": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:DELETE:/api/sessions/{id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:DELETE:/api/threads/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/threads/{id}/share": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/threads/{id}/support-access": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/users/me/identities/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/users/me/whatsapp/unlink": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:DELETE:/api/weaver/{id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "http:DELETE:/api/wg/devices/{id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "http:DELETE:/api/wg/sessions/{id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "http:DELETE:/internal/wg/weavers/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/admin/anthropic/accounts": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/audit-logs": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/flags": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/flags/{key}": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/flags/kill-switches": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/flags/kill-switches/{key}": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/flags/strategies": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/impersonate/state": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/jobs": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/jobs/{job_id}/history": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/logs": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/logs/stream": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/admin/users": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:GET:/api/analytics/events": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/analytics/events/count": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/analytics/persons": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/analytics/persons/{person_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/analytics/persons/by-distinct-id/{distinct_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/app-sessions": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/app-sessions/releases": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/app-sessions/releases/{version}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/clips/{id}/files": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/clips/{id}/files/{*path}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/clips/{id}/raw/{*path}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/clips/{id}/revisions": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/clips/{id}/starred": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/clips/{owner}/{name}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/clips/public": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/clips/search": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/clips/starred": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/crash/projects": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}/api-keys": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}/artifacts": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}/artifacts/{artifact_id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}/events": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}/events/{event_id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}/issues": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}/issues/{issue_id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}/issues/{issue_id}/events": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}/releases": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}/releases/{version}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crash/projects/{project_id}/stream": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crons/checkins/{id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crons/monitors": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crons/monitors/{slug}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crons/monitors/{slug}/checkins": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crons/monitors/{slug}/stats": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crons/stats/overview": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/crons/stream": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/debug/query-traces": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/debug/query-traces/{trace_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/debug/query-traces/stats": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/flags/stream": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/flags/stream/stats": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/github/app": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/github/installations/by-repo": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/invitations/{token}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{id}/clips": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{id}/members": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{id}/repos": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{id}/webhooks": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/analytics/api-keys": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/analytics/events": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/analytics/events/count": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/analytics/persons": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/api-keys": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/api-keys/{id}/usage": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/{flag_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/{flag_id}/configs": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/{flag_id}/configs/{env_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/{flag_key}/stats": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/environments": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/environments/{env_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/environments/{env_id}/sdk-keys": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/kill-switches": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/stale": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/strategies": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/flags/strategies/{strategy_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/invitations": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/join-requests": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/secrets": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/secrets/{name}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/teams": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/teams/{team_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/teams/{team_id}/members": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/whatsapp/config": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/orgs/{org_id}/whatsapp/groups": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/repos/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{id}/maintenance/jobs": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{id}/mirrors": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{id}/protection": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{id}/teams": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{id}/webhooks": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{owner}/{name}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{owner}/{name}/blame/{*ref_and_path}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{owner}/{name}/blob/{*ref_and_path}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{owner}/{name}/branches": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{owner}/{name}/commit/{sha}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{owner}/{name}/commits/{git_ref}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{owner}/{name}/compare/{*refs}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{owner}/{name}/raw/{*ref_and_path}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{owner}/{name}/tree/{*ref_and_path}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{repo_id}/secrets": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/repos/{repo_id}/secrets/{name}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/api/scim/Groups": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:GET:/api/scim/Groups/{id}": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:GET:/api/scim/ResourceTypes": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:GET:/api/scim/ResourceTypes/{id}": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:GET:/api/scim/Schemas": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:GET:/api/scim/Schemas/{id}": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:GET:/api/scim/ServiceProviderConfig": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:GET:/api/scim/Users": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:GET:/api/scim/Users/{id}": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:GET:/api/self-monitoring/analytics-config": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/self-monitoring/cli-config": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/self-monitoring/projects": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/self-monitoring/web-config": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/sessions": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/sessions/{session_id}/queries": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/api/threads": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/threads/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/threads/{id}/share/{token}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/threads/search": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/users/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/users/{id}/clips": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/users/{id}/repos": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/users/me/identities": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/weaver/{id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "http:GET:/api/weaver/{id}/attach": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "http:GET:/api/weaver/{id}/logs": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "http:GET:/api/weavers": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "http:GET:/api/wg/derp-map": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "http:GET:/api/wg/devices": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "http:GET:/api/wg/sessions": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "http:GET:/api/whatsapp/webhook": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/api/ws/sessions/{session_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/auth/github/callback": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/auth/google/callback": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/auth/login/github": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/auth/login/google": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/auth/login/okta": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/auth/magic-link/verify": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/auth/me": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/auth/okta/callback": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/auth/providers": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/auth/ws-token": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/docs/search": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/git/{owner}/{repo}/info/refs": {
+    "audience": "integrator",
+    "maturity": "beta",
+    "authScope": "mixed",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/git/clips/{owner}/{name}/info/refs": {
+    "audience": "integrator",
+    "maturity": "beta",
+    "authScope": "mixed",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/git/mirrors/{*path}": {
+    "audience": "integrator",
+    "maturity": "beta",
+    "authScope": "mixed",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:GET:/health": {
+    "audience": "operator",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/how-to/configure-server"
+  },
+  "http:GET:/internal/weaver-auth/.well-known/jwks.json": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/internal/weaver-secrets/v1/secrets/{scope}/{name}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/internal/wg/weavers/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/internal/wg/weavers/{id}/peers": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:GET:/metrics": {
+    "audience": "operator",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/how-to/configure-server"
+  },
+  "http:GET:/ping/{key}": {
+    "audience": "operator",
+    "maturity": "stable",
+    "authScope": "public-key",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/ping/{key}/fail": {
+    "audience": "operator",
+    "maturity": "stable",
+    "authScope": "public-key",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:GET:/ping/{key}/start": {
+    "audience": "operator",
+    "maturity": "stable",
+    "authScope": "public-key",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:PATCH:/api/admin/flags/{key}": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:PATCH:/api/admin/flags/kill-switches/{key}": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:PATCH:/api/admin/users/{id}/roles": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:PATCH:/api/clips/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:PATCH:/api/crash/projects/{project_id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:PATCH:/api/crons/checkins/{id}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:PATCH:/api/crons/monitors/{slug}": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:PATCH:/api/orgs/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:PATCH:/api/orgs/{org_id}/flags/{flag_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:PATCH:/api/orgs/{org_id}/flags/{flag_id}/configs/{env_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:PATCH:/api/orgs/{org_id}/flags/environments/{env_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:PATCH:/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:PATCH:/api/orgs/{org_id}/flags/strategies/{strategy_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:PATCH:/api/orgs/{org_id}/teams/{team_id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:PATCH:/api/repos/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:PATCH:/api/scim/Groups/{id}": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:PATCH:/api/scim/Users/{id}": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:PATCH:/api/users/me": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/admin/anthropic/oauth/complete": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/anthropic/oauth/initiate": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/flags": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/flags/{key}/restore": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/flags/kill-switches": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/flags/kill-switches/{key}/activate": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/flags/kill-switches/{key}/deactivate": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/impersonate/stop": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/jobs/{job_id}/cancel": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/jobs/{job_id}/disable": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/jobs/{job_id}/enable": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/jobs/{job_id}/run": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/admin/maintenance/sweep": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/admin/users/{id}/impersonate": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "http:POST:/api/analytics/alias": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/analytics/batch": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/analytics/capture": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/analytics/events/export": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/analytics/identify": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/analytics/set": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/clips": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/clips/{id}/files": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/clips/{id}/fork": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/clips/{id}/star": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/crash/batch": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crash/capture": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crash/capture/sdk": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crash/projects": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crash/projects/{project_id}/api-keys": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crash/projects/{project_id}/artifacts": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crash/projects/{project_id}/issues/{issue_id}/assign": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crash/projects/{project_id}/issues/{issue_id}/ignore": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crash/projects/{project_id}/issues/{issue_id}/resolve": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crash/projects/{project_id}/issues/{issue_id}/unresolve": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crash/projects/{project_id}/releases": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crons/monitors": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crons/monitors/{slug}/checkins": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crons/monitors/{slug}/pause": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/crons/monitors/{slug}/resume": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/github/webhook": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/invitations/accept": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{id}/members": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{id}/webhooks": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/analytics/api-keys": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/api-keys": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/flags": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/flags/{flag_id}/archive": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/flags/{flag_id}/restore": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/flags/{flag_key}/evaluate": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/flags/environments": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/flags/environments/{env_id}/sdk-keys": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/flags/evaluate": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/flags/kill-switches": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}/activate": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}/deactivate": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/flags/strategies": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/invitations": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/join-requests": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/join-requests/{request_id}/approve": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/join-requests/{request_id}/reject": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/secrets": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/teams": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/teams/{team_id}/members": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/whatsapp/config": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/whatsapp/conversations/{conversation_id}/move": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/orgs/{org_id}/whatsapp/groups": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/repos": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/repos/{id}/maintenance": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/repos/{id}/mirrors": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/repos/{id}/mirrors/{mirror_id}/sync": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/repos/{id}/protection": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/repos/{id}/teams": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/repos/{id}/webhooks": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/repos/{repo_id}/secrets": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/api/scim/Bulk": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:POST:/api/scim/Groups": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:POST:/api/scim/Users": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:POST:/api/sessions/{session_id}/query-response": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/sessions/end": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/sessions/end/sdk": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/sessions/start": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/sessions/start/sdk": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/api/threads/{id}/share": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/threads/{id}/support-access/approve": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/threads/{id}/support-access/request": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/threads/{id}/visibility": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/users/me/delete": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/users/me/restore": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/users/me/whatsapp/link": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/users/me/whatsapp/verify": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/api/weaver": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "http:POST:/api/weavers/cleanup": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "http:POST:/api/wg/devices": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "http:POST:/api/wg/sessions": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/how-to/use-wireguard-ssh"
+  },
+  "http:POST:/api/whatsapp/webhook": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/auth/device/complete": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/auth/device/poll": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/auth/device/start": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/auth/logout": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/auth/magic-link": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/git/{owner}/{repo}/git-receive-pack": {
+    "audience": "integrator",
+    "maturity": "beta",
+    "authScope": "mixed",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/git/{owner}/{repo}/git-upload-pack": {
+    "audience": "integrator",
+    "maturity": "beta",
+    "authScope": "mixed",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/git/clips/{owner}/{name}/git-receive-pack": {
+    "audience": "integrator",
+    "maturity": "beta",
+    "authScope": "mixed",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/git/clips/{owner}/{name}/git-upload-pack": {
+    "audience": "integrator",
+    "maturity": "beta",
+    "authScope": "mixed",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/git/mirrors/{*path}": {
+    "audience": "integrator",
+    "maturity": "beta",
+    "authScope": "mixed",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:POST:/internal/weaver-audit/events": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/internal/weaver-auth/token": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/internal/wg/weavers": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/mcp": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/ping/{key}": {
+    "audience": "operator",
+    "maturity": "stable",
+    "authScope": "public-key",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "http:POST:/proxy/anthropic/complete": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/anthropic/stream": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/cse": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/github/file-contents": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/github/repo-info": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/github/search-code": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/openai/complete": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/openai/stream": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/serper": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/vertex/complete": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/vertex/stream": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/zai/complete": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:POST:/proxy/zai/stream": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:PUT:/api/orgs/{org_id}/secrets/{name}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "http:PUT:/api/repos/{repo_id}/secrets/{name}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "http:PUT:/api/scim/Groups/{id}": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:PUT:/api/scim/Users/{id}": {
+    "audience": "integrator",
+    "maturity": "stable",
+    "authScope": "scim-bearer",
+    "primaryDocsPath": "/docs/how-to/configure-scim"
+  },
+  "http:PUT:/api/threads/{id}": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "web:/": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/web-ui"
+  },
+  "web:/admin": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/admin/anthropic-accounts": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/admin/audit-logs": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/admin/jobs": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/admin/logs": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/admin/users": {
+    "audience": "admin",
+    "maturity": "internal",
+    "authScope": "system-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/analytics": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "web:/api/*rest": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "web:/bin/*rest": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "web:/clips": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/clips/:owner/:name": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/clips/:owner/:name/edit": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/clips/:owner/:name/revisions": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/clips/new": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/crashes": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "web:/crashes/:projectId": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "web:/crashes/:projectId/issues/:issueId": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "web:/crons": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "web:/crons/:slug": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "web:/crons/new": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "web:/dashboard": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/web-ui"
+  },
+  "web:/device": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/how-to/configure-auth"
+  },
+  "web:/docs": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/explanation": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/explanation/architecture": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/explanation/authz-and-identity-model": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/explanation/observability-model": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/explanation/thread-and-sharing-model": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/explanation/weaver-and-tunnel-model": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/how-to": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/how-to/configure-auth": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/how-to/configure-scim": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/how-to/configure-server": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/how-to/configure-whatsapp": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/how-to/manage-orgs-teams-api-keys": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/how-to/troubleshoot-common-failures": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/how-to/use-wireguard-ssh": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/reference": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/reference/cli": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/reference/configuration": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/reference/http-api": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/reference/public-surface-matrix": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/reference/vscode-extension": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/reference/web-ui": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/tutorials": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/tutorials/first-thread": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/tutorials/getting-started": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/tutorials/observability-incident-response": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/tutorials/repo-and-clips-workflow": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/tutorials/team-collaboration": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/docs/tutorials/weaver-remote-execution": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/public-surface-matrix"
+  },
+  "web:/health": {
+    "audience": "operator",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/how-to/configure-server"
+  },
+  "web:/login": {
+    "audience": "end-user",
+    "maturity": "stable",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/how-to/configure-auth"
+  },
+  "web:/proxy/*rest": {
+    "audience": "integrator",
+    "maturity": "experimental",
+    "authScope": "public",
+    "primaryDocsPath": "/docs/reference/http-api"
+  },
+  "web:/repos": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/repos/:owner/:repo": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/repos/:owner/:repo/blame/*path": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/repos/:owner/:repo/blob/*path": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/repos/:owner/:repo/branches": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/repos/:owner/:repo/commit/:sha": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/repos/:owner/:repo/commits/:ref": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/repos/:owner/:repo/compare/*refs": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/repos/:owner/:repo/settings": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/repos/:owner/:repo/tree/*path": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/repo-and-clips-workflow"
+  },
+  "web:/sessions": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "web:/sessions/releases/:version": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/observability-incident-response"
+  },
+  "web:/settings/orgs": {
+    "audience": "admin",
+    "maturity": "beta",
+    "authScope": "org-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/settings/orgs/:orgId": {
+    "audience": "admin",
+    "maturity": "beta",
+    "authScope": "org-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/settings/orgs/:orgId/teams/:teamId": {
+    "audience": "admin",
+    "maturity": "beta",
+    "authScope": "org-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/settings/orgs/:orgId/whatsapp": {
+    "audience": "admin",
+    "maturity": "beta",
+    "authScope": "org-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/settings/orgs/:orgId/whatsapp/groups": {
+    "audience": "admin",
+    "maturity": "beta",
+    "authScope": "org-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/settings/orgs/new": {
+    "audience": "admin",
+    "maturity": "beta",
+    "authScope": "org-admin",
+    "primaryDocsPath": "/docs/how-to/manage-orgs-teams-api-keys"
+  },
+  "web:/settings/profile": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/web-ui"
+  },
+  "web:/settings/profile/whatsapp": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/web-ui"
+  },
+  "web:/settings/sessions": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/web-ui"
+  },
+  "web:/threads": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/web-ui"
+  },
+  "web:/threads/:threadId": {
+    "audience": "end-user",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/reference/web-ui"
+  },
+  "web:/weavers": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "web:/weavers/:weaverId": {
+    "audience": "operator",
+    "maturity": "beta",
+    "authScope": "authenticated",
+    "primaryDocsPath": "/docs/tutorials/weaver-remote-execution"
+  },
+  "vscode:command:loom.cancelCurrentTurn": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  },
+  "vscode:command:loom.explainSelection": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  },
+  "vscode:command:loom.newSession": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  },
+  "vscode:command:loom.openChat": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  },
+  "vscode:command:loom.refactorSelection": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  },
+  "vscode:command:loom.restartAgent": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  },
+  "vscode:command:loom.showLogs": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  },
+  "vscode:setting:loom.additionalArgs": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  },
+  "vscode:setting:loom.autoStart": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  },
+  "vscode:setting:loom.logLevel": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  },
+  "vscode:setting:loom.loomPath": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  },
+  "vscode:setting:loom.serverUrl": {
+    "audience": "developer",
+    "maturity": "beta",
+    "authScope": "local-editor",
+    "primaryDocsPath": "/docs/reference/vscode-extension"
+  }
+}

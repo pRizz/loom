@@ -1,0 +1,83 @@
+---
+title: Configuration Reference
+summary: CLI, server, and extension configuration keys used across Loom public surfaces.
+diataxis: reference
+order: 40
+tags:
+  - configuration
+  - env
+---
+
+<script>
+	import { Callout } from '$lib/docs/components';
+</script>
+
+# Configuration Reference
+
+This page summarizes frequently-used runtime configuration knobs across Loom surfaces.
+
+## CLI environment variables
+
+| Variable | Purpose |
+| --- | --- |
+| `LOOM_SERVER_URL` | Default server URL for CLI commands. |
+| `LOOM_LLM_PROVIDER` | Default provider selection for CLI runtime. |
+| `LOOM_WORKSPACE_ROOT` | Default workspace root for tool operations. |
+| `LOOM_LOG_LEVEL` / `LOOM_LOG_FORMAT` | CLI logging behavior. |
+| `LOOM_DEFAULT_PROVIDER` | Provider default in config loader. |
+| `LOOM_OPENAI_API_KEY` / `LOOM_ANTHROPIC_API_KEY` | Direct provider credentials for compatible flows. |
+| `LOOM_OPENAI_MODEL` / `LOOM_ANTHROPIC_MODEL` | Model override values. |
+| `LOOM_THREAD_SYNC_URL` | Optional explicit thread-sync endpoint override. |
+| `LOOM_AUTO_COMMIT_DISABLE` | Disable auto-commit integration in CLI sessions. |
+
+## Server environment variables
+
+### Core runtime
+
+| Variable | Purpose |
+| --- | --- |
+| `LOOM_SERVER_HOST` / `LOOM_SERVER_PORT` | HTTP bind address and port. |
+| `LOOM_SERVER_BASE_URL` | Canonical externally-visible server URL. |
+| `LOOM_SERVER_DATABASE_URL` | Database connection string. |
+| `LOOM_SERVER_ENV` | Environment mode (`development`, `production`, etc.). |
+| `LOOM_SERVER_AUTH_DEV_MODE` | Dev auto-auth toggle (must be off in production). |
+| `LOOM_SERVER_SIGNUPS_DISABLED` | Disable self-signup flows. |
+
+### OAuth providers
+
+| Prefix | Purpose |
+| --- | --- |
+| `LOOM_SERVER_GITHUB_*` | GitHub OAuth setup. |
+| `LOOM_SERVER_GOOGLE_*` | Google OAuth setup. |
+| `LOOM_SERVER_OKTA_*` | Okta OAuth setup. |
+
+### LLM + search
+
+| Variable family | Purpose |
+| --- | --- |
+| `LOOM_SERVER_OPENAI_*`, `LOOM_SERVER_ANTHROPIC_*`, `LOOM_SERVER_VERTEX_*` | Provider credentials and model defaults. |
+| `LOOM_SERVER_GOOGLE_CSE_*`, `LOOM_SERVER_SERPER_API_KEY` | Web search integrations. |
+
+### Platform subsystems
+
+| Variable family | Purpose |
+| --- | --- |
+| `LOOM_SERVER_WEAVER_*` | Weaver provisioning behavior. |
+| `LOOM_SERVER_SCIM_*` | SCIM enablement and org binding. |
+| `LOOM_SERVER_SMTP_*` | Outbound email settings. |
+| `LOOM_SERVER_AUDIT_*` | Audit logging and sink behavior. |
+| `LOOM_SERVER_WHATSAPP_*` | WhatsApp client defaults. |
+
+## VS Code extension settings
+
+| Setting | Purpose |
+| --- | --- |
+| `loom.loomPath` | Path to loom executable. |
+| `loom.serverUrl` | Remote server URL. |
+| `loom.additionalArgs` | Extra args passed to loom process. |
+| `loom.logLevel` | Extension log verbosity. |
+| `loom.autoStart` | Auto-start behavior on activation. |
+
+<Callout variant="info" title="Canonical source of truth">
+	The generated reference pages (`/docs/reference/cli`, `/docs/reference/http-api`, `/docs/reference/web-ui`, `/docs/reference/vscode-extension`) are drift-checked against source code. Use this page as a configuration quick map.
+</Callout>

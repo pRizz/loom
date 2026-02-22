@@ -1,0 +1,68 @@
+---
+title: Manage Orgs, Teams, And API Keys
+summary: Operate organization access controls and API keys from web UI and HTTP APIs.
+diataxis: how-to
+order: 60
+tags:
+  - orgs
+  - teams
+  - api-keys
+---
+
+<script>
+	import { Callout } from '$lib/docs/components';
+</script>
+
+# Manage Orgs, Teams, And API Keys
+
+Use this guide for day-two administration of org-scoped access and tokens.
+
+## Web UI surfaces
+
+- `/settings/orgs`
+- `/settings/orgs/new`
+- `/settings/orgs/:orgId`
+- `/settings/orgs/:orgId/teams/:teamId`
+
+These pages are the canonical admin flow for membership and team boundaries.
+
+## Core org and membership APIs
+
+- `GET /api/orgs`
+- `POST /api/orgs`
+- `GET /api/orgs/{id}`
+- `PATCH /api/orgs/{id}`
+- `DELETE /api/orgs/{id}`
+- `GET /api/orgs/{id}/members`
+- `POST /api/orgs/{id}/members`
+- `DELETE /api/orgs/{org_id}/members/{user_id}`
+
+## Team APIs
+
+- `GET /api/orgs/{org_id}/teams`
+- `POST /api/orgs/{org_id}/teams`
+- `GET /api/orgs/{org_id}/teams/{team_id}`
+- `PATCH /api/orgs/{org_id}/teams/{team_id}`
+- `DELETE /api/orgs/{org_id}/teams/{team_id}`
+- `GET /api/orgs/{org_id}/teams/{team_id}/members`
+- `POST /api/orgs/{org_id}/teams/{team_id}/members`
+- `DELETE /api/orgs/{org_id}/teams/{team_id}/members/{user_id}`
+
+## API key APIs
+
+Organization API keys:
+
+- `GET /api/orgs/{org_id}/api-keys`
+- `POST /api/orgs/{org_id}/api-keys`
+- `DELETE /api/orgs/{org_id}/api-keys/{id}`
+- `GET /api/orgs/{org_id}/api-keys/{id}/usage`
+
+Analytics API keys:
+
+- `GET /api/orgs/{org_id}/analytics/api-keys`
+- `POST /api/orgs/{org_id}/analytics/api-keys`
+- `DELETE /api/orgs/{org_id}/analytics/api-keys/{key_id}`
+
+<Callout variant="warning" title="Privilege boundary">
+	Treat org/team/key operations as admin-only; these surfaces are not end-user defaults.
+</Callout>

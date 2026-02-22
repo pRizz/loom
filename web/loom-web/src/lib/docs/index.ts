@@ -7,3 +7,4 @@ export * from './schema';
 export { CATEGORY_TITLES, CATEGORY_ORDER, type TocItem, type NavItem, type NavSection, type DocEntry, type DiataxisCategoryType } from './types';
 export * from './nav';
 export * from './components';
+export * from './surface';

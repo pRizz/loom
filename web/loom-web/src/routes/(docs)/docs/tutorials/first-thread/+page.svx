@@ -1,69 +1,98 @@
 ---
-title: Your First Thread
-summary: Deep dive into thread management and conversation flow.
+title: First Thread Workflow
+summary: Work effectively with Loom thread lifecycle operations from creation through sharing.
 diataxis: tutorial
 order: 20
 tags:
   - threads
-  - beginner
+  - repl
 ---
 
 <script>
-	import { Callout } from '$lib/docs/components';
+	import { Callout, Steps, Step } from '$lib/docs/components';
 </script>
 
-# Your First Thread
+# First Thread Workflow
 
-This tutorial explores thread management in depth. You'll learn how to:
+This walkthrough focuses on daily thread operations in the CLI.
 
-- Start and manage conversations
-- Use tools effectively
-- Save and restore threads
-
-## Understanding Threads
-
-A thread represents a complete conversation with the Loom agent. Each thread maintains:
-
-- **Context**: The agent remembers previous messages
-- **State**: Current progress in multi-step tasks
-- **Tool History**: Record of all tool executions
-
-## Working with Threads
-
-### List Your Threads
-
-View all your threads:
+## 1. Start a thread and capture context
 
 ```bash
-loom threads list
+loom
 ```
 
-### Continue a Thread
+Inside the REPL, give direct instructions and include local repo context in your prompt.
 
-Resume a previous conversation:
+## 2. Exit and verify thread persistence
+
+Press `Ctrl+C` to leave the REPL, then list threads:
 
 ```bash
-loom threads attach <thread-id>
+loom list
 ```
 
-### Export a Thread
-
-Save a thread for later reference:
+## 3. Resume work
 
 ```bash
-loom threads export <thread-id> > my-thread.json
+loom resume
 ```
 
-<Callout variant="warning">
-	Threads are stored on the server. Local exports are snapshots and won't sync updates.
+Or reopen an exact thread:
+
+```bash
+loom resume <thread-id>
+```
+
+## 4. Search prior work
+
+Use full-text and metadata-aware search:
+
+```bash
+loom search "wireguard setup"
+loom search "main" --limit 50
+loom search "abcdef1" --json
+```
+
+## 5. Control thread visibility
+
+For synced threads, set visibility explicitly:
+
+```bash
+loom share --visibility organization
+loom share <thread-id> --visibility public
+loom share <thread-id> --support
+```
+
+### Visibility model
+
+- `organization`: visible to organization members
+- `private`: synced but private to your account
+- `public`: publicly accessible
+- `--support`: grants support-team access
+
+<Callout variant="warning" title="Private session caveat">
+	`loom private` sessions are local-only and cannot be shared later.
 </Callout>
 
-## Thread States
+## 6. Use a private thread when required
 
-| State | Description |
-|-------|-------------|
-| `idle` | Ready for input |
-| `weaving` | Agent is processing |
-| `waiting` | Waiting for tool completion |
-| `complete` | Task finished |
-| `error` | Something went wrong |
+```bash
+loom private
+```
+
+Private mode is for sensitive work that must not sync to server-side storage.
+
+## Common patterns
+
+<Steps>
+	<Step title="Long-running change session">
+		Start with `loom`, pause with `Ctrl+C`, resume with `loom resume` as needed.
+	</Step>
+	<Step title="Support escalation">
+		Run `loom share --support` on the active thread to grant support visibility.
+	</Step>
+	<Step title="Research recall">
+		Use `loom search` to recover earlier decisions and commit references.
+	</Step>
+</Steps>

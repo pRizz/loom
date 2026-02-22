@@ -1,0 +1,60 @@
+---
+title: Configure SCIM
+summary: Enable SCIM provisioning and validate RFC-style user/group operations.
+diataxis: how-to
+order: 30
+tags:
+  - scim
+  - identity
+---
+
+<script>
+	import { Callout } from '$lib/docs/components';
+</script>
+
+# Configure SCIM
+
+Loom exposes SCIM routes under `/api/scim` for IdP provisioning.
+
+## 1. Configure SCIM token and server URL
+
+```bash
+export LOOM_SERVER_SCIM_TOKEN="replace-with-strong-random-token"
+export LOOM_SERVER_HTTP_BASE_URL="https://loom.example.com"
+```
+
+Ensure the server is reachable at the base URL your IdP will call.
+
+## 2. Set IdP SCIM base URL
+
+Use:
+
+```text
+https://loom.example.com/api/scim
+```
+
+## 3. Validate discovery endpoints
+
+```bash
+curl -s -H "Authorization: Bearer $LOOM_SERVER_SCIM_TOKEN" \
+  https://loom.example.com/api/scim/ServiceProviderConfig | jq .
+
+curl -s -H "Authorization: Bearer $LOOM_SERVER_SCIM_TOKEN" \
+  https://loom.example.com/api/scim/ResourceTypes | jq .
+```
+
+## 4. Validate CRUD operations
+
+Core resources:
+
+- `/api/scim/Users`
+- `/api/scim/Users/{id}`
+- `/api/scim/Groups`
+- `/api/scim/Groups/{id}`
+- `/api/scim/Bulk`
+
+Your IdP should be able to create, patch, and delete records using bearer-token auth.
+
+<Callout variant="warning" title="Token handling">
+	Treat `LOOM_SERVER_SCIM_TOKEN` as a secret and rotate it on schedule.
+</Callout>

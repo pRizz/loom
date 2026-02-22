@@ -9,6 +9,8 @@
 		"prebuild": "pnpm lingui:compile",
 		"build": "vite build",
 		"postbuild": "pnpm docs:index || echo 'Docs index: export failed'",
+		"docs:surface": "tsx scripts/export-public-surface.ts write",
+		"docs:surface:check": "tsx scripts/export-public-surface.ts --check",
 		"docs:index": "tsx scripts/export-docs-index.ts",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

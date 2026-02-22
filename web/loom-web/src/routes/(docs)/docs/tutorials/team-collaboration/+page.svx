@@ -1,0 +1,72 @@
+---
+title: Team Collaboration Workflow
+summary: Run repeatable team workflows using thread visibility, support sharing, and org settings.
+diataxis: tutorial
+order: 30
+tags:
+  - collaboration
+  - orgs
+---
+
+<script>
+	import { Callout, Steps } from '$lib/docs/components';
+</script>
+
+# Team Collaboration Workflow
+
+This tutorial shows how teams coordinate work in Loom while keeping access boundaries explicit.
+
+## 1. Work in a normal synced thread
+
+```bash
+loom
+```
+
+Normal sessions can be shared and resumed by policy.
+
+## 2. Set thread visibility when handing off
+
+```bash
+loom share --visibility organization
+```
+
+For selective visibility:
+
+```bash
+loom share <thread-id> --visibility private
+```
+
+For broad publication:
+
+```bash
+loom share <thread-id> --visibility public
+```
+
+## 3. Escalate to support when needed
+
+```bash
+loom share <thread-id> --support
+```
+
+This provides support-team access without changing your wider visibility default.
+
+## 4. Manage org/team boundaries in web UI
+
+Use the web surfaces under:
+
+- `/settings/orgs`
+- `/settings/orgs/:orgId`
+- `/settings/orgs/:orgId/teams/:teamId`
+
+These pages are the operational control point for membership and team routing.
+
+<Callout variant="warning" title="Sensitive work">
+	Start with `loom private` when a session must remain local-only and non-shareable.
+</Callout>
+
+## 5. Audit and search shared context
+
+- `loom list` to locate active threads.
+- `loom search "query"` to recover decisions and context.
+
+Pair this with admin audit surfaces (`/admin/audit-logs`) for governance reviews.

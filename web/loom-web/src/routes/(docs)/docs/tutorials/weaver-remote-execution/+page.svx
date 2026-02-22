@@ -1,0 +1,85 @@
+---
+title: Weaver Remote Execution
+summary: Create, attach, inspect, and clean up Weaver execution environments.
+diataxis: tutorial
+order: 40
+tags:
+  - weaver
+  - remote-execution
+---
+
+<script>
+	import { Callout, Steps, Step } from '$lib/docs/components';
+</script>
+
+# Weaver Remote Execution
+
+Weavers are remote execution sessions managed by Loom server and exposed through CLI + web routes.
+
+## 1. Authenticate and list existing weavers
+
+```bash
+loom --server-url https://loom.ghuntley.com login
+loom --server-url https://loom.ghuntley.com weaver ps
+```
+
+## 2. Create a weaver
+
+```bash
+loom --server-url https://loom.ghuntley.com weaver new \
+  --image ghcr.io/your-org/loom-weaver:latest \
+  --repo https://github.com/your-org/your-repo \
+  --branch main \
+  --ttl 4
+```
+
+Alias form is also supported:
+
+```bash
+loom --server-url https://loom.ghuntley.com new --image ghcr.io/your-org/loom-weaver:latest
+```
+
+## 3. Attach interactively
+
+```bash
+loom --server-url https://loom.ghuntley.com weaver attach <weaver-id>
+```
+
+Alias form:
+
+```bash
+loom --server-url https://loom.ghuntley.com attach <weaver-id>
+```
+
+## 4. Use SSH/tunnel transport when required
+
+```bash
+loom ssh <weaver-id>
+loom tunnel up --weaver <weaver-id>
+loom tunnel status
+loom tunnel down
+```
+
+Device lifecycle (WireGuard):
+
+```bash
+loom wg devices list
+loom wg devices register --name "build-laptop"
+loom wg devices revoke <device-id>
+```
+
+## 5. Clean up stale environments
+
+```bash
+loom --server-url https://loom.ghuntley.com weaver delete <weaver-id>
+```
+
+<Callout variant="tip" title="Operational visibility">
+	Use `/weavers` and `/weavers/:weaverId` in web UI for state inspection alongside CLI control.
+</Callout>
+
+## Failure triage checklist
+
+- `401 Unauthorized`: run `loom login` against the same `--server-url`.
+- Immediate exit after create: verify image entrypoint runs a long-lived process.
+- Attach failure: verify the weaver still appears in `loom weaver ps`.

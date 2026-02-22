@@ -1,0 +1,1150 @@
+{
+  "version": 1,
+  "domain": "web",
+  "items": [
+    {
+      "id": "web:/",
+      "domain": "web",
+      "kind": "page",
+      "label": "Home",
+      "path": "/",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/admin",
+      "domain": "web",
+      "kind": "page",
+      "label": "Admin",
+      "path": "/admin",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/admin/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/admin/anthropic-accounts",
+      "domain": "web",
+      "kind": "page",
+      "label": "Anthropic Accounts",
+      "path": "/admin/anthropic-accounts",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/admin/anthropic-accounts/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/admin/audit-logs",
+      "domain": "web",
+      "kind": "page",
+      "label": "Audit Logs",
+      "path": "/admin/audit-logs",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/admin/audit-logs/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/admin/jobs",
+      "domain": "web",
+      "kind": "page",
+      "label": "Jobs",
+      "path": "/admin/jobs",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/admin/jobs/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/admin/logs",
+      "domain": "web",
+      "kind": "page",
+      "label": "Logs",
+      "path": "/admin/logs",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/admin/logs/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/admin/users",
+      "domain": "web",
+      "kind": "page",
+      "label": "Users",
+      "path": "/admin/users",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/admin/users/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/analytics",
+      "domain": "web",
+      "kind": "page",
+      "label": "Analytics",
+      "path": "/analytics",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/analytics/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/api/*rest",
+      "domain": "web",
+      "kind": "page",
+      "label": "Catch-all rest",
+      "path": "/api/*rest",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/api/[...rest]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/bin/*rest",
+      "domain": "web",
+      "kind": "page",
+      "label": "Catch-all rest",
+      "path": "/bin/*rest",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/bin/[...rest]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/clips",
+      "domain": "web",
+      "kind": "page",
+      "label": "Clips",
+      "path": "/clips",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/clips/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/clips/:owner/:name",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic name",
+      "path": "/clips/:owner/:name",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/clips/[owner]/[name]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/clips/:owner/:name/edit",
+      "domain": "web",
+      "kind": "page",
+      "label": "Edit",
+      "path": "/clips/:owner/:name/edit",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/clips/[owner]/[name]/edit/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/clips/:owner/:name/revisions",
+      "domain": "web",
+      "kind": "page",
+      "label": "Revisions",
+      "path": "/clips/:owner/:name/revisions",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/clips/[owner]/[name]/revisions/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/clips/new",
+      "domain": "web",
+      "kind": "page",
+      "label": "New",
+      "path": "/clips/new",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/clips/new/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/crashes",
+      "domain": "web",
+      "kind": "page",
+      "label": "Crashes",
+      "path": "/crashes",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/crashes/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/crashes/:projectId",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic projectId",
+      "path": "/crashes/:projectId",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/crashes/[projectId]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/crashes/:projectId/issues/:issueId",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic issueId",
+      "path": "/crashes/:projectId/issues/:issueId",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/crashes/[projectId]/issues/[issueId]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/crons",
+      "domain": "web",
+      "kind": "page",
+      "label": "Crons",
+      "path": "/crons",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/crons/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/crons/:slug",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic slug",
+      "path": "/crons/:slug",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/crons/[slug]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/crons/new",
+      "domain": "web",
+      "kind": "page",
+      "label": "New",
+      "path": "/crons/new",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/crons/new/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/dashboard",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dashboard",
+      "path": "/dashboard",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/dashboard/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/device",
+      "domain": "web",
+      "kind": "page",
+      "label": "Device",
+      "path": "/device",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/device/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs",
+      "domain": "web",
+      "kind": "page",
+      "label": "Docs",
+      "path": "/docs",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/explanation",
+      "domain": "web",
+      "kind": "page",
+      "label": "Explanation",
+      "path": "/docs/explanation",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/explanation/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/explanation/architecture",
+      "domain": "web",
+      "kind": "page",
+      "label": "Architecture Overview",
+      "summary": "How CLI, server, web, and extension surfaces fit together in Loom.",
+      "path": "/docs/explanation/architecture",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/explanation/architecture/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/explanation/authz-and-identity-model",
+      "domain": "web",
+      "kind": "page",
+      "label": "Authz And Identity Model",
+      "summary": "How identity providers and route classes map to access control in Loom.",
+      "path": "/docs/explanation/authz-and-identity-model",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/explanation/authz-and-identity-model/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/explanation/observability-model",
+      "domain": "web",
+      "kind": "page",
+      "label": "Observability Model",
+      "summary": "How crash, crons, and sessions data surfaces support incident workflows.",
+      "path": "/docs/explanation/observability-model",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/explanation/observability-model/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/explanation/thread-and-sharing-model",
+      "domain": "web",
+      "kind": "page",
+      "label": "Thread And Sharing Model",
+      "summary": "Understand thread lifecycle, storage, and visibility transitions.",
+      "path": "/docs/explanation/thread-and-sharing-model",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/explanation/thread-and-sharing-model/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/explanation/weaver-and-tunnel-model",
+      "domain": "web",
+      "kind": "page",
+      "label": "Weaver And Tunnel Model",
+      "summary": "Conceptual model for remote execution, attach paths, and WireGuard transport.",
+      "path": "/docs/explanation/weaver-and-tunnel-model",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/explanation/weaver-and-tunnel-model/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/how-to",
+      "domain": "web",
+      "kind": "page",
+      "label": "How To",
+      "path": "/docs/how-to",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/how-to/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/how-to/configure-auth",
+      "domain": "web",
+      "kind": "page",
+      "label": "Configure Authentication",
+      "summary": "Configure server OAuth providers and authenticate CLI users against Loom.",
+      "path": "/docs/how-to/configure-auth",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/how-to/configure-auth/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/how-to/configure-scim",
+      "domain": "web",
+      "kind": "page",
+      "label": "Configure SCIM",
+      "summary": "Enable SCIM provisioning and validate RFC-style user/group operations.",
+      "path": "/docs/how-to/configure-scim",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/how-to/configure-scim/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/how-to/configure-server",
+      "domain": "web",
+      "kind": "page",
+      "label": "Configure Server",
+      "summary": "Stand up loom-server with essential environment settings and health checks.",
+      "path": "/docs/how-to/configure-server",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/how-to/configure-server/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/how-to/configure-whatsapp",
+      "domain": "web",
+      "kind": "page",
+      "label": "Configure WhatsApp",
+      "summary": "Configure org-level WhatsApp integration, webhook validation, and user linking.",
+      "path": "/docs/how-to/configure-whatsapp",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/how-to/configure-whatsapp/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/how-to/manage-orgs-teams-api-keys",
+      "domain": "web",
+      "kind": "page",
+      "label": "Manage Orgs, Teams, And API Keys",
+      "summary": "Operate organization access controls and API keys from web UI and HTTP APIs.",
+      "path": "/docs/how-to/manage-orgs-teams-api-keys",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/how-to/manage-orgs-teams-api-keys/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/how-to/troubleshoot-common-failures",
+      "domain": "web",
+      "kind": "page",
+      "label": "Troubleshoot Common Failures",
+      "summary": "Diagnose authentication, weaver, tunnel, and docs drift failures quickly.",
+      "path": "/docs/how-to/troubleshoot-common-failures",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/how-to/troubleshoot-common-failures/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/how-to/use-wireguard-ssh",
+      "domain": "web",
+      "kind": "page",
+      "label": "Use WireGuard And SSH",
+      "summary": "Connect to Weaver workloads using Loom tunnel and SSH commands.",
+      "path": "/docs/how-to/use-wireguard-ssh",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/how-to/use-wireguard-ssh/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/reference",
+      "domain": "web",
+      "kind": "page",
+      "label": "Reference",
+      "path": "/docs/reference",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/reference/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/reference/cli",
+      "domain": "web",
+      "kind": "page",
+      "label": "CLI Reference",
+      "summary": "Code-derived command inventory for the Loom CLI with maturity and access coverage.",
+      "path": "/docs/reference/cli",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/reference/cli/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/reference/configuration",
+      "domain": "web",
+      "kind": "page",
+      "label": "Configuration Reference",
+      "summary": "CLI, server, and extension configuration keys used across Loom public surfaces.",
+      "path": "/docs/reference/configuration",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/reference/configuration/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/reference/http-api",
+      "domain": "web",
+      "kind": "page",
+      "label": "HTTP API Reference",
+      "summary": "Code-derived route inventory for public, authenticated, admin, SCIM, and optional-auth APIs.",
+      "path": "/docs/reference/http-api",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/reference/http-api/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/reference/public-surface-matrix",
+      "domain": "web",
+      "kind": "page",
+      "label": "Public Surface Matrix",
+      "summary": "Unified matrix of CLI, HTTP, web, and VS Code surfaces with audience and maturity labeling.",
+      "path": "/docs/reference/public-surface-matrix",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/reference/public-surface-matrix/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/reference/vscode-extension",
+      "domain": "web",
+      "kind": "page",
+      "label": "VS Code Extension Reference",
+      "summary": "Command and setting inventory generated from ide/vscode/package.json.",
+      "path": "/docs/reference/vscode-extension",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/reference/vscode-extension/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/reference/web-ui",
+      "domain": "web",
+      "kind": "page",
+      "label": "Web UI Reference",
+      "summary": "Code-derived page-route inventory for Loom web surfaces.",
+      "path": "/docs/reference/web-ui",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/reference/web-ui/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/tutorials",
+      "domain": "web",
+      "kind": "page",
+      "label": "Tutorials",
+      "path": "/docs/tutorials",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/tutorials/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/tutorials/first-thread",
+      "domain": "web",
+      "kind": "page",
+      "label": "First Thread Workflow",
+      "summary": "Work effectively with Loom thread lifecycle operations from creation through sharing.",
+      "path": "/docs/tutorials/first-thread",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/tutorials/first-thread/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/tutorials/getting-started",
+      "domain": "web",
+      "kind": "page",
+      "label": "Getting Started with Loom",
+      "summary": "Install the CLI, authenticate, and run your first thread workflow.",
+      "path": "/docs/tutorials/getting-started",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/tutorials/getting-started/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/tutorials/observability-incident-response",
+      "domain": "web",
+      "kind": "page",
+      "label": "Observability Incident Response",
+      "summary": "Use crash, crons, and sessions surfaces to detect, triage, and close incidents.",
+      "path": "/docs/tutorials/observability-incident-response",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/tutorials/observability-incident-response/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/tutorials/repo-and-clips-workflow",
+      "domain": "web",
+      "kind": "page",
+      "label": "Repo And Clips Workflow",
+      "summary": "Browse repositories, inspect code history, and publish clips with code-derived references.",
+      "path": "/docs/tutorials/repo-and-clips-workflow",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/tutorials/repo-and-clips-workflow/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/tutorials/team-collaboration",
+      "domain": "web",
+      "kind": "page",
+      "label": "Team Collaboration Workflow",
+      "summary": "Run repeatable team workflows using thread visibility, support sharing, and org settings.",
+      "path": "/docs/tutorials/team-collaboration",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/tutorials/team-collaboration/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/docs/tutorials/weaver-remote-execution",
+      "domain": "web",
+      "kind": "page",
+      "label": "Weaver Remote Execution",
+      "summary": "Create, attach, inspect, and clean up Weaver execution environments.",
+      "path": "/docs/tutorials/weaver-remote-execution",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(docs)/docs/tutorials/weaver-remote-execution/+page.svx",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/health",
+      "domain": "web",
+      "kind": "page",
+      "label": "Health",
+      "path": "/health",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/health/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/login",
+      "domain": "web",
+      "kind": "page",
+      "label": "Login",
+      "path": "/login",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/login/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/proxy/*rest",
+      "domain": "web",
+      "kind": "page",
+      "label": "Catch-all rest",
+      "path": "/proxy/*rest",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/proxy/[...rest]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/repos",
+      "domain": "web",
+      "kind": "page",
+      "label": "Repos",
+      "path": "/repos",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/repos/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/repos/:owner/:repo",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic repo",
+      "path": "/repos/:owner/:repo",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/repos/[owner]/[repo]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/repos/:owner/:repo/blame/*path",
+      "domain": "web",
+      "kind": "page",
+      "label": "Catch-all path",
+      "path": "/repos/:owner/:repo/blame/*path",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/repos/[owner]/[repo]/blame/[...path]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/repos/:owner/:repo/blob/*path",
+      "domain": "web",
+      "kind": "page",
+      "label": "Catch-all path",
+      "path": "/repos/:owner/:repo/blob/*path",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/repos/[owner]/[repo]/blob/[...path]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/repos/:owner/:repo/branches",
+      "domain": "web",
+      "kind": "page",
+      "label": "Branches",
+      "path": "/repos/:owner/:repo/branches",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/repos/[owner]/[repo]/branches/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/repos/:owner/:repo/commit/:sha",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic sha",
+      "path": "/repos/:owner/:repo/commit/:sha",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/repos/[owner]/[repo]/commit/[sha]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/repos/:owner/:repo/commits/:ref",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic ref",
+      "path": "/repos/:owner/:repo/commits/:ref",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/repos/[owner]/[repo]/commits/[ref]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/repos/:owner/:repo/compare/*refs",
+      "domain": "web",
+      "kind": "page",
+      "label": "Catch-all refs",
+      "path": "/repos/:owner/:repo/compare/*refs",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/repos/[owner]/[repo]/compare/[...refs]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/repos/:owner/:repo/settings",
+      "domain": "web",
+      "kind": "page",
+      "label": "Settings",
+      "path": "/repos/:owner/:repo/settings",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/repos/[owner]/[repo]/settings/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/repos/:owner/:repo/tree/*path",
+      "domain": "web",
+      "kind": "page",
+      "label": "Catch-all path",
+      "path": "/repos/:owner/:repo/tree/*path",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/repos/[owner]/[repo]/tree/[...path]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/sessions",
+      "domain": "web",
+      "kind": "page",
+      "label": "Sessions",
+      "path": "/sessions",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/sessions/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/sessions/releases/:version",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic version",
+      "path": "/sessions/releases/:version",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/sessions/releases/[version]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/settings/orgs",
+      "domain": "web",
+      "kind": "page",
+      "label": "Orgs",
+      "path": "/settings/orgs",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/settings/orgs/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/settings/orgs/:orgId",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic orgId",
+      "path": "/settings/orgs/:orgId",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/settings/orgs/[orgId]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/settings/orgs/:orgId/teams/:teamId",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic teamId",
+      "path": "/settings/orgs/:orgId/teams/:teamId",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/settings/orgs/[orgId]/teams/[teamId]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/settings/orgs/:orgId/whatsapp",
+      "domain": "web",
+      "kind": "page",
+      "label": "Whatsapp",
+      "path": "/settings/orgs/:orgId/whatsapp",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/settings/orgs/[orgId]/whatsapp/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/settings/orgs/:orgId/whatsapp/groups",
+      "domain": "web",
+      "kind": "page",
+      "label": "Groups",
+      "path": "/settings/orgs/:orgId/whatsapp/groups",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/settings/orgs/[orgId]/whatsapp/groups/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/settings/orgs/new",
+      "domain": "web",
+      "kind": "page",
+      "label": "New",
+      "path": "/settings/orgs/new",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/settings/orgs/new/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/settings/profile",
+      "domain": "web",
+      "kind": "page",
+      "label": "Profile",
+      "path": "/settings/profile",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/settings/profile/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/settings/profile/whatsapp",
+      "domain": "web",
+      "kind": "page",
+      "label": "Whatsapp",
+      "path": "/settings/profile/whatsapp",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/settings/profile/whatsapp/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/settings/sessions",
+      "domain": "web",
+      "kind": "page",
+      "label": "Sessions",
+      "path": "/settings/sessions",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/settings/sessions/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/threads",
+      "domain": "web",
+      "kind": "page",
+      "label": "Threads",
+      "path": "/threads",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/threads/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/threads/:threadId",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic threadId",
+      "path": "/threads/:threadId",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/threads/[threadId]/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/weavers",
+      "domain": "web",
+      "kind": "page",
+      "label": "Weavers",
+      "path": "/weavers",
+      "dynamic": false,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/weavers/+page.svelte",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "web:/weavers/:weaverId",
+      "domain": "web",
+      "kind": "page",
+      "label": "Dynamic weaverId",
+      "path": "/weavers/:weaverId",
+      "dynamic": true,
+      "source": [
+        {
+          "file": "web/loom-web/src/routes/(app)/weavers/[weaverId]/+page.svelte",
+          "line": 1
+        }
+      ]
+    }
+  ]
+}

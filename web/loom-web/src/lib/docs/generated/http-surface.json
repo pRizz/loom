@@ -1,0 +1,5686 @@
+{
+  "version": 1,
+  "domain": "http",
+  "items": [
+    {
+      "id": "http:DELETE:/api/admin/anthropic/accounts/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/admin/anthropic/accounts/{id}",
+      "summary": "admin route",
+      "method": "DELETE",
+      "path": "/api/admin/anthropic/accounts/{id}",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 758
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/admin/flags/{key}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/admin/flags/{key}",
+      "summary": "admin route",
+      "method": "DELETE",
+      "path": "/api/admin/flags/{key}",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 835
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/admin/flags/kill-switches/{key}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/admin/flags/kill-switches/{key}",
+      "summary": "admin route",
+      "method": "DELETE",
+      "path": "/api/admin/flags/kill-switches/{key}",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 810
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/admin/users/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/admin/users/{id}",
+      "summary": "admin route",
+      "method": "DELETE",
+      "path": "/api/admin/users/{id}",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 735
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/clips/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/clips/{id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/clips/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1617
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/clips/{id}/star",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/clips/{id}/star",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/clips/{id}/star",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1603
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/crash/projects/{project_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/crash/projects/{project_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/crash/projects/{project_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1390
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/crash/projects/{project_id}/api-keys/{key_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/crash/projects/{project_id}/api-keys/{key_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/crash/projects/{project_id}/api-keys/{key_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1459
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/crash/projects/{project_id}/artifacts/{artifact_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/crash/projects/{project_id}/artifacts/{artifact_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/crash/projects/{project_id}/artifacts/{artifact_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1450
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/crash/projects/{project_id}/issues/{issue_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/crash/projects/{project_id}/issues/{issue_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/crash/projects/{project_id}/issues/{issue_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1416
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/crons/monitors/{slug}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/crons/monitors/{slug}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/crons/monitors/{slug}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1349
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1081
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{id}/webhooks/{wid}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{id}/webhooks/{wid}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{id}/webhooks/{wid}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1665
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/analytics/api-keys/{key_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/analytics/api-keys/{key_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/analytics/api-keys/{key_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1327
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/api-keys/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/api-keys/{id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/api-keys/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1166
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/flags/environments/{env_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/flags/environments/{env_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/flags/environments/{env_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1191
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1283
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/flags/sdk-keys/{key_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/flags/sdk-keys/{key_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/flags/sdk-keys/{key_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1203
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/flags/strategies/{strategy_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/flags/strategies/{strategy_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/flags/strategies/{strategy_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1262
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/invitations/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/invitations/{id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/invitations/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1493
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/members/{user_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/members/{user_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/members/{user_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1090
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/secrets/{name}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/secrets/{name}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/secrets/{name}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1686
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/teams/{team_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/teams/{team_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/teams/{team_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1141
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/teams/{team_id}/members/{user_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/teams/{team_id}/members/{user_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/teams/{team_id}/members/{user_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1153
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/whatsapp/config",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/whatsapp/config",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/whatsapp/config",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1103
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/orgs/{org_id}/whatsapp/groups/{group_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/orgs/{org_id}/whatsapp/groups/{group_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/orgs/{org_id}/whatsapp/groups/{group_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1116
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/repos/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/repos/{id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/repos/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1558
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/repos/{id}/mirrors/{mirror_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/repos/{id}/mirrors/{mirror_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/repos/{id}/mirrors/{mirror_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1720
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/repos/{id}/protection/{rule_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/repos/{id}/protection/{rule_id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/repos/{id}/protection/{rule_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1640
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/repos/{id}/teams/{tid}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/repos/{id}/teams/{tid}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/repos/{id}/teams/{tid}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1576
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/repos/{id}/webhooks/{wid}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/repos/{id}/webhooks/{wid}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/repos/{id}/webhooks/{wid}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1653
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/repos/{repo_id}/secrets/{name}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/repos/{repo_id}/secrets/{name}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/repos/{repo_id}/secrets/{name}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1707
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/scim/Groups/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/scim/Groups/{id}",
+      "summary": "scim route",
+      "method": "DELETE",
+      "path": "/api/scim/Groups/{id}",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/scim/Users/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/scim/Users/{id}",
+      "summary": "scim route",
+      "method": "DELETE",
+      "path": "/api/scim/Users/{id}",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/sessions/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/sessions/{id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/sessions/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1072
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/threads/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/threads/{id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/threads/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1031
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/threads/{id}/share",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/threads/{id}/share",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/threads/{id}/share",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1045
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/threads/{id}/support-access",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/threads/{id}/support-access",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/threads/{id}/support-access",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1058
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/users/me/identities/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/users/me/identities/{id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/users/me/identities/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1537
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/users/me/whatsapp/unlink",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/users/me/whatsapp/unlink",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/users/me/whatsapp/unlink",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1550
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/weaver/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/weaver/{id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/weaver/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1828
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/wg/devices/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/wg/devices/{id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/wg/devices/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1847
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/api/wg/sessions/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /api/wg/sessions/{id}",
+      "summary": "authenticated route",
+      "method": "DELETE",
+      "path": "/api/wg/sessions/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1853
+        }
+      ]
+    },
+    {
+      "id": "http:DELETE:/internal/wg/weavers/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "DELETE /internal/wg/weavers/{id}",
+      "summary": "public route",
+      "method": "DELETE",
+      "path": "/internal/wg/weavers/{id}",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 927
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/anthropic/accounts",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/anthropic/accounts",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/anthropic/accounts",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 754
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/audit-logs",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/audit-logs",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/audit-logs",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 752
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/flags",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/flags",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/flags",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 828
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/flags/{key}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/flags/{key}",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/flags/{key}",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 830
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/flags/kill-switches",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/flags/kill-switches",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/flags/kill-switches",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 794
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/flags/kill-switches/{key}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/flags/kill-switches/{key}",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/flags/kill-switches/{key}",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 802
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/flags/strategies",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/flags/strategies",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/flags/strategies",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 823
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/impersonate/state",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/impersonate/state",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/impersonate/state",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 740
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/jobs",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/jobs",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/jobs",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 771
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/jobs/{job_id}/history",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/jobs/{job_id}/history",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/jobs/{job_id}/history",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 777
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/logs",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/logs",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/logs",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 790
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/logs/stream",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/logs/stream",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/logs/stream",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 791
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/admin/users",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/admin/users",
+      "summary": "admin route",
+      "method": "GET",
+      "path": "/api/admin/users",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 734
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/analytics/events",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/analytics/events",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/analytics/events",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 993
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/analytics/events/count",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/analytics/events/count",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/analytics/events/count",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 994
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/analytics/persons",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/analytics/persons",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/analytics/persons",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 981
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/analytics/persons/{person_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/analytics/persons/{person_id}",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/analytics/persons/{person_id}",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 989
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/analytics/persons/by-distinct-id/{distinct_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/analytics/persons/by-distinct-id/{distinct_id}",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/analytics/persons/by-distinct-id/{distinct_id}",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 985
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/app-sessions",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/app-sessions",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/app-sessions",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1472
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/app-sessions/releases",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/app-sessions/releases",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/app-sessions/releases",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1476
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/app-sessions/releases/{version}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/app-sessions/releases/{version}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/app-sessions/releases/{version}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1480
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/clips/{id}/files",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/clips/{id}/files",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/clips/{id}/files",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1589
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/clips/{id}/files/{*path}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/clips/{id}/files/{*path}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/clips/{id}/files/{*path}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1594
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/clips/{id}/raw/{*path}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/clips/{id}/raw/{*path}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/clips/{id}/raw/{*path}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1598
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/clips/{id}/revisions",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/clips/{id}/revisions",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/clips/{id}/revisions",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1607
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/clips/{id}/starred",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/clips/{id}/starred",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/clips/{id}/starred",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1611
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/clips/{owner}/{name}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/clips/{owner}/{name}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/clips/{owner}/{name}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1619
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/clips/public",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/clips/public",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/clips/public",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1586
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/clips/search",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/clips/search",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/clips/search",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1587
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/clips/starred",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/clips/starred",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/clips/starred",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1585
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1386
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1390
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}/api-keys",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}/api-keys",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}/api-keys",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1455
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}/artifacts",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}/artifacts",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}/artifacts",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1446
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}/artifacts/{artifact_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}/artifacts/{artifact_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}/artifacts/{artifact_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1450
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}/events",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}/events",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}/events",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1425
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}/events/{event_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}/events/{event_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}/events/{event_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1429
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}/issues",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}/issues",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}/issues",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1396
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}/issues/{issue_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}/issues/{issue_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}/issues/{issue_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1416
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}/issues/{issue_id}/events",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}/issues/{issue_id}/events",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}/issues/{issue_id}/events",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1420
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}/releases",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}/releases",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}/releases",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1437
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}/releases/{version}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}/releases/{version}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}/releases/{version}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1441
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crash/projects/{project_id}/stream",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crash/projects/{project_id}/stream",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crash/projects/{project_id}/stream",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1433
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crons/checkins/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crons/checkins/{id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crons/checkins/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1367
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crons/monitors",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crons/monitors",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crons/monitors",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1345
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crons/monitors/{slug}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crons/monitors/{slug}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crons/monitors/{slug}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1349
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crons/monitors/{slug}/checkins",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crons/monitors/{slug}/checkins",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crons/monitors/{slug}/checkins",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1363
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crons/monitors/{slug}/stats",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crons/monitors/{slug}/stats",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crons/monitors/{slug}/stats",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1372
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crons/stats/overview",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crons/stats/overview",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crons/stats/overview",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1376
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/crons/stream",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/crons/stream",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/crons/stream",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1371
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/debug/query-traces",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/debug/query-traces",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/debug/query-traces",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1813
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/debug/query-traces/{trace_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/debug/query-traces/{trace_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/debug/query-traces/{trace_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1809
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/debug/query-traces/stats",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/debug/query-traces/stats",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/debug/query-traces/stats",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1817
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/flags/stream",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/flags/stream",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/flags/stream",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 964
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/flags/stream/stats",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/flags/stream/stats",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/flags/stream/stats",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1314
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/github/app",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/github/app",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/github/app",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1746
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/github/installations/by-repo",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/github/installations/by-repo",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/github/installations/by-repo",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1750
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/invitations/{token}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/invitations/{token}",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/invitations/{token}",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 885
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1077
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1079
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{id}/clips",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{id}/clips",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{id}/clips",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1627
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{id}/members",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{id}/members",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{id}/members",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1082
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{id}/repos",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{id}/repos",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{id}/repos",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1563
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{id}/webhooks",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{id}/webhooks",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{id}/webhooks",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1657
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/analytics/api-keys",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/analytics/api-keys",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/analytics/api-keys",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1319
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/analytics/events",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/analytics/events",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/analytics/events",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1332
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/analytics/events/count",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/analytics/events/count",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/analytics/events/count",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1336
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/analytics/persons",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/analytics/persons",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/analytics/persons",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1340
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/api-keys",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/api-keys",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/api-keys",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1158
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/api-keys/{id}/usage",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/api-keys/{id}/usage",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/api-keys/{id}/usage",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1170
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1208
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/{flag_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/{flag_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/{flag_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1216
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/{flag_id}/configs",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/{flag_id}/configs",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/{flag_id}/configs",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1233
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/{flag_id}/configs/{env_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/{flag_id}/configs/{env_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/{flag_id}/configs/{env_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1237
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/{flag_key}/stats",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/{flag_key}/stats",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/{flag_key}/stats",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1309
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/environments",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/environments",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/environments",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1175
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/environments/{env_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/environments/{env_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/environments/{env_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1183
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/environments/{env_id}/sdk-keys",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/environments/{env_id}/sdk-keys",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/environments/{env_id}/sdk-keys",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1195
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/kill-switches",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/kill-switches",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/kill-switches",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1267
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1275
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/stale",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/stale",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/stale",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1305
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/strategies",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/strategies",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/strategies",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1246
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/flags/strategies/{strategy_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/flags/strategies/{strategy_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/flags/strategies/{strategy_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1254
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/invitations",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/invitations",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/invitations",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1485
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/join-requests",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/join-requests",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/join-requests",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1502
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/secrets",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/secrets",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/secrets",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1670
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/secrets/{name}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/secrets/{name}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/secrets/{name}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1678
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/teams",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/teams",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/teams",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1125
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/teams/{team_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/teams/{team_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/teams/{team_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1133
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/teams/{team_id}/members",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/teams/{team_id}/members",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/teams/{team_id}/members",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1145
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/whatsapp/config",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/whatsapp/config",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/whatsapp/config",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1095
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/orgs/{org_id}/whatsapp/groups",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/orgs/{org_id}/whatsapp/groups",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/orgs/{org_id}/whatsapp/groups",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1108
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/repos/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1556
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{id}/maintenance/jobs",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{id}/maintenance/jobs",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/repos/{id}/maintenance/jobs",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1733
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{id}/mirrors",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{id}/mirrors",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/repos/{id}/mirrors",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1712
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{id}/protection",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{id}/protection",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/repos/{id}/protection",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1632
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{id}/teams",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{id}/teams",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/repos/{id}/teams",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1568
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{id}/webhooks",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{id}/webhooks",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/repos/{id}/webhooks",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1645
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{owner}/{name}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{owner}/{name}",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/api/repos/{owner}/{name}",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git_browser/router.rs",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{owner}/{name}/blame/{*ref_and_path}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{owner}/{name}/blame/{*ref_and_path}",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/api/repos/{owner}/{name}/blame/{*ref_and_path}",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git_browser/router.rs",
+          "line": 34
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{owner}/{name}/blob/{*ref_and_path}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{owner}/{name}/blob/{*ref_and_path}",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/api/repos/{owner}/{name}/blob/{*ref_and_path}",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git_browser/router.rs",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{owner}/{name}/branches",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{owner}/{name}/branches",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/api/repos/{owner}/{name}/branches",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git_browser/router.rs",
+          "line": 16
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{owner}/{name}/commit/{sha}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{owner}/{name}/commit/{sha}",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/api/repos/{owner}/{name}/commit/{sha}",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git_browser/router.rs",
+          "line": 33
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{owner}/{name}/commits/{git_ref}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{owner}/{name}/commits/{git_ref}",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/api/repos/{owner}/{name}/commits/{git_ref}",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git_browser/router.rs",
+          "line": 29
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{owner}/{name}/compare/{*refs}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{owner}/{name}/compare/{*refs}",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/api/repos/{owner}/{name}/compare/{*refs}",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git_browser/router.rs",
+          "line": 38
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{owner}/{name}/raw/{*ref_and_path}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{owner}/{name}/raw/{*ref_and_path}",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/api/repos/{owner}/{name}/raw/{*ref_and_path}",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git_browser/router.rs",
+          "line": 25
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{owner}/{name}/tree/{*ref_and_path}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{owner}/{name}/tree/{*ref_and_path}",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/api/repos/{owner}/{name}/tree/{*ref_and_path}",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git_browser/router.rs",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{repo_id}/secrets",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{repo_id}/secrets",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/repos/{repo_id}/secrets",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1691
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/repos/{repo_id}/secrets/{name}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/repos/{repo_id}/secrets/{name}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/repos/{repo_id}/secrets/{name}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1699
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/scim/Groups",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/scim/Groups",
+      "summary": "scim route",
+      "method": "GET",
+      "path": "/api/scim/Groups",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 57
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/scim/Groups/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/scim/Groups/{id}",
+      "summary": "scim route",
+      "method": "GET",
+      "path": "/api/scim/Groups/{id}",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/scim/ResourceTypes",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/scim/ResourceTypes",
+      "summary": "scim route",
+      "method": "GET",
+      "path": "/api/scim/ResourceTypes",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 44
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/scim/ResourceTypes/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/scim/ResourceTypes/{id}",
+      "summary": "scim route",
+      "method": "GET",
+      "path": "/api/scim/ResourceTypes/{id}",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 45
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/scim/Schemas",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/scim/Schemas",
+      "summary": "scim route",
+      "method": "GET",
+      "path": "/api/scim/Schemas",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 42
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/scim/Schemas/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/scim/Schemas/{id}",
+      "summary": "scim route",
+      "method": "GET",
+      "path": "/api/scim/Schemas/{id}",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 43
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/scim/ServiceProviderConfig",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/scim/ServiceProviderConfig",
+      "summary": "scim route",
+      "method": "GET",
+      "path": "/api/scim/ServiceProviderConfig",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 38
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/scim/Users",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/scim/Users",
+      "summary": "scim route",
+      "method": "GET",
+      "path": "/api/scim/Users",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/scim/Users/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/scim/Users/{id}",
+      "summary": "scim route",
+      "method": "GET",
+      "path": "/api/scim/Users/{id}",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/self-monitoring/analytics-config",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/self-monitoring/analytics-config",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/self-monitoring/analytics-config",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 959
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/self-monitoring/cli-config",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/self-monitoring/cli-config",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/self-monitoring/cli-config",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 951
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/self-monitoring/projects",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/self-monitoring/projects",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/self-monitoring/projects",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 955
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/self-monitoring/web-config",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/self-monitoring/web-config",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/self-monitoring/web-config",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 947
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/sessions",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/sessions",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/sessions",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1071
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/sessions/{session_id}/queries",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/sessions/{session_id}/queries",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/sessions/{session_id}/queries",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1804
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/threads",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/threads",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/threads",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1039
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/threads/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/threads/{id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/threads/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1030
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/threads/{id}/share/{token}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/threads/{id}/share/{token}",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/threads/{id}/share/{token}",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 890
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/threads/search",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/threads/search",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/threads/search",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1025
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/users/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/users/{id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/users/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1519
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/users/{id}/clips",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/users/{id}/clips",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/users/{id}/clips",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1623
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/users/{id}/repos",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/users/{id}/repos",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/users/{id}/repos",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1559
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/users/me/identities",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/users/me/identities",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/users/me/identities",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1533
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/weaver/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/weaver/{id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/weaver/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1827
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/weaver/{id}/attach",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/weaver/{id}/attach",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/weaver/{id}/attach",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1830
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/weaver/{id}/logs",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/weaver/{id}/logs",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/weaver/{id}/logs",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1829
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/weavers",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/weavers",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/weavers",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1826
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/wg/derp-map",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/wg/derp-map",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/wg/derp-map",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1857
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/wg/devices",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/wg/devices",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/wg/devices",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1846
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/wg/sessions",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/wg/sessions",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/wg/sessions",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1852
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/whatsapp/webhook",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/whatsapp/webhook",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/api/whatsapp/webhook",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 900
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/api/ws/sessions/{session_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /api/ws/sessions/{session_id}",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/api/ws/sessions/{session_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1880
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/auth/github/callback",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /auth/github/callback",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/auth/github/callback",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 879
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/auth/google/callback",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /auth/google/callback",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/auth/google/callback",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 881
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/auth/login/github",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /auth/login/github",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/auth/login/github",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 878
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/auth/login/google",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /auth/login/google",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/auth/login/google",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 880
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/auth/login/okta",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /auth/login/okta",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/auth/login/okta",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 882
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/auth/magic-link/verify",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /auth/magic-link/verify",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/auth/magic-link/verify",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 871
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/auth/me",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /auth/me",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/auth/me",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1063
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/auth/okta/callback",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /auth/okta/callback",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/auth/okta/callback",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 883
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/auth/providers",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /auth/providers",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/auth/providers",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 866
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/auth/ws-token",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /auth/ws-token",
+      "summary": "authenticated route",
+      "method": "GET",
+      "path": "/auth/ws-token",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1064
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/docs/search",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /docs/search",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/docs/search",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 945
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/git/{owner}/{repo}/info/refs",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /git/{owner}/{repo}/info/refs",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/git/{owner}/{repo}/info/refs",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git/router.rs",
+          "line": 17
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/git/clips/{owner}/{name}/info/refs",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /git/clips/{owner}/{name}/info/refs",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/git/clips/{owner}/{name}/info/refs",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git/router.rs",
+          "line": 21
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/git/mirrors/{*path}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /git/mirrors/{*path}",
+      "summary": "optional-auth route",
+      "method": "GET",
+      "path": "/git/mirrors/{*path}",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git/router.rs",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/health",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /health",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/health",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 863
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/internal/weaver-auth/.well-known/jwks.json",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /internal/weaver-auth/.well-known/jwks.json",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/internal/weaver-auth/.well-known/jwks.json",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 913
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/internal/weaver-secrets/v1/secrets/{scope}/{name}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /internal/weaver-secrets/v1/secrets/{scope}/{name}",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/internal/weaver-secrets/v1/secrets/{scope}/{name}",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 918
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/internal/wg/weavers/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /internal/wg/weavers/{id}",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/internal/wg/weavers/{id}",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 931
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/internal/wg/weavers/{id}/peers",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /internal/wg/weavers/{id}/peers",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/internal/wg/weavers/{id}/peers",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 935
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/metrics",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /metrics",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/metrics",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 864
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/ping/{key}",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /ping/{key}",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/ping/{key}",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1003
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/ping/{key}/fail",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /ping/{key}/fail",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/ping/{key}/fail",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1005
+        }
+      ]
+    },
+    {
+      "id": "http:GET:/ping/{key}/start",
+      "domain": "http",
+      "kind": "route",
+      "label": "GET /ping/{key}/start",
+      "summary": "public route",
+      "method": "GET",
+      "path": "/ping/{key}/start",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1004
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/admin/flags/{key}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/admin/flags/{key}",
+      "summary": "admin route",
+      "method": "PATCH",
+      "path": "/api/admin/flags/{key}",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 831
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/admin/flags/kill-switches/{key}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/admin/flags/kill-switches/{key}",
+      "summary": "admin route",
+      "method": "PATCH",
+      "path": "/api/admin/flags/kill-switches/{key}",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 806
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/admin/users/{id}/roles",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/admin/users/{id}/roles",
+      "summary": "admin route",
+      "method": "PATCH",
+      "path": "/api/admin/users/{id}/roles",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 736
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/clips/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/clips/{id}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/clips/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1616
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/crash/projects/{project_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/crash/projects/{project_id}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/crash/projects/{project_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1390
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/crons/checkins/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/crons/checkins/{id}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/crons/checkins/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1367
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/crons/monitors/{slug}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/crons/monitors/{slug}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/crons/monitors/{slug}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1349
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/orgs/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/orgs/{id}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/orgs/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1080
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/orgs/{org_id}/flags/{flag_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/orgs/{org_id}/flags/{flag_id}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/orgs/{org_id}/flags/{flag_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1220
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/orgs/{org_id}/flags/{flag_id}/configs/{env_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/orgs/{org_id}/flags/{flag_id}/configs/{env_id}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/orgs/{org_id}/flags/{flag_id}/configs/{env_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1241
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/orgs/{org_id}/flags/environments/{env_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/orgs/{org_id}/flags/environments/{env_id}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/orgs/{org_id}/flags/environments/{env_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1187
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1279
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/orgs/{org_id}/flags/strategies/{strategy_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/orgs/{org_id}/flags/strategies/{strategy_id}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/orgs/{org_id}/flags/strategies/{strategy_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1258
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/orgs/{org_id}/teams/{team_id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/orgs/{org_id}/teams/{team_id}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/orgs/{org_id}/teams/{team_id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1137
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/repos/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/repos/{id}",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/repos/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1557
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/scim/Groups/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/scim/Groups/{id}",
+      "summary": "scim route",
+      "method": "PATCH",
+      "path": "/api/scim/Groups/{id}",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/scim/Users/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/scim/Users/{id}",
+      "summary": "scim route",
+      "method": "PATCH",
+      "path": "/api/scim/Users/{id}",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "id": "http:PATCH:/api/users/me",
+      "domain": "http",
+      "kind": "route",
+      "label": "PATCH /api/users/me",
+      "summary": "authenticated route",
+      "method": "PATCH",
+      "path": "/api/users/me",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1520
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/anthropic/oauth/complete",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/anthropic/oauth/complete",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/anthropic/oauth/complete",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 766
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/anthropic/oauth/initiate",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/anthropic/oauth/initiate",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/anthropic/oauth/initiate",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 762
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/flags",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/flags",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/flags",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 829
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/flags/{key}/restore",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/flags/{key}/restore",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/flags/{key}/restore",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 839
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/flags/kill-switches",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/flags/kill-switches",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/flags/kill-switches",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 798
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/flags/kill-switches/{key}/activate",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/flags/kill-switches/{key}/activate",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/flags/kill-switches/{key}/activate",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 814
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/flags/kill-switches/{key}/deactivate",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/flags/kill-switches/{key}/deactivate",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/flags/kill-switches/{key}/deactivate",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 818
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/impersonate/stop",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/impersonate/stop",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/impersonate/stop",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 748
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/jobs/{job_id}/cancel",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/jobs/{job_id}/cancel",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/jobs/{job_id}/cancel",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 773
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/jobs/{job_id}/disable",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/jobs/{job_id}/disable",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/jobs/{job_id}/disable",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 785
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/jobs/{job_id}/enable",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/jobs/{job_id}/enable",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/jobs/{job_id}/enable",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 781
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/jobs/{job_id}/run",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/jobs/{job_id}/run",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/jobs/{job_id}/run",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 772
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/maintenance/sweep",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/maintenance/sweep",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/admin/maintenance/sweep",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1737
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/admin/users/{id}/impersonate",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/admin/users/{id}/impersonate",
+      "summary": "admin route",
+      "method": "POST",
+      "path": "/api/admin/users/{id}/impersonate",
+      "routeScope": "admin",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 744
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/analytics/alias",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/analytics/alias",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/api/analytics/alias",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 978
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/analytics/batch",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/analytics/batch",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/api/analytics/batch",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 970
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/analytics/capture",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/analytics/capture",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/api/analytics/capture",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 966
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/analytics/events/export",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/analytics/events/export",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/api/analytics/events/export",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 998
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/analytics/identify",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/analytics/identify",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/api/analytics/identify",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 974
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/analytics/set",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/analytics/set",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/api/analytics/set",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 979
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/clips",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/clips",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/clips",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1584
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/clips/{id}/files",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/clips/{id}/files",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/clips/{id}/files",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1590
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/clips/{id}/fork",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/clips/{id}/fork",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/clips/{id}/fork",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1602
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/clips/{id}/star",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/clips/{id}/star",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/clips/{id}/star",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1603
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crash/batch",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crash/batch",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crash/batch",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1385
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crash/capture",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crash/capture",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crash/capture",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1381
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crash/capture/sdk",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crash/capture/sdk",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/api/crash/capture/sdk",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1007
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crash/projects",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crash/projects",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crash/projects",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1386
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crash/projects/{project_id}/api-keys",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crash/projects/{project_id}/api-keys",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crash/projects/{project_id}/api-keys",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1455
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crash/projects/{project_id}/artifacts",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crash/projects/{project_id}/artifacts",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crash/projects/{project_id}/artifacts",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1446
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crash/projects/{project_id}/issues/{issue_id}/assign",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crash/projects/{project_id}/issues/{issue_id}/assign",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crash/projects/{project_id}/issues/{issue_id}/assign",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1412
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crash/projects/{project_id}/issues/{issue_id}/ignore",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crash/projects/{project_id}/issues/{issue_id}/ignore",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crash/projects/{project_id}/issues/{issue_id}/ignore",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1408
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crash/projects/{project_id}/issues/{issue_id}/resolve",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crash/projects/{project_id}/issues/{issue_id}/resolve",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crash/projects/{project_id}/issues/{issue_id}/resolve",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1400
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crash/projects/{project_id}/issues/{issue_id}/unresolve",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crash/projects/{project_id}/issues/{issue_id}/unresolve",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crash/projects/{project_id}/issues/{issue_id}/unresolve",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1404
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crash/projects/{project_id}/releases",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crash/projects/{project_id}/releases",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crash/projects/{project_id}/releases",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1437
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crons/monitors",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crons/monitors",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crons/monitors",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1345
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crons/monitors/{slug}/checkins",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crons/monitors/{slug}/checkins",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crons/monitors/{slug}/checkins",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1363
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crons/monitors/{slug}/pause",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crons/monitors/{slug}/pause",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crons/monitors/{slug}/pause",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1355
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/crons/monitors/{slug}/resume",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/crons/monitors/{slug}/resume",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/crons/monitors/{slug}/resume",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1359
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/github/webhook",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/github/webhook",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/api/github/webhook",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 895
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/invitations/accept",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/invitations/accept",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/invitations/accept",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1497
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1078
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{id}/members",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{id}/members",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{id}/members",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1086
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{id}/webhooks",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{id}/webhooks",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{id}/webhooks",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1661
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/analytics/api-keys",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/analytics/api-keys",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/analytics/api-keys",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1323
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/api-keys",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/api-keys",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/api-keys",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1162
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/flags",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/flags",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/flags",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1212
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/flags/{flag_id}/archive",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/flags/{flag_id}/archive",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/flags/{flag_id}/archive",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1224
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/flags/{flag_id}/restore",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/flags/{flag_id}/restore",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/flags/{flag_id}/restore",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1228
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/flags/{flag_key}/evaluate",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/flags/{flag_key}/evaluate",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/flags/{flag_key}/evaluate",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1300
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/flags/environments",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/flags/environments",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/flags/environments",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1179
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/flags/environments/{env_id}/sdk-keys",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/flags/environments/{env_id}/sdk-keys",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/flags/environments/{env_id}/sdk-keys",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1199
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/flags/evaluate",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/flags/evaluate",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/flags/evaluate",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1296
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/flags/kill-switches",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/flags/kill-switches",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/flags/kill-switches",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1271
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}/activate",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}/activate",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}/activate",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1287
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}/deactivate",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}/deactivate",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/flags/kill-switches/{kill_switch_id}/deactivate",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1291
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/flags/strategies",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/flags/strategies",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/flags/strategies",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1250
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/invitations",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/invitations",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/invitations",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1489
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/join-requests",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/join-requests",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/join-requests",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1506
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/join-requests/{request_id}/approve",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/join-requests/{request_id}/approve",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/join-requests/{request_id}/approve",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1510
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/join-requests/{request_id}/reject",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/join-requests/{request_id}/reject",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/join-requests/{request_id}/reject",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1514
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/secrets",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/secrets",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/secrets",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1674
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/teams",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/teams",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/teams",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1129
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/teams/{team_id}/members",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/teams/{team_id}/members",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/teams/{team_id}/members",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1149
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/whatsapp/config",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/whatsapp/config",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/whatsapp/config",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1099
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/whatsapp/conversations/{conversation_id}/move",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/whatsapp/conversations/{conversation_id}/move",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/whatsapp/conversations/{conversation_id}/move",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1120
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/orgs/{org_id}/whatsapp/groups",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/orgs/{org_id}/whatsapp/groups",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/orgs/{org_id}/whatsapp/groups",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1112
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/repos",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/repos",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/repos",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1555
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/repos/{id}/maintenance",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/repos/{id}/maintenance",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/repos/{id}/maintenance",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1729
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/repos/{id}/mirrors",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/repos/{id}/mirrors",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/repos/{id}/mirrors",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1716
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/repos/{id}/mirrors/{mirror_id}/sync",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/repos/{id}/mirrors/{mirror_id}/sync",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/repos/{id}/mirrors/{mirror_id}/sync",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1724
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/repos/{id}/protection",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/repos/{id}/protection",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/repos/{id}/protection",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1636
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/repos/{id}/teams",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/repos/{id}/teams",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/repos/{id}/teams",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1572
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/repos/{id}/webhooks",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/repos/{id}/webhooks",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/repos/{id}/webhooks",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1649
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/repos/{repo_id}/secrets",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/repos/{repo_id}/secrets",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/repos/{repo_id}/secrets",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1695
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/scim/Bulk",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/scim/Bulk",
+      "summary": "scim route",
+      "method": "POST",
+      "path": "/api/scim/Bulk",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 68
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/scim/Groups",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/scim/Groups",
+      "summary": "scim route",
+      "method": "POST",
+      "path": "/api/scim/Groups",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 57
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/scim/Users",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/scim/Users",
+      "summary": "scim route",
+      "method": "POST",
+      "path": "/api/scim/Users",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/sessions/{session_id}/query-response",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/sessions/{session_id}/query-response",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/sessions/{session_id}/query-response",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1800
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/sessions/end",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/sessions/end",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/sessions/end",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1468
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/sessions/end/sdk",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/sessions/end/sdk",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/api/sessions/end/sdk",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1016
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/sessions/start",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/sessions/start",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/sessions/start",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1464
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/sessions/start/sdk",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/sessions/start/sdk",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/api/sessions/start/sdk",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1012
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/threads/{id}/share",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/threads/{id}/share",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/threads/{id}/share",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1041
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/threads/{id}/support-access/approve",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/threads/{id}/support-access/approve",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/threads/{id}/support-access/approve",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1054
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/threads/{id}/support-access/request",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/threads/{id}/support-access/request",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/threads/{id}/support-access/request",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1050
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/threads/{id}/visibility",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/threads/{id}/visibility",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/threads/{id}/visibility",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1035
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/users/me/delete",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/users/me/delete",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/users/me/delete",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1524
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/users/me/restore",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/users/me/restore",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/users/me/restore",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1528
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/users/me/whatsapp/link",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/users/me/whatsapp/link",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/users/me/whatsapp/link",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1542
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/users/me/whatsapp/verify",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/users/me/whatsapp/verify",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/users/me/whatsapp/verify",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1546
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/weaver",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/weaver",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/weaver",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1825
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/weavers/cleanup",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/weavers/cleanup",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/weavers/cleanup",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1834
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/wg/devices",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/wg/devices",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/wg/devices",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1845
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/wg/sessions",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/wg/sessions",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/api/wg/sessions",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1851
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/api/whatsapp/webhook",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /api/whatsapp/webhook",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/api/whatsapp/webhook",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 904
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/auth/device/complete",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /auth/device/complete",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/auth/device/complete",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1066
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/auth/device/poll",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /auth/device/poll",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/auth/device/poll",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 876
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/auth/device/start",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /auth/device/start",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/auth/device/start",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 875
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/auth/logout",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /auth/logout",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/auth/logout",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1065
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/auth/magic-link",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /auth/magic-link",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/auth/magic-link",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 867
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/git/{owner}/{repo}/git-receive-pack",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /git/{owner}/{repo}/git-receive-pack",
+      "summary": "optional-auth route",
+      "method": "POST",
+      "path": "/git/{owner}/{repo}/git-receive-pack",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git/router.rs",
+          "line": 19
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/git/{owner}/{repo}/git-upload-pack",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /git/{owner}/{repo}/git-upload-pack",
+      "summary": "optional-auth route",
+      "method": "POST",
+      "path": "/git/{owner}/{repo}/git-upload-pack",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git/router.rs",
+          "line": 18
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/git/clips/{owner}/{name}/git-receive-pack",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /git/clips/{owner}/{name}/git-receive-pack",
+      "summary": "optional-auth route",
+      "method": "POST",
+      "path": "/git/clips/{owner}/{name}/git-receive-pack",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git/router.rs",
+          "line": 26
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/git/clips/{owner}/{name}/git-upload-pack",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /git/clips/{owner}/{name}/git-upload-pack",
+      "summary": "optional-auth route",
+      "method": "POST",
+      "path": "/git/clips/{owner}/{name}/git-upload-pack",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git/router.rs",
+          "line": 22
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/git/mirrors/{*path}",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /git/mirrors/{*path}",
+      "summary": "optional-auth route",
+      "method": "POST",
+      "path": "/git/mirrors/{*path}",
+      "routeScope": "optional-auth",
+      "source": [
+        {
+          "file": "crates/loom-server/src/routes/git/router.rs",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/internal/weaver-audit/events",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /internal/weaver-audit/events",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/internal/weaver-audit/events",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 940
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/internal/weaver-auth/token",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /internal/weaver-auth/token",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/internal/weaver-auth/token",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 909
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/internal/wg/weavers",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /internal/wg/weavers",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/internal/wg/weavers",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 923
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/mcp",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /mcp",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/mcp",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1839
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/ping/{key}",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /ping/{key}",
+      "summary": "public route",
+      "method": "POST",
+      "path": "/ping/{key}",
+      "routeScope": "public",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1003
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/anthropic/complete",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/anthropic/complete",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/anthropic/complete",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1767
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/anthropic/stream",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/anthropic/stream",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/anthropic/stream",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1771
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/cse",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/cse",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/cse",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1742
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/github/file-contents",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/github/file-contents",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/github/file-contents",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1762
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/github/repo-info",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/github/repo-info",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/github/repo-info",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1758
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/github/search-code",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/github/search-code",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/github/search-code",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1754
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/openai/complete",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/openai/complete",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/openai/complete",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1775
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/openai/stream",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/openai/stream",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/openai/stream",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1779
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/serper",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/serper",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/serper",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1744
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/vertex/complete",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/vertex/complete",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/vertex/complete",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1783
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/vertex/stream",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/vertex/stream",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/vertex/stream",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1787
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/zai/complete",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/zai/complete",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/zai/complete",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1791
+        }
+      ]
+    },
+    {
+      "id": "http:POST:/proxy/zai/stream",
+      "domain": "http",
+      "kind": "route",
+      "label": "POST /proxy/zai/stream",
+      "summary": "authenticated route",
+      "method": "POST",
+      "path": "/proxy/zai/stream",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1795
+        }
+      ]
+    },
+    {
+      "id": "http:PUT:/api/orgs/{org_id}/secrets/{name}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PUT /api/orgs/{org_id}/secrets/{name}",
+      "summary": "authenticated route",
+      "method": "PUT",
+      "path": "/api/orgs/{org_id}/secrets/{name}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1682
+        }
+      ]
+    },
+    {
+      "id": "http:PUT:/api/repos/{repo_id}/secrets/{name}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PUT /api/repos/{repo_id}/secrets/{name}",
+      "summary": "authenticated route",
+      "method": "PUT",
+      "path": "/api/repos/{repo_id}/secrets/{name}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1703
+        }
+      ]
+    },
+    {
+      "id": "http:PUT:/api/scim/Groups/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PUT /api/scim/Groups/{id}",
+      "summary": "scim route",
+      "method": "PUT",
+      "path": "/api/scim/Groups/{id}",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 61
+        }
+      ]
+    },
+    {
+      "id": "http:PUT:/api/scim/Users/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PUT /api/scim/Users/{id}",
+      "summary": "scim route",
+      "method": "PUT",
+      "path": "/api/scim/Users/{id}",
+      "routeScope": "scim",
+      "source": [
+        {
+          "file": "crates/loom-server-scim/src/routes.rs",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "id": "http:PUT:/api/threads/{id}",
+      "domain": "http",
+      "kind": "route",
+      "label": "PUT /api/threads/{id}",
+      "summary": "authenticated route",
+      "method": "PUT",
+      "path": "/api/threads/{id}",
+      "routeScope": "authenticated",
+      "source": [
+        {
+          "file": "crates/loom-server/src/api.rs",
+          "line": 1029
+        }
+      ]
+    }
+  ]
+}

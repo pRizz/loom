@@ -14,3 +14,5 @@ export { default as Step } from './Step.svelte';
 export { default as AsciinemaPlayer } from './AsciinemaPlayer.svelte';
 export { default as Sidebar } from './Sidebar.svelte';
 export { default as DocPage } from './DocPage.svelte';
+export { default as SurfaceBadge } from './SurfaceBadge.svelte';
+export { default as SurfaceTable } from './SurfaceTable.svelte';

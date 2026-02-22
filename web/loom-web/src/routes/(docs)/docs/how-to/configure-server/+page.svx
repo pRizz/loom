@@ -1,0 +1,68 @@
+---
+title: Configure Server
+summary: Stand up loom-server with essential environment settings and health checks.
+diataxis: how-to
+order: 20
+tags:
+  - server
+  - deployment
+---
+
+<script>
+	import { Callout, Steps, Step } from '$lib/docs/components';
+</script>
+
+# Configure Server
+
+This guide covers the minimum settings to run `loom-server` and validate readiness.
+
+## 1. Set core runtime configuration
+
+```bash
+export LOOM_SERVER_HTTP_HOST="0.0.0.0"
+export LOOM_SERVER_HTTP_PORT="8080"
+export LOOM_SERVER_HTTP_BASE_URL="https://loom.example.com"
+export LOOM_SERVER_DB_PATH="/var/lib/loom/loom.db"
+```
+
+For local testing:
+
+```bash
+export LOOM_SERVER_AUTH_DEV_MODE=1
+```
+
+## 2. Start server
+
+```bash
+cargo run -p loom-server
+```
+
+Or use your release binary/deployment mechanism.
+
+## 3. Validate health and metrics routes
+
+```bash
+curl -s https://loom.example.com/health | jq .
+curl -s https://loom.example.com/metrics | head
+```
+
+## 4. Enable optional subsystems as needed
+
+Examples of common additions:
+
+- OAuth providers (`LOOM_SERVER_GITHUB_*`, `LOOM_SERVER_GOOGLE_*`, `LOOM_SERVER_OKTA_*`)
+- SCIM token (`LOOM_SERVER_SCIM_TOKEN`)
+- Weaver/WireGuard configuration (cluster + tunnel settings)
+- SMTP for email workflows
+
+<Callout variant="warning" title="Production guardrail">
+	Never run production with `LOOM_SERVER_AUTH_DEV_MODE=1`.
+</Callout>
+
+## 5. Smoke-test user-facing surfaces
+
+- Auth providers: `GET /auth/providers`
+- Docs search: `GET /docs/search`
+- API auth check (after login): `GET /auth/me`
+
+If these pass, continue with feature-specific guides for auth, SCIM, WhatsApp, and tunnels.

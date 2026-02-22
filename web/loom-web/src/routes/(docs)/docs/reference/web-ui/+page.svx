@@ -1,0 +1,53 @@
+---
+title: Web UI Reference
+summary: Code-derived page-route inventory for Loom web surfaces.
+diataxis: reference
+order: 30
+tags:
+  - web-ui
+  - routes
+---
+
+<script lang="ts">
+	import { SurfaceTable, Callout } from '$lib/docs/components';
+	import { getWebRows } from '$lib/docs/surface/view-model';
+
+	const rows = getWebRows();
+	const appRows = rows.filter((row) =>
+		Boolean(
+			row.path?.startsWith('/threads') ||
+			row.path?.startsWith('/repos') ||
+			row.path?.startsWith('/clips') ||
+			row.path?.startsWith('/settings')
+		)
+	);
+	const opsRows = rows.filter((row) =>
+		Boolean(
+			row.path?.startsWith('/weavers') ||
+			row.path?.startsWith('/crashes') ||
+			row.path?.startsWith('/crons') ||
+			row.path?.startsWith('/sessions') ||
+			row.path?.startsWith('/analytics') ||
+			row.path?.startsWith('/admin')
+		)
+	);
+	const docsRows = rows.filter((row) => row.path?.startsWith('/docs'));
+</script>
+
+# Web UI Reference
+
+This inventory is generated from `web/loom-web/src/routes/**/+page.svelte|+page.svx`.
+
+<Callout variant="info" title="Dynamic path notation">
+	Dynamic parameters are normalized as `:param` and catch-all segments as `*param`.
+</Callout>
+
+<SurfaceTable title="Application Workflows" rows={appRows} />
+
+<SurfaceTable title="Operational And Admin Workflows" rows={opsRows} />
+
+<SurfaceTable title="Documentation Routes" rows={docsRows} />
+
+## Full page-route inventory
+
+<SurfaceTable rows={rows} />

@@ -1,83 +1,69 @@
 ---
 title: Architecture Overview
-summary: Understand how Loom's components work together.
+summary: How CLI, server, web, and extension surfaces fit together in Loom.
 diataxis: explanation
 order: 10
 tags:
   - architecture
-  - internals
+  - platform
 ---
 
 <script>
-	import { Callout } from '$lib/docs/components';
+	import { Callout, LinkCard } from '$lib/docs/components';
 </script>
 
 # Architecture Overview
 
-Loom is designed as a distributed system with several key components working together.
+Loom is a multi-surface system with a shared backend and multiple client entry points.
 
-## System Components
+## Core surfaces
 
-### Loom Server
+- **CLI (`loom`)**: primary operator/developer interface for threads, weavers, spool, and observability workflows.
+- **Server (`loom-server`)**: HTTP API, auth/session handling, thread sync, web assets, integrations.
+- **Web app (`web/loom-web`)**: authenticated UI for threads, repos, clips, admin, and observability views.
+- **VS Code extension (`ide/vscode`)**: editor-facing integration and chat workflows.
 
-The central hub that coordinates:
+## Execution model
 
-- **Thread Management**: Storing and syncing conversations
-- **LLM Proxy**: Routing requests to AI providers
-- **Authentication**: User identity and access control
-- **Weaver Provisioning**: Managing remote execution environments
+1. User action starts from CLI/web/extension.
+2. Client authenticates against server routes (`/auth/*`, `/api/*`).
+3. Server coordinates state persistence (threads, org/team, flags, analytics, etc.).
+4. Optional remote execution happens through Weaver + WireGuard tunnel services.
+5. Results stream back to the originating surface.
 
-### Loom CLI
+## Data and control boundaries
 
-The command-line interface that users interact with directly. It:
+- Thread state is persisted and can be resumed/searched.
+- Authz decisions are enforced server-side through public/authed/admin/scim routers.
+- Remote execution resources are isolated from local CLI process execution.
+- Generated public-surface docs are built from source declarations and checked in CI.
 
-- Maintains a local connection to the server
-- Provides a REPL for conversations
-- Executes tools on the local filesystem
-
-### Weavers
-
-Ephemeral execution environments for running agent tasks:
-
-- Kubernetes pods with isolated filesystems
-- Pre-configured with development tools
-- Automatically cleaned up after use
-
-## Data Flow
-
-```
-User → CLI → Server → LLM Provider
-              ↓
-         Weaver (optional)
-```
-
-1. User sends a message via CLI
-2. CLI forwards to server via WebSocket
-3. Server proxies to LLM provider
-4. Response streams back through the same path
-5. Tool calls may route to local CLI or remote Weaver
-
-<Callout variant="info">
-	The server acts as a "man in the middle" to enable features like session sharing, audit logging, and usage tracking.
+<Callout variant="tip" title="Read by model">
+	Use the linked explanation pages to deep dive on specific boundaries instead of treating this page as exhaustive.
 </Callout>
 
-## State Machine
+## Related deep dives
 
-The agent operates as a state machine:
+<LinkCard
+	href="/docs/explanation/thread-and-sharing-model"
+	title="Thread And Sharing Model"
+	description="Lifecycle and visibility semantics for conversations."
+/>
 
-| State | Description |
-|-------|-------------|
-| **Idle** | Waiting for user input |
-| **Calling LLM** | Sending request to AI provider |
-| **Processing Response** | Parsing LLM output |
-| **Executing Tool** | Running a tool call |
-| **Complete** | Task finished |
+<LinkCard
+	href="/docs/explanation/authz-and-identity-model"
+	title="Authz And Identity Model"
+	description="How auth providers and role-protected routes map to user capabilities."
+/>
 
-Transitions are triggered by events like user messages, LLM responses, and tool completions.
+<LinkCard
+	href="/docs/explanation/weaver-and-tunnel-model"
+	title="Weaver And Tunnel Model"
+	description="Remote execution and WireGuard session flow."
+/>
 
-## Design Principles
-
-1. **Server-side LLM**: The agent logic runs on the server, not in the CLI
-2. **Streaming First**: All responses stream in real-time
-3. **Tool Isolation**: Tools can run locally or remotely
-4. **Audit Everything**: Complete history of all actions
+<LinkCard
+	href="/docs/explanation/observability-model"
+	title="Observability Model"
+	description="Crash, crons, and sessions data flow."
+/>

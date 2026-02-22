@@ -14,6 +14,38 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Web docs drift checks
+  web-docs-check:
+    name: Web Docs Check
+    runs-on: namespace-profile-cached-amd64
+
+    steps:
+      - name: Checkout repository
+        uses: namespacelabs/nscloud-checkout-action@v7
+
+      - name: Set up Nix cache
+        run: |
+          sudo mkdir -p /cache/nix /nix
+          sudo mount --bind /cache/nix /nix
+          sudo chown runner /nix
+
+      - name: Setup Nix
+        uses: cachix/install-nix-action@9aaadd8b85853f67fcdf488e6a4e9efa94ee96e2
+
+      - name: Setup Cachix
+        uses: cachix/cachix-action@ee79db531bfb851a7cf47035057b7cca88d26449
+        with:
+          name: devenv
+
+      - name: Install devenv.sh
+        run: nix profile install nixpkgs#devenv
+
+      - name: Install web dependencies
+        run: devenv shell -- pnpm --dir web/loom-web install --frozen-lockfile
+
+      - name: Check docs surface inventory
+        run: devenv shell -- make web-docs-check
+
   # Rust checks via devenv
   rust-checks:
     name: Rust Checks
@@ -164,7 +196,7 @@ jobs:
   # Combined status check
   ci-complete:
     name: CI Complete
-    needs: [rust-checks, nix-build, security-audit, dependencies]
+    needs: [web-docs-check, rust-checks, nix-build, security-audit, dependencies]
     runs-on: namespace-profile-cached-amd64
     if: always()
 
@@ -173,6 +205,10 @@ jobs:
         run: |
           if [[ "${{ needs.rust-checks.result }}" != "success" ]]; then
             echo "::error::Rust checks failed"
+            exit 1
+          fi
+          if [[ "${{ needs.web-docs-check.result }}" != "success" ]]; then
+            echo "::error::Web docs check failed"
             exit 1
           fi
           if [[ "${{ needs.nix-build.result }}" != "success" ]]; then

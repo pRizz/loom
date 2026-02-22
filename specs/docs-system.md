@@ -6,8 +6,8 @@
 # Documentation System Specification
 
 **Status:** Draft\
-**Version:** 1.0\
-**Last Updated:** 2026-01-03
+**Version:** 1.1\
+**Last Updated:** 2026-02-22
 
 ---
 
@@ -687,3 +687,130 @@ import { Callout, Steps, Step, Tabs, TabItem, LinkCard, AsciinemaPlayer } from '
   description="Complete command reference for loom-cli"
 />
 ```
+
+---
+
+## 12. Public-Surface Inventory Pipeline (v1.1 Addendum)
+
+The docs system now includes a code-derived public-surface inventory used for reference pages and drift prevention.
+
+### 12.1 Source Extractors
+
+Located at `web/loom-web/src/lib/docs/surface/`:
+
+- `extract-cli.ts`
+  - Parses clap command declarations from:
+    - `crates/loom-cli/src/main.rs`
+    - `crates/loom-cli-spool/src/lib.rs`
+    - `crates/loom-cli-spool/src/commands/*.rs`
+    - `crates/loom-cli-wgtunnel/src/commands/*.rs`
+- `extract-http-routes.ts`
+  - Parses `.route(...)` declarations from:
+    - `crates/loom-server/src/api.rs`
+    - `crates/loom-server/src/routes/git/router.rs`
+    - `crates/loom-server/src/routes/git_browser/router.rs`
+    - `crates/loom-server-scim/src/routes.rs`
+- `extract-web-routes.ts`
+  - Parses `web/loom-web/src/routes/**/+page.svelte|+page.svx` and normalizes dynamic segments.
+- `extract-vscode.ts`
+  - Parses `ide/vscode/package.json` command + setting contributions.
+
+### 12.2 Generator Script
+
+- Script: `web/loom-web/scripts/export-public-surface.ts`
+- Modes:
+  - `write` (default generation)
+  - `--check` (staleness + coverage enforcement)
+- Outputs written to `web/loom-web/src/lib/docs/generated/`:
+  - `cli-surface.json`
+  - `http-surface.json`
+  - `web-surface.json`
+  - `vscode-surface.json`
+  - `surface-coverage.json`
+  - `public-surface.json`
+
+### 12.3 Stable ID Contract
+
+Every generated item has a stable ID, for example:
+
+- CLI: `cli:loom.weaver.new`
+- HTTP: `http:POST:/api/weaver`
+- Web: `web:/repos/:owner/:repo`
+- VS Code: `vscode:setting:loom.serverUrl`
+
+---
+
+## 13. Coverage Metadata And Drift Prevention (v1.1 Addendum)
+
+### 13.1 Coverage Map
+
+`web/loom-web/src/lib/docs/surface/coverage-map.ts` resolves each generated surface ID to:
+
+- audience (`end-user`, `admin`, `integrator`, `operator`, `developer`)
+- maturity (`stable`, `beta`, `experimental`, `internal`)
+- auth scope (for example `public`, `authenticated`, `system-admin`, `scim-bearer`)
+- primary docs owner page (`/docs/...`)
+
+### 13.2 Validation Rules
+
+`--check` must fail when:
+
+1. Generated JSON output is stale or missing.
+2. Any generated surface item has no coverage mapping.
+
+### 13.3 CI Enforcement
+
+- `web/loom-web/package.json`
+  - `pnpm docs:surface`
+  - `pnpm docs:surface:check`
+- Root `Makefile`
+  - `make web-docs-check`
+- CI workflow
+  - `.github/workflows/ci.yml` contains `web-docs-check` job running the drift check.
+
+---
+
+## 14. Expanded Page Map (v1.1 Addendum)
+
+The `/docs` IA now includes workflow-first tutorials and comprehensive generated references.
+
+### 14.1 Tutorials
+
+- `/docs/tutorials/getting-started`
+- `/docs/tutorials/first-thread`
+- `/docs/tutorials/team-collaboration`
+- `/docs/tutorials/weaver-remote-execution`
+- `/docs/tutorials/observability-incident-response`
+- `/docs/tutorials/repo-and-clips-workflow`
+
+### 14.2 How-to
+
+- `/docs/how-to/configure-auth`
+- `/docs/how-to/configure-server`
+- `/docs/how-to/configure-scim`
+- `/docs/how-to/configure-whatsapp`
+- `/docs/how-to/use-wireguard-ssh`
+- `/docs/how-to/manage-orgs-teams-api-keys`
+- `/docs/how-to/troubleshoot-common-failures`
+
+### 14.3 Reference
+
+- `/docs/reference/cli`
+- `/docs/reference/http-api`
+- `/docs/reference/web-ui`
+- `/docs/reference/configuration`
+- `/docs/reference/vscode-extension`
+- `/docs/reference/public-surface-matrix`
+
+### 14.4 Explanation
+
+- `/docs/explanation/architecture`
+- `/docs/explanation/thread-and-sharing-model`
+- `/docs/explanation/authz-and-identity-model`
+- `/docs/explanation/weaver-and-tunnel-model`
+- `/docs/explanation/observability-model`
+
+### 14.5 Prerender Strategy
+
+`web/loom-web/svelte.config.js` now discovers `/docs/**/+page.svx` entries automatically for prerender while keeping `/docs` explicit.
+

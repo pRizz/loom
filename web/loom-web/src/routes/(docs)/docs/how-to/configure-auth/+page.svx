@@ -1,64 +1,100 @@
 ---
 title: Configure Authentication
-summary: Set up OAuth providers and API keys for Loom.
+summary: Configure server OAuth providers and authenticate CLI users against Loom.
 diataxis: how-to
 order: 10
 tags:
-  - authentication
-  - configuration
+  - auth
+  - oauth
 ---
 
 <script>
-	import { Callout } from '$lib/docs/components';
+	import { Callout, Steps, Step } from '$lib/docs/components';
 </script>
 
 # Configure Authentication
 
-This guide shows you how to set up authentication for Loom.
+Use this guide to configure server-side authentication and verify CLI login flows.
 
-## OAuth Setup
+## Provider environment variables
 
-### 1. Create OAuth Application
+Set provider credentials on the Loom server process.
 
-Go to your identity provider (GitHub, Google, etc.) and create a new OAuth application.
-
-Set the callback URL to:
-
-```
-https://loom.ghuntley.com/auth/callback
-```
-
-### 2. Configure Environment
-
-Add credentials to your environment:
+### GitHub OAuth
 
 ```bash
-export LOOM_OAUTH_CLIENT_ID="your-client-id"
-export LOOM_OAUTH_CLIENT_SECRET="your-client-secret"
+export LOOM_SERVER_GITHUB_CLIENT_ID="..."
+export LOOM_SERVER_GITHUB_CLIENT_SECRET="..."
+export LOOM_SERVER_GITHUB_REDIRECT_URI="https://YOUR_SERVER/auth/github/callback"
 ```
 
-### 3. Test Authentication
-
-Verify the setup:
+### Google OAuth
 
 ```bash
-loom login --provider github
+export LOOM_SERVER_GOOGLE_CLIENT_ID="..."
+export LOOM_SERVER_GOOGLE_CLIENT_SECRET="..."
+export LOOM_SERVER_GOOGLE_REDIRECT_URI="https://YOUR_SERVER/auth/google/callback"
 ```
 
-<Callout variant="danger">
-	Never commit OAuth secrets to version control. Use environment variables or a secrets manager.
+### Okta OAuth
+
+```bash
+export LOOM_SERVER_OKTA_DOMAIN="your-org.okta.com"
+export LOOM_SERVER_OKTA_CLIENT_ID="..."
+export LOOM_SERVER_OKTA_CLIENT_SECRET="..."
+export LOOM_SERVER_OKTA_REDIRECT_URI="https://YOUR_SERVER/auth/okta/callback"
+```
+
+## Core auth controls
+
+```bash
+export LOOM_SERVER_AUTH_DEV_MODE=0
+export LOOM_SERVER_SIGNUPS_DISABLED=0
+```
+
+- `LOOM_SERVER_AUTH_DEV_MODE=1` auto-authenticates requests for development only.
+- `LOOM_SERVER_SIGNUPS_DISABLED=1` blocks self-signup and requires provisioning.
+
+<Callout variant="danger" title="Production safety">
+	Do not run with `LOOM_SERVER_AUTH_DEV_MODE=1` in production.
 </Callout>
 
-## API Keys
+## Validate provider availability
 
-For programmatic access, generate an API key:
-
-```bash
-loom api-key create --name "CI/CD Pipeline"
-```
-
-Store the key securely and use it with:
+The public endpoint below returns enabled providers:
 
 ```bash
-export LOOM_API_KEY="loom_..."
+curl -s https://YOUR_SERVER/auth/providers | jq .
 ```
+
+## CLI login flow
+
+<Steps>
+	<Step title="Authenticate">
+
+```bash
+loom --server-url https://YOUR_SERVER login
+```
+
+	</Step>
+	<Step title="Validate token-dependent command">
+
+```bash
+loom --server-url https://YOUR_SERVER weaver ps
+```
+
+	</Step>
+	<Step title="Logout">
+
+```bash
+loom --server-url https://YOUR_SERVER logout
+```
+
+	</Step>
+</Steps>
+
+## Troubleshooting quick checks
+
+- Redirect URI mismatch: confirm callback URL exactly matches server route.
+- Provider not listed in `/auth/providers`: confirm env vars are loaded in the running process.
+- Login loop: clear stale cookies/session and retry.

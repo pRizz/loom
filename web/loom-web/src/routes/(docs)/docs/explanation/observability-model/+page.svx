@@ -1,0 +1,59 @@
+---
+title: Observability Model
+summary: How crash, crons, and sessions data surfaces support incident workflows.
+diataxis: explanation
+order: 50
+tags:
+  - observability
+  - analytics
+---
+
+<script>
+	import { Callout } from '$lib/docs/components';
+</script>
+
+# Observability Model
+
+Loom observability spans three operational data domains.
+
+## Crash domain
+
+Purpose: capture, triage, and resolve runtime failures.
+
+Surface examples:
+
+- CLI: `loom crash *`
+- Web: `/crashes`, `/crashes/:projectId`, `/crashes/:projectId/issues/:issueId`
+- API: `/api/crash/*`
+
+## Crons domain
+
+Purpose: monitor scheduled jobs/check-ins and detect missed executions.
+
+Surface examples:
+
+- CLI: `loom crons *`
+- Web: `/crons`, `/crons/new`, `/crons/:slug`
+- API: `/api/crons/*`
+- Ping URLs: `/ping/{key}`, `/ping/{key}/start`, `/ping/{key}/fail`
+
+## Sessions domain
+
+Purpose: release health and crash-free session insights.
+
+Surface examples:
+
+- CLI: `loom sessions *`
+- Web: `/sessions`, `/sessions/releases/:version`
+- API: `/api/sessions/*`
+
+## Unified response model
+
+1. Detect signal in observability surface.
+2. Scope blast radius with project/org filters.
+3. Correlate with thread/repo context in Loom.
+4. Execute fix workflow and confirm recovery metrics.
+
+<Callout variant="info" title="Status labeling">
+	Observability surfaces are mapped in coverage metadata so teams can reason about stable vs beta vs internal operations paths.
+</Callout>
